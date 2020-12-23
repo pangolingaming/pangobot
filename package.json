@@ -1,0 +1,26 @@
+{
+  "name": "pangobot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "bin": {
+    "pangobot": "./index.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "pangobot": "node ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/discworldian/pangobot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/discworldian/pangobot/issues"
+  },
+  "homepage": "https://github.com/discworldian/pangobot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1"
+  }
+}
