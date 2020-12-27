@@ -11,9 +11,14 @@ function condition(msg) {
   console.log(args);
   var condition = conditionsList.conditions[args[0]];
 
-  const conditionEmbed = new Discord.MessageEmbed()
-    .setTitle(`${condition.name}`)
-    .setDescription(`${condition.content}`);
+  var content = "";
+  if (condition == "exhaustion") {
+  } else {
+      content = condition.content
+  }
+    const conditionEmbed = new Discord.MessageEmbed()
+      .setTitle(`${condition.name}`)
+      .setDescription(`${content}`);
 
   msg.reply(conditionEmbed);
 }
