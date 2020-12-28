@@ -13,10 +13,10 @@ jobs:
       - name: Push to GitHub Packages
         uses: docker/build-push-action@v1
         with:
-          username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
-          registry: docker.pkg.github.com
-          repository: pangolingaming/pangobot/pangobot
+          username: public
+          password: ${{ secrets.GH_CR_PAT }}
+          registry: ghcr.io
+          repository: pangolingaming/pangobot
           tag_with_ref: true
           tag_with_sha: true
 
