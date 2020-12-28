@@ -39,4 +39,4 @@ jobs:
 
     - name: Deploy
       run: |-
-        gcloud compute instances reset pangobot
+        gcloud compute instances reset pangobot --zone us-central1-a
