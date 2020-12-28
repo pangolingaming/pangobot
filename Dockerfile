@@ -1,4 +1,5 @@
 FROM node:12
+LABEL org.opencontainers.image.source https://github.com/pangolingaming/pangobot
 
 WORKDIR /usr/src/app
 
