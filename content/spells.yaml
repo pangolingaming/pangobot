@@ -40,6 +40,9 @@ acid_splash:
     You hurl a bubble of acid. Choose one creature within range, or choose two
     creatures within range that are within 5 feet of each other. A target must
     succeed on a Dexterity saving throw or take 1d6 acid damage.
+  damage: 1d6
+  damageType: acid
+  damageAtHigherLevels: 1d6
   source: SRD
 aid:
   spellName: Aid
@@ -1682,6 +1685,9 @@ fire_bolt:
     spell attack against the target. On a hit, the target takes 1d10 fire
     damage. A flammable object hit by this spell ignites if it isn't being worn
     or carried.
+  damage: 1d10
+  damageType: fire
+  damageAtHigherLevels: 1d10
   source: SRD
 fire_shield:
   spellName: Fire Shield
