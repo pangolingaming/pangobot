@@ -733,7 +733,10 @@ chain_lightning:
     When you cast this spell using a spell slot of 7th level or higher, one
     additional bolt leaps from the first target to another target for each slot
     level above 6th.
-  description: "You create a bolt of lightning that arcs toward a target of your choice that you can see within range. Three bolts then leap from that target to as many as three other targets, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.    \r\nA target must make a Dexterity saving throw. The target takes 10d8 lightning damage on a failed save, or half as much damage on a successful one."
+  description: "You create a bolt of lightning that arcs toward a target of your choice that you can see within range. Three bolts then leap from that target to as many as three other targets, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.    
+  \r\nA target must make a Dexterity saving throw. The target takes 10d8 lightning damage on a failed save, or half as much damage on a successful one."
+  damage: 10d8
+  spellType: ['lightning']
   source: SRD
 charm_person:
   spellName: Charm Person
@@ -756,6 +759,7 @@ charm_person:
     the spell ends or until you or your companions do anything harmful to it.
     The charmed creature regards you as a friendly acquaintance. When the spell
     ends, the creature knows it was charmed by you.
+  spellType: ['charm']
   source: SRD
 chill_touch:
   spellName: Chill Touch
@@ -770,7 +774,15 @@ chill_touch:
   cantripProgression: >-
     This spell's damage increases by 1d8 when you reach 5th level (2d8), 11th
     level (3d8), and 17th level (4d8).
-  description: "You create a ghostly, skeletal hand in the space of a creature within range. Make a ranged spell attack against the creature to assail it with the chill of the grave. On a hit, the target takes 1d8 necrotic damage, and it can't regain hit points until the start of your next turn. Until then, the hand clings to the target.    \r\nIf you hit an undead target, it also has disadvantage on attack rolls against you until the end of your next turn."
+  description: >-
+    You create a ghostly, skeletal hand in the space of a creature within 
+    range. Make a ranged spell attack against the creature to assail it with the chill 
+    of the grave. On a hit, the target takes 1d8 necrotic damage, and it can't regain hit 
+    points until the start of your next turn. Until then, the hand clings to the target.    \r\n
+    If you hit an undead target, it also has disadvantage on attack rolls against you until the end of your next turn.
+  spellType: ['necrotic']
+  damage: 1d8
+  damageAtHigherLevels: 1d8
   source: SRD
 circle_of_death:
   spellName: Circle of Death
@@ -786,10 +798,13 @@ circle_of_death:
     When you cast this spell using a spell slot of 7th level or higher, the
     damage increases by 2d6 for each slot level above 6th.
   description: >-
-    A sphere of negative energy ripples out in a 60-foot- radius sphere from a
+    A sphere of negative energy ripples out in a 60-foot-radius sphere from a
     point within range. Each creature in that area must make a Constitution
     saving throw. A target takes 8d6 necrotic damage on a failed save, or half
     as much damage on a successful one.
+  spellType: ['necrotic']
+  damageAtHigherLevels: 2d6
+  damage: 8d6
   source: SRD
 clairvoyance:
   spellName: Clairvoyance
@@ -801,7 +816,14 @@ clairvoyance:
   components: "V, S, M"
   duration: "Concentration, up to 10 minutes"
   concentration: true
-  description: "You create an invisible sensor within range in a location familiar to you (a place you have visited or seen before) or in an obvious location that is unfamiliar to you (such as behind a door, around a corner, or in a grove of trees). The sensor remains in place for the duration, and it can't be attacked or otherwise interacted with.    \r\nWhen you cast the spell, you choose seeing or hearing. You can use the chosen sense through the sensor as if you were in its space. As your action, you can switch between seeing and hearing.    \r\nA creature that can see the sensor (such as a creature benefiting from **_see invisibility_** or truesight) sees a luminous, intangible orb about the size of your fist."
+  description: >-
+    You create an invisible sensor within range in a location familiar to you (a place you have visited or seen before) 
+    or in an obvious location that is unfamiliar to you (such as behind a door, around a corner, or in a grove of trees). The sensor 
+    remains in place for the duration, and it can't be attacked or otherwise interacted with.    \r\n
+    When you cast the spell, you choose seeing or hearing. You can use the chosen sense through the sensor as if you were in its space. 
+    As your action, you can switch between seeing and hearing.    \r\nA creature that can see the sensor (such as a creature benefiting 
+    from _see invisibility_ or truesight) sees a luminous, intangible orb about the size of your fist.
+  spellType: ['divination']
   source: SRD
 clone:
   spellName: Clone
@@ -813,7 +835,13 @@ clone:
   components: "V, S, M"
   duration: Instantaneous
   concentration: false
-  description: "This spell grows an inert duplicate of a living creature as a safeguard against death. This clone forms inside a sealed vessel and grows to full size and maturity after 120 days; you can also choose to have the clone be a younger version of the same creature. It remains inert and endures indefinitely, as long as its vessel remains undisturbed.    \r\nAt any time after the clone matures, if the original creature dies, its soul transfers to the clone, provided that the soul is free and willing to return. The clone is physically identical to the original and has the same personality, memories, and abilities, but none of the original's equipment. The original creature's physical remains, if they still exist, become inert and can't thereafter be restored to life, since the creature's soul is elsewhere."
+  description: "This spell grows an inert duplicate of a living creature as a safeguard against death. This clone forms inside a sealed vessel 
+  and grows to full size and maturity after 120 days; you can also choose to have the clone be a younger version of the same creature. It remains 
+  inert and endures indefinitely, as long as its vessel remains undisturbed.    \r\nAt any time after the clone matures, if the original creature 
+  dies, its soul transfers to the clone, provided that the soul is free and willing to return. The clone is physically identical to the original 
+  and has the same personality, memories, and abilities, but none of the original's equipment. The original creature's physical remains, if they 
+  still exist, become inert and can't thereafter be restored to life, since the creature's soul is elsewhere."
+  spellType: ['necromancy']
   source: SRD
 cloudkill:
   spellName: Cloudkill
@@ -828,7 +856,17 @@ cloudkill:
   atHigherLevels: >-
     When you cast this spell using a spell slot of 6th level or higher, the
     damage increases by 1d8 for each slot level above 5th.
-  description: "You create a 20-foot-radius sphere of poisonous, yellow-green fog centered on a point you choose within range. The fog spreads around corners. It lasts for the duration or until strong wind disperses the fog, ending the spell. Its area is heavily obscured.    \r\nWhen a creature enters the spell's area for the first time on a turn or starts its turn there, that creature must make a Constitution saving throw. The creature takes 5d8 poison damage on a failed save, or half as much damage on a successful one. Creatures are affected even if they hold their breath or don't need to breathe.    \r\nThe fog moves 10 feet away from you at the start of each of your turns, rolling along the surface of the ground. The vapors, being heavier than air, sink to the lowest level of the land, even pouring down openings."
+  description: >-
+    You create a 20-foot-radius sphere of poisonous, yellow-green fog centered on a point you choose within range. The fog spreads around 
+    corners. It lasts for the duration or until strong wind disperses the fog, ending the spell. Its area is heavily obscured.    \r\n
+    When a creature enters the spell's area for the first time on a turn or starts its turn there, that creature must make a Constitution saving throw. 
+    The creature takes 5d8 poison damage on a failed save, or half as much damage on a successful one. Creatures are affected even if they hold their 
+    breath or don't need to breathe.    \r\n
+    The fog moves 10 feet away from you at the start of each of your turns, rolling along the surface of the ground. The vapors, being heavier than air, 
+    sink to the lowest level of the land, even pouring down openings."
+  spellType: ['poison']
+  damage: 5d8
+  damageAtHigherLevels: 1d8
   source: SRD
 color_spray:
   spellName: Color Spray
@@ -843,7 +881,13 @@ color_spray:
   atHigherLevels: >-
     When you cast this spell using a spell slot of 2nd level or higher, roll an
     additional 2d10 for each slot level above 1st.
-  description: "A dazzling array of flashing, colored light springs from your hand. Roll 6d10; the total is how many hit points of creatures this spell can effect. Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring unconscious creatures and creatures that can't see).    \r\nStarting with the creature that has the lowest current hit points, each creature affected by this spell is blinded until the spell ends. Subtract each creature's hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total for that creature to be affected."
+  description: >-
+    A dazzling array of flashing, colored light springs from your hand. Roll 6d10; the total is how many hit points of creatures this spell can affect. 
+    Creatures in a 15-foot cone originating from you are affected in ascending order of their current hit points (ignoring unconscious creatures and creatures that can't see).    \r\n
+    Starting with the creature that has the lowest current hit points, each creature affected by this spell is blinded until the spell ends. Subtract each creature's 
+    hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total 
+    for that creature to be affected.
+  spellType: ['debuff']
   source: SRD
 command:
   spellName: Command
@@ -859,7 +903,23 @@ command:
     When you cast this spell using a spell slot of 2nd level or higher, you can
     affect one additional creature for each slot level above 1st. The creatures
     must be within 30 feet of each other when you target them.
-  description: "You speak a one-word command to a creature you can see within range. The target must succeed on a Wisdom saving throw or follow the command on its next turn. The spell has no effect if the target is undead, if it doesn't understand your language, or if your command is directly harmful to it.    \r\nSome typical commands and their effects follow. You might issue a command other than one described here. If you do so, the GM determines how the target behaves. If the target can't follow your command, the spell ends.    \r\n**Approach.** The target moves toward you by the shortest and most direct route, ending its turn if it moves within 5 feet of you.    \r\n**Drop.** The target drops whatever it is holding and then ends its turn.    \r\n**Flee.** The target spends its turn moving away from you by the fastest available means.   \r\n**Grovel.** The target falls prone and then ends its turn.   \r\n**Halt.** The target doesn't move and takes no actions. A flying creature stays aloft, provided that it is able to do so. If it must move to stay aloft, it flies the minimum distance needed to remain in the air."
+  description: >-
+    You speak a one-word command to a creature you can see within range. The target 
+    must succeed on a Wisdom saving throw or follow the command on its next turn. 
+    The spell has no effect if the target is undead, if it doesn't understand your 
+    language, or if your command is directly harmful to it.    \r\n
+    Some typical commands and their effects follow. You might issue a command other 
+    than one described here. If you do so, the GM determines how the target behaves. 
+    If the target can't follow your command, the spell ends.    \r\n
+    **Approach.** The target moves toward you by the shortest and most direct route, 
+    ending its turn if it moves within 5 feet of you.    \r\n
+    **Drop.** The target drops whatever it is holding and then ends its turn.    \r\n
+    **Flee.** The target spends its turn moving away from you by the fastest available means.   \r\n
+    **Grovel.** The target falls prone and then ends its turn.   \r\n
+    **Halt.** The target doesn't move and takes no actions. A flying creature stays aloft, 
+    provided that it is able to do so. If it must move to stay aloft, it flies the 
+    minimum distance needed to remain in the air.
+  spellType: ['charm','stun']
   source: SRD
 commune:
   spellName: Commune
@@ -871,7 +931,15 @@ commune:
   components: "V, S, M"
   duration: 1 minute
   concentration: false
-  description: "You contact your deity or a divine proxy and ask up to three questions that can be answered with a yes or no. You must ask your questions before the spell ends. You receive a correct answer for each question.    \r\nDivine beings aren't necessarily omniscient, so you might receive \"unclear\" as an answer if a question pertains to information that lies beyond the deity's knowledge. In a case where a one-word answer could be misleading or contrary to the deity's interests, the GM might offer a short phrase as an answer instead.    \r\nIf you cast the spell two or more times before finishing your next long rest, there is a cumulative 25 percent chance for each casting after the first that you get no answer. The GM makes this roll in secret."
+  description: >-
+    You contact your deity or a divine proxy and ask up to three questions that can be answered with a yes or 
+    no. You must ask your questions before the spell ends. You receive a correct answer for each question.    \r\n
+    Divine beings aren't necessarily omniscient, so you might receive \"unclear\" as an answer if a question pertains 
+    to information that lies beyond the deity's knowledge. In a case where a one-word answer could be misleading or 
+    contrary to the deity's interests, the GM might offer a short phrase as an answer instead.    \r\n]
+    If you cast the spell two or more times before finishing your next long rest, there is a cumulative 25 percent 
+    chance for each casting after the first that you get no answer. The GM makes this roll in secret.
+  spellType: ['divination']
   source: SRD
 commune_with_nature:
   spellName: Commune with Nature
@@ -883,7 +951,19 @@ commune_with_nature:
   components: "V, S"
   duration: Instantaneous
   concentration: false
-  description: "You briefly become one with nature and gain knowledge of the surrounding territory. In the outdoors, the spell gives you knowledge of the land within 3 miles of you. In caves and other natural underground settings, the radius is limited to 300 feet. The spell doesn't function where nature has been replaced by construction, such as in dungeons and towns.    \r\nYou instantly gain knowledge of up to three facts of your choice about any of the following subjects as they relate to the area:\r\n\r\n* terrain and bodies of water\r\n* prevalent plants, minerals, animals, or peoples\r\n* powerful celestials, fey, fiends, elementals, or undead\r\n* influence from other planes of existence\r\n* buildings \r\n\r\nFor example, you could determine the location of powerful undead in the area, the location of major sources of safe drinking water, and the location of any nearby towns."
+  description: >-
+    You briefly become one with nature and gain knowledge of the surrounding territory. In the outdoors, the spell 
+    gives you knowledge of the land within 3 miles of you. In caves and other natural underground settings, the radius 
+    is limited to 300 feet. The spell doesn't function where nature has been replaced by construction, such as in dungeons 
+    and towns.    \r\n
+    You instantly gain knowledge of up to three facts of your choice about any of the following subjects as they relate to 
+    the area:\r\n\r\n
+    * terrain and bodies of water\r\n* prevalent plants, minerals, animals, or peoples\r\n
+    * powerful celestials, fey, fiends, elementals, or undead\r\n* influence from other planes of existence\r\n
+    * buildings \r\n\r\n
+    For example, you could determine the location of powerful undead in the area, the location of major sources of safe drinking 
+    water, and the location of any nearby towns.
+  spellType: ['divination']
   source: SRD
 comprehend_languages:
   spellName: Comprehend Languages
@@ -895,7 +975,12 @@ comprehend_languages:
   components: "V, S, M"
   duration: 1 hour
   concentration: false
-  description: "For the duration, you understand the literal meaning of any spoken language that you hear. You also understand any written language that you see, but you must be touching the surface on which the words are written. It takes about 1 minute to read one page of text.    \r\nThis spell doesn't decode secret messages in a text or a glyph, such as an arcane sigil, that isn't part of a written language."
+  description: >-
+    For the duration, you understand the literal meaning of any spoken language that you hear. You also understand any written 
+    language that you see, but you must be touching the surface on which the words are written. It takes about 1 minute to read 
+    one page of text.    \r\n
+    This spell doesn't decode secret messages in a text or a glyph, such as an arcane sigil, that isn't part of a written language.
+  spellType: ['language']
   source: SRD
 compulsion:
   spellName: Compulsion
@@ -907,7 +992,15 @@ compulsion:
   components: "V, S"
   duration: "Concentration, up to 1 minute"
   concentration: true
-  description: "Creatures of your choice that you can see within range and that can hear you must make a Wisdom saving throw. A target automatically succeeds on this saving throw if it can't be charmed. On a failed save, a target is affected by this spell. Until the spell ends, you can use a bonus action on each of your turns to designate a direction that is horizontal to you. Each affected target must use as much of its movement as possible to move in that direction on its next turn. It can take its action before it moves. After moving in this way, it can make another Wisdom saving to try to end the effect.    \r\nA target isn't compelled to move into an obviously deadly hazard, such as a fire or pit, but it will provoke opportunity attacks to move in the designated direction."
+  description: >-
+    Creatures of your choice that you can see within range and that can hear you must make a Wisdom saving throw. A target 
+    automatically succeeds on this saving throw if it can't be charmed. On a failed save, a target is affected by this spell. 
+    Until the spell ends, you can use a bonus action on each of your turns to designate a direction that is horizontal to you. 
+    Each affected target must use as much of its movement as possible to move in that direction on its next turn. It can take 
+    its action before it moves. After moving in this way, it can make another Wisdom saving to try to end the effect.    \r\n
+    A target isn't compelled to move into an obviously deadly hazard, such as a fire or pit, but it will provoke opportunity 
+    attacks to move in the designated direction.
+  spellType: ['charm']
   source: SRD
 cone_of_cold:
   spellName: Cone of Cold
@@ -922,7 +1015,12 @@ cone_of_cold:
   atHigherLevels: >-
     When you cast this spell using a spell slot of 6th level or higher, the
     damage increases by 1d8 for each slot level above 5th.
-  description: "A blast of cold air erupts from your hands. Each creature in a 60-foot cone must make a Constitution saving throw. A creature takes 8d8 cold damage on a failed save, or half as much damage on a successful one.    \r\nA creature killed by this spell becomes a frozen statue until it thaws."
+  description: >-
+    A blast of cold air erupts from your hands. Each creature in a 60-foot cone must make a 
+    Constitution saving throw. A creature takes 8d8 cold damage on a failed save, or half as 
+    much damage on a successful one.    \r\n
+    A creature killed by this spell becomes a frozen statue until it thaws.
+  spellType: ['cold']
   source: SRD
 confusion:
   spellName: Confusion
@@ -937,7 +1035,21 @@ confusion:
   atHigherLevels: >-
     When you cast this spell using a spell slot of 5th level or higher, the
     radius of the sphere increases by 5 feet for each slot level above 4th.
-  description: "This spell assaults and twists creatures' minds, spawning delusions and provoking uncontrolled action. Each creature in a 10-foot-radius sphere centered on a point you choose within range must succeed on a Wisdom saving throw when you cast this spell or be affected by it.    \r\nAn affected target can't take reactions and must roll a d10 at the start of each of its turns to determine its behavior for that turn. \r\n\r\n| d10  | Behavior |\r\n|------|----------|\r\n| 1    | The creature uses all its movement to move in a random direction. To determine the direction, roll a d8 and assign a direction to each die face. The creature doesn't take an action this turn. |\r\n| 2-6  | The creature doesn't move or take actions this turn.  |\r\n| 7-8  | The creature uses its action to make a melee attack against a randomly determined creature within its reach. If there is no creature within its reach, the creature does nothing this turn. |\r\n| 9-10 | The creature can act and move normally. |\r\n\r\nAt the end of each of its turns, an affected target can make a Wisdom saving throw. If it succeeds, this effect ends for that target."
+  description: >-
+    This spell assaults and twists creatures' minds, spawning delusions and provoking uncontrolled 
+    action. Each creature in a 10-foot-radius sphere centered on a point you choose within range must 
+    succeed on a Wisdom saving throw when you cast this spell or be affected by it.    \r\n
+    An affected target can't take reactions and must roll a d10 at the start of each of its turns to 
+    determine its behavior for that turn. \r\n\r\n
+    | d10  | Behavior |\r\n|------|----------|\r\n
+    | 1    | The creature uses all its movement to move in a random direction. To determine the direction, 
+    roll a d8 and assign a direction to each die face. The creature doesn't take an action this turn. |\r\n
+    | 2-6  | The creature doesn't move or take actions this turn.  |\r\n
+    | 7-8  | The creature uses its action to make a melee attack against a randomly determined creature within its reach. 
+    If there is no creature within its reach, the creature does nothing this turn. |\r\n
+    | 9-10 | The creature can act and move normally. |\r\n\r\n
+    At the end of each of its turns, an affected target can make a Wisdom saving throw. If it succeeds, this effect ends for that target.
+  spellType: ['stun']
   source: SRD
 conjure_animals:
   spellName: Conjure Animals
@@ -954,7 +1066,19 @@ conjure_animals:
     one of the summoning options above, and more creatures appear: twice as many
     with a 5th-level slot, three times as many with a 7th-level slot, and four
     times as many with a 9th-level slot.
-  description: "You summon fey spirits that take the form of beasts and appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears: \r\n\r\n* One beast of challenge rating 2 or lower\r\n* Two beasts of challenge rating 1 or lower\r\n* Four beasts of challenge rating 1/2 or lower\r\n* Eight beasts of challenge rating 1/4 or lower \r\n\r\nEach beast is also considered fey, and it disappears when it drops to 0 hit points or when the spell ends.    \r\nThe summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions.    \r\nThe GM has the creatures' statistics."
+  description: >-
+    You summon fey spirits that take the form of beasts and appear in unoccupied spaces 
+    that you can see within range. Choose one of the following options for what appears: \r\n\r\n
+    * One beast of challenge rating 2 or lower\r\n
+    * Two beasts of challenge rating 1 or lower\r\n
+    * Four beasts of challenge rating 1/2 or lower\r\n
+    * Eight beasts of challenge rating 1/4 or lower \r\n\r\n
+    Each beast is also considered fey, and it disappears when it drops to 0 hit points or when the spell ends.    \r\n
+    The summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a 
+    group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). 
+    If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions.    \r\n
+    The GM has the creatures' statistics.
+  spellType: ['animal']
   source: SRD
 conjure_celestial:
   spellName: Conjure Celestial
@@ -969,7 +1093,15 @@ conjure_celestial:
   atHigherLevels: >-
     When you cast this spell using a 9th-level spell slot, you summon a
     celestial of challenge rating 5 or lower.
-  description: "You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you can see within range. The celestial disappears when it drops to 0 hit points or when the spell ends.    \r\nThe celestial is friendly to you and your companions for the duration. Roll initiative for the celestial, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you), as long as they don't violate its alignment. If you don't issue any commands to the celestial, it defends itself from hostile creatures but otherwise takes no actions.    \r\nThe GM has the celestial's statistics."
+  description: >-
+    You summon a celestial of challenge rating 4 or lower, which appears in an unoccupied space that you 
+    can see within range. The celestial disappears when it drops to 0 hit points or when the spell ends.    \r\n
+    The celestial is friendly to you and your companions for the duration. Roll initiative for the celestial, 
+    which has its own turns. It obeys any verbal commands that you issue to it (no action required by you), 
+    as long as they don't violate its alignment. If you don't issue any commands to the celestial, it defends 
+    itself from hostile creatures but otherwise takes no actions.    \r\n
+    The GM has the celestial's statistics.
+  spellType: ['celestial']
   source: SRD
 conjure_elemental:
   spellName: Conjure Elemental
@@ -984,7 +1116,21 @@ conjure_elemental:
   atHigherLevels: >-
     When you cast this spell using a spell slot of 6th level or higher, the
     challenge rating increases by 1 for each slot level above 5th.
-  description: "You call forth an elemental servant. Choose an area of air, earth, fire, or water that fills a 10-foot cube within range. An elemental of challenge rating 5 or lower appropriate to the area you chose appears in an unoccupied space within 10 feet of it. For example, a fire elemental emerges from a bonfire, and an earth elemental rises up from the ground. The elemental disappears when it drops to 0 hit points or when the spell ends.    \r\nThe elemental is friendly to you and your companions for the duration. Roll initiative for the elemental, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you). If you don't issue any commands to the elemental, it defends itself from hostile creatures but otherwise takes no actions.    \r\nIf your concentration is broken, the elemental doesn't disappear. Instead, you lose control of the elemental, it becomes hostile toward you and your companions, and it might attack. An uncontrolled elemental can't be dismissed by you, and it disappears 1 hour after you summoned it. The GM has the elemental's statistics."
+  description: >-
+    You call forth an elemental servant. Choose an area of air, earth, fire, or water that 
+    fills a 10-foot cube within range. An elemental of challenge rating 5 or lower appropriate 
+    to the area you chose appears in an unoccupied space within 10 feet of it. For example, a 
+    fire elemental emerges from a bonfire, and an earth elemental rises up from the ground. The 
+    elemental disappears when it drops to 0 hit points or when the spell ends.    \r\n
+    The elemental is friendly to you and your companions for the duration. Roll initiative for 
+    the elemental, which has its own turns. It obeys any verbal commands that you issue to it 
+    (no action required by you). If you don't issue any commands to the elemental, it defends 
+    itself from hostile creatures but otherwise takes no actions.    \r\n
+    If your concentration is broken, the elemental doesn't disappear. Instead, you lose control 
+    of the elemental, it becomes hostile toward you and your companions, and it might attack. 
+    An uncontrolled elemental can't be dismissed by you, and it disappears 1 hour after you 
+    summoned it. The GM has the elemental's statistics.
+  spellType: ['summon']
   source: SRD
 conjure_fey:
   spellName: Conjure Fey
@@ -999,7 +1145,22 @@ conjure_fey:
   atHigherLevels: >-
     When you cast this spell using a spell slot of 7th level or higher, the
     challenge rating increases by 1 for each slot level above 6th.
-  description: "You summon a fey creature of challenge rating 6 or lower, or a fey spirit that takes the form of a beast of challenge rating 6 or lower. It appears in an unoccupied space that you can see within range. The fey creature disappears when it drops to 0 hit points or when the spell ends.    \r\nThe fey creature is friendly to you and your companions for the duration. Roll initiative for the creature, which has its own turns. It obeys any verbal commands that you issue to it (no action required by you), as long as they don't violate its alignment. If you don't issue any commands to the fey creature, it defends itself from hostile creatures but otherwise takes no actions.    \r\nIf your concentration is broken, the fey creature doesn't disappear. Instead, you lose control of the fey creature, it becomes hostile toward you and your companions, and it might attack. An uncontrolled fey creature can't be dismissed by you, and it disappears 1 hour after you summoned it.    \r\nThe GM has the fey creature's statistics."
+  description: >-
+    You summon a fey creature of challenge rating 6 or lower, or a fey spirit 
+    that takes the form of a beast of challenge rating 6 or lower. It appears in 
+    an unoccupied space that you can see within range. The fey creature disappears 
+    when it drops to 0 hit points or when the spell ends.    \r\n
+    The fey creature is friendly to you and your companions for the duration. 
+    Roll initiative for the creature, which has its own turns. It obeys any verbal 
+    commands that you issue to it (no action required by you), as long as they don't 
+    violate its alignment. If you don't issue any commands to the fey creature, it 
+    defends itself from hostile creatures but otherwise takes no actions.    \r\n
+    If your concentration is broken, the fey creature doesn't disappear. Instead, 
+    you lose control of the fey creature, it becomes hostile toward you and your 
+    companions, and it might attack. An uncontrolled fey creature can't be dismissed 
+    by you, and it disappears 1 hour after you summoned it.    \r\n
+    The GM has the fey creature's statistics.
+  spellType: ['summon']
   source: SRD
 conjure_minor_elementals:
   spellName: Conjure Minor Elementals
@@ -1015,7 +1176,20 @@ conjure_minor_elementals:
     When you cast this spell using certain higher-level spell slots, you choose
     one of the summoning options above, and more creatures appear: twice as many
     with a 6th-level slot and three times as many with an 8th-level slot.
-  description: "You summon elementals that appear in unoccupied spaces that you can see within range. You choose one the following options for what appears: \r\n\r\n* One elemental of challenge rating 2 or lower\r\n* Two elementals of challenge rating 1 or lower\r\n* Four elementals of challenge rating 1/2 or lower \r\n* Eight elementals of challenge rating 1/4 or lower. \r\n\r\nAn elemental summoned by this spell disappears when it drops to 0 hit points or when the spell ends.    \r\nThe summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which has its own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions.    \r\nThe GM has the creatures' statistics."
+  description: >-
+    You summon elementals that appear in unoccupied spaces that you can see within range. 
+    You choose one the following options for what appears: \r\n\r\n
+    * One elemental of challenge rating 2 or lower\r\n
+    * Two elementals of challenge rating 1 or lower\r\n
+    * Four elementals of challenge rating 1/2 or lower \r\n
+    * Eight elementals of challenge rating 1/4 or lower. \r\n\r\n
+    An elemental summoned by this spell disappears when it drops to 0 hit points or when the spell ends.    \r\n
+    The summoned creatures are friendly to you and your companions. Roll initiative for the summoned 
+    creatures as a group, which has its own turns. They obey any verbal commands that you issue to 
+    them (no action required by you). If you don't issue any commands to them, they defend themselves 
+    from hostile creatures, but otherwise take no actions.    \r\n
+    The GM has the creatures' statistics.
+  spellType: ['summon']
   source: SRD
 conjure_woodland_beings:
   spellName: Conjure Woodland Beings
@@ -1031,7 +1205,20 @@ conjure_woodland_beings:
     When you cast this spell using certain higher-level spell slots, you choose
     one of the summoning options above, and more creatures appear: twice as many
     with a 6th-level slot and three times as many with an 8th-level slot.
-  description: "You summon fey creatures that appear in unoccupied spaces that you can see within range. Choose one of the following options for what appears:\r\n\r\n* One fey creature of challenge rating 2 or lower \r\n* Two fey creatures of challenge rating 1 or lower \r\n* Four fey creatures of challenge rating 1/2 or lower \r\n* Eight fey creatures of challenge rating 1/4 or lower \r\n\r\nA summoned creature disappears when it drops to 0 hit points or when the spell ends.    \r\nThe summoned creatures are friendly to you and your companions. Roll initiative for the summoned creatures as a group, which have their own turns. They obey any verbal commands that you issue to them (no action required by you). If you don't issue any commands to them, they defend themselves from hostile creatures, but otherwise take no actions.    \r\nThe GM has the creatures' statistics."
+  description: >-
+    You summon fey creatures that appear in unoccupied spaces that you can see within range. 
+    Choose one of the following options for what appears:\r\n\r\n
+    * One fey creature of challenge rating 2 or lower \r\n
+    * Two fey creatures of challenge rating 1 or lower \r\n
+    * Four fey creatures of challenge rating 1/2 or lower \r\n
+    * Eight fey creatures of challenge rating 1/4 or lower \r\n\r\n
+    A summoned creature disappears when it drops to 0 hit points or when the spell ends.    \r\n
+    The summoned creatures are friendly to you and your companions. Roll initiative for the summoned 
+    creatures as a group, which have their own turns. They obey any verbal commands that you issue to 
+    them (no action required by you). If you don't issue any commands to them, they defend themselves 
+    from hostile creatures, but otherwise take no actions.    \r\n
+    The GM has the creatures' statistics.
+  spellType: ['summon']
   source: SRD
 contact_other_plane:
   spellName: Contact Other Plane
@@ -1043,7 +1230,18 @@ contact_other_plane:
   components: V
   duration: 1 minute
   concentration: false
-  description: "You mentally contact a demigod, the spirit of a long- dead sage, or some other mysterious entity from another plane. Contacting this extraplanar intelligence can strain or even break your mind. When you cast this spell, make a DC 15 Intelligence saving throw. On a failure, you take 6d6 psychic damage and are insane until you finish a long rest. While insane, you can't take actions, can't understand what other creatures say, can't read, and speak only in gibberish. A **_greater restoration_** spell cast on you ends this effect.    \r\nOn a successful save, you can ask the entity up to five questions. You must ask your questions before the spell ends. The GM answers each question with one word, such as \"yes,\" \"no,\" \"maybe,\" \"never,\" \"irrelevant,\" or \"unclear\" (if the entity doesn't know the answer to the question). If a one-word answer would be misleading, the GM might instead offer a short phrase as an answer."
+  description: >-
+    You mentally contact a demigod, the spirit of a long- dead sage, or some other mysterious entity 
+    from another plane. Contacting this extraplanar intelligence can strain or even break your mind. 
+    When you cast this spell, make a DC 15 Intelligence saving throw. On a failure, you take 6d6 
+    psychic damage and are insane until you finish a long rest. While insane, you can't take actions, 
+    can't understand what other creatures say, can't read, and speak only in gibberish. A 
+    _greater restoration_ spell cast on you ends this effect.    \r\n
+    On a successful save, you can ask the entity up to five questions. You must ask your questions 
+    before the spell ends. The GM answers each question with one word, such as \"yes,\" \"no,\" 
+    \"maybe,\" \"never,\" \"irrelevant,\" or \"unclear\" (if the entity doesn't know the answer to the question). 
+    If a one-word answer would be misleading, the GM might instead offer a short phrase as an answer.
+  spellType: ['divination']
   source: SRD
 contagion:
   spellName: Contagion
@@ -1055,7 +1253,27 @@ contagion:
   components: "V, S"
   duration: 7 days
   concentration: false
-  description: "Your touch inflicts disease. Make a melee spell attack against a creature within your reach. On a hit, you afflict the creature with a disease of your choice from any of the ones described below.    \r\nAt the end of each of the target's turns, it must make a Constitution saving throw. After failing three of these saving throws, the disease's effects last for the duration, and the creature stops making these saves. After succeeding on three of these saving throws, the creature recovers from the disease, and the spell ends.    \r\nSince this spell induces a natural disease in its target, any effect that removes a disease or otherwise ameliorates a disease's effects apply to it.    \r\n**Blinding Sickness.** Pain grips the creature's mind, and its eyes turn milky white. The creature has disadvantage on Wisdom checks and Wisdom saving throws and is blinded.    \r\n**Filth Fever.** A raging fever sweeps through the creature's body. The creature has disadvantage on Strength checks, Strength saving throws, and attack rolls that use Strength.    \r\n**Flesh Rot.** The creature's flesh decays. The creature has disadvantage on Charisma checks and vulnerability to all damage.    \r\n**Mindfire.** The creature's mind becomes feverish. The creature has disadvantage on Intelligence checks and Intelligence saving throws, and the creature behaves as if under the effects of the **_confusion_** spell during combat.    \r\n**Seizure.** The creature is overcome with shaking. The creature has disadvantage on Dexterity checks, Dexterity saving throws, and attack rolls that use Dexterity.    \r\n**Slimy Doom.** The creature begins to bleed uncontrollably. The creature has disadvantage on Constitution checks and Constitution saving throws. In addition, whenever the creature takes damage, it is stunned until the end of its next turn."
+  description: >-
+    Your touch inflicts disease. Make a melee spell attack against a creature within your reach. 
+    On a hit, you afflict the creature with a disease of your choice from any of the ones described below.    \r\n
+    At the end of each of the target's turns, it must make a Constitution saving throw. After failing three of 
+    these saving throws, the disease's effects last for the duration, and the creature stops making these saves. 
+    After succeeding on three of these saving throws, the creature recovers from the disease, and the spell ends.    \r\n
+    Since this spell induces a natural disease in its target, any effect that removes a disease or otherwise ameliorates 
+    a disease's effects apply to it.    \r\n
+    **Blinding Sickness.** Pain grips the creature's mind, and its eyes turn milky white. The creature has disadvantage 
+    on Wisdom checks and Wisdom saving throws and is blinded.    \r\n
+    **Filth Fever.** A raging fever sweeps through the creature's body. The creature has disadvantage on Strength 
+    checks, Strength saving throws, and attack rolls that use Strength.    \r\n
+    **Flesh Rot.** The creature's flesh decays. The creature has disadvantage on Charisma checks and vulnerability to 
+    all damage.    \r\n
+    **Mindfire.** The creature's mind becomes feverish. The creature has disadvantage on Intelligence checks 
+    and Intelligence saving throws, and the creature behaves as if under the effects of the _confusion_ spell during combat.    \r\n
+    **Seizure.** The creature is overcome with shaking. The creature has disadvantage on Dexterity checks, Dexterity 
+    saving throws, and attack rolls that use Dexterity.    \r\n
+    **Slimy Doom.** The creature begins to bleed uncontrollably. The creature has disadvantage on Constitution checks 
+    and Constitution saving throws. In addition, whenever the creature takes damage, it is stunned until the end of its next turn.
+  spellType: ['necromancy']
   source: SRD
 contingency:
   spellName: Contingency
@@ -1067,7 +1285,18 @@ contingency:
   components: "V, S, M"
   duration: 10 days
   concentration: false
-  description: "Choose a spell of 5th level or lower that you can cast, that has a casting time of 1 action, and that can target you. You cast that spell--called the contingent spell--as part of casting **_contingency_**, expending spell slots for both, but the contingent spell doesn't come into effect. Instead, it takes effect when a certain circumstance occurs. You describe that circumstance when you cast the two spells. For example, a **_contingency_** cast with **_water breathing_** might stipulate that **_water breathing_** comes into effect when you are engulfed in water or a similar liquid.    \r\nThe contingent spell takes effect immediately after the circumstance is met for the first time, whether or not you want it to, and then **_contingency_** ends. The contingent spell takes effect only on you, even if it can normally target others. You can use only one **_contingency_** spell at a time.    \r\nIf you cast this spell again, the effect of another **_contingency_** spell on you ends. Also, **_contingency_** ends on you if its material component is ever not on your person."
+  description: >-
+    Choose a spell of 5th level or lower that you can cast, that has a casting time of 1 action, and that can target you. 
+    You cast that spell--called the contingent spell--as part of casting*_contingency_, expending spell slots for both, 
+    but the contingent spell doesn't come into effect. Instead, it takes effect when a certain circumstance occurs. You 
+    describe that circumstance when you cast the two spells. For example, a _contingency_ cast with _water breathing_ might 
+    stipulate that _water breathing_ comes into effect when you are engulfed in water or a similar liquid.    \r\n
+    The contingent spell takes effect immediately after the circumstance is met for the first time, whether or not you want 
+    it to, and then _contingency_ ends. The contingent spell takes effect only on you, even if it can normally target others. 
+    You can use only one _contingency_ spell at a time.    \r\n
+    If you cast this spell again, the effect of another _contingency_ spell on you ends. Also, _contingency_ ends on you if 
+    its material component is ever not on your person.
+  spellType: ['magic']
   source: SRD
 continual_flame:
   spellName: Continual Flame
@@ -1082,8 +1311,9 @@ continual_flame:
   description: >-
     A flame, equivalent in brightness to a torch, springs forth from an object
     that you touch. The effect looks like a regular flame, but it creates no
-    heat and doesn't use oxygen. A **_continual flame_** can be covered or
+    heat and doesn't use oxygen. A _continual flame_ can be covered or
     hidden but not smothered or quenched.
+  spellType: ['light']
   source: SRD
 control_water:
   spellName: Control Water
@@ -1095,7 +1325,36 @@ control_water:
   components: "V, S, M"
   duration: "Concentration, up to 10 minutes"
   concentration: true
-  description: "Until the spell ends, you control any freestanding water inside an area you choose that is a cube up to 100 feet on a side. You can choose from any of the following effects when you cast this spell. As an action on your turn, you can repeat the same effect or choose a different one.    \r\n**Flood.** You cause the water level of all standing water in the area to rise by as much as 20 feet. If the area includes a shore, the flooding water spills over onto dry land.    \r\nIf you choose an area in a large body of water, you instead create a 20-foot tall wave that travels from one side of the area to the other and then crashes down. Any Huge or smaller vehicles in the wave's path are carried with it to the other side. Any Huge or smaller vehicles struck by the wave have a 25 percent chance of capsizing.    \r\nThe water level remains elevated until the spell ends or you choose a different effect. If this effect produced a wave, the wave repeats on the start of your next turn while the flood effect lasts.    \r\n**Part Water.** You cause water in the area to move apart and create a trench. The trench extends across the spell's area, and the separated water forms a wall to either side. The trench remains until the spell ends or you choose a different effect. The water then slowly fills in the trench over the course of the next round until the normal water level is restored.    \r\n**Redirect Flow.** You cause flowing water in the area to move in a direction you choose, even if the water has to flow over obstacles, up walls, or in other unlikely directions. The water in the area moves as you direct it, but once it moves beyond the spell's area, it resumes its flow based on the terrain conditions. The water continues to move in the direction you chose until the spell ends or you choose a different effect.    \r\n**Whirlpool.** This effect requires a body of water at least 50 feet square and 25 feet deep. You cause a whirlpool to form in the center of the area. The whirlpool forms a vortex that is 5 feet wide at the base, up to 50 feet wide at the top, and 25 feet tall. Any creature or object in the water and within 25 feet of the vortex is pulled 10 feet toward it. A creature can swim away from the vortex by making a Strength (Athletics) check against your spell save DC.    \r\nWhen a creature enters the vortex for the first time on a turn or starts its turn there, it must make a Strength saving throw. On a failed save, the creature takes 2d8 bludgeoning damage and is caught in the vortex until the spell ends. On a successful save, the creature takes half damage, and isn't caught in the vortex. A creature caught in the vortex can use its action to try to swim away from the vortex as described above, but has disadvantage on the Strength (Athletics) check to do so.    \r\nThe first time each turn that an object enters the vortex, the object takes 2d8 bludgeoning damage; this damage occurs each round it remains in the vortex."
+  description: >-
+    Until the spell ends, you control any freestanding water inside an area you choose 
+    that is a cube up to 100 feet on a side. You can choose from any of the following 
+    effects when you cast this spell. As an action on your turn, you can repeat the 
+    same effect or choose a different one.    \r\n
+    **Flood.** You cause the water level of all standing water in the area to rise by 
+    as much as 20 feet. If the area includes a shore, the flooding water spills over onto dry land.    \r\n
+    If you choose an area in a large body of water, you instead create a 20-foot tall wave that travels 
+    from one side of the area to the other and then crashes down. Any Huge or smaller vehicles in the 
+    wave's path are carried with it to the other side. Any Huge or smaller vehicles struck by the wave have a 25 percent chance of capsizing.    \r\n
+    The water level remains elevated until the spell ends or you choose a different effect. If this effect produced a wave, 
+    the wave repeats on the start of your next turn while the flood effect lasts.    \r\n
+    **Part Water.** You cause water in the area to move apart and create a trench. The trench 
+    extends across the spell's area, and the separated water forms a wall to either side. The trench remains until 
+    the spell ends or you choose a different effect. The water then slowly fills in the trench over the course of 
+    the next round until the normal water level is restored.    \r\n
+    **Redirect Flow.** You cause flowing water in the area to move in a direction you choose, even if the water 
+    has to flow over obstacles, up walls, or in other unlikely directions. The water in the area moves as you direct it, 
+    but once it moves beyond the spell's area, it resumes its flow based on the terrain conditions. The water continues 
+    to move in the direction you chose until the spell ends or you choose a different effect.    \r\n
+    **Whirlpool.** This effect requires a body of water at least 50 feet square and 25 feet deep. You cause a whirlpool 
+    to form in the center of the area. The whirlpool forms a vortex that is 5 feet wide at the base, up to 50 feet wide at 
+    the top, and 25 feet tall. Any creature or object in the water and within 25 feet of the vortex is pulled 10 feet toward it. 
+    A creature can swim away from the vortex by making a Strength (Athletics) check against your spell save DC.    \r\n
+    When a creature enters the vortex for the first time on a turn or starts its turn there, it must make a Strength saving throw. 
+    On a failed save, the creature takes 2d8 bludgeoning damage and is caught in the vortex until the spell ends. On a successful 
+    save, the creature takes half damage, and isn't caught in the vortex. A creature caught in the vortex can use its action to 
+    try to swim away from the vortex as described above, but has disadvantage on the Strength (Athletics) check to do so.    \r\n
+    The first time each turn that an object enters the vortex, the object takes 2d8 bludgeoning damage; this damage occurs each round it remains in the vortex.
+  spellType: ['water', 'restrain']
   source: SRD
 control_weather:
   spellName: Control Weather
@@ -1107,7 +1366,43 @@ control_weather:
   components: "V, S, M"
   duration: "Concentration, up to 8 hours"
   concentration: true
-  description: "You take control of the weather within 5 miles of you for the duration. You must be outdoors to cast this spell. Moving to a place where you don't have a clear path to the sky ends the spell early.    \r\nWhen you cast the spell, you change the current weather conditions, which are determined by the GM based on the climate and season. You can change precipitation, temperature, and wind. It takes 1d4 × 10 minutes for the new conditions to take effect. Once they do so, you can change the conditions again. When the spell ends, the weather gradually returns to normal.    \r\nWhen you change the weather conditions, find a current condition on the following tables and change its stage by one, up or down. When changing the wind, you can change its direction. \r\n\r\n### Precipitation \r\n| Stage | Condition                                  |\r\n|-------|--------------------------------------------|\r\n| 1     | Clear                                      |\r\n| 2     | Light clouds                               |\r\n| 3     | Overcast or ground fog                     |\r\n| 4     | Rain, hail or snow                         |\r\n| 5     | Torrential rain, driving hail, or blizzard |\r\n\r\n### Temperature \r\n| Stage | Condition       |\r\n|-------|-----------------|\r\n| 1     | Unbearable heat |\r\n| 2     | Hot             |\r\n| 3     | Warm            |\r\n| 4     | Cool            |\r\n| 5     | Cold            |\r\n| 6     | Arctic cold     |\r\n\r\n### Wind \r\n| Stage | Condition     |\r\n|-------|---------------|\r\n| 1     | Calm          |\r\n| 2     | Moderate wind |\r\n| 3     | Strong wind   |\r\n| 4     | Gale          |\r\n| 5     | Storm         |"
+  description: >-
+    You take control of the weather within 5 miles of you for the duration. You must be outdoors to cast this spell. 
+    Moving to a place where you don't have a clear path to the sky ends the spell early.    \r\n
+    When you cast the spell, you change the current weather conditions, which are determined by the GM based on the 
+    climate and season. You can change precipitation, temperature, and wind. It takes 1d4 × 10 minutes for the new 
+    conditions to take effect. Once they do so, you can change the conditions again. When the spell ends, the weather 
+    gradually returns to normal.    \r\n
+    When you change the weather conditions, find a current condition on the following tables and change its stage by 
+    one, up or down. When changing the wind, you can change its direction. \r\n\r\n
+    ### Precipitation \r\n
+    | Stage | Condition                                  |\r\n
+    |-------|--------------------------------------------|\r\n
+    | 1     | Clear                                      |\r\n
+    | 2     | Light clouds                               |\r\n
+    | 3     | Overcast or ground fog                     |\r\n
+    | 4     | Rain, hail or snow                         |\r\n
+    | 5     | Torrential rain, driving hail, or blizzard |\r\n
+    \r\n
+    ### Temperature \r\n
+    | Stage | Condition       |\r\n
+    |-------|-----------------|\r\n
+    | 1     | Unbearable heat |\r\n
+    | 2     | Hot             |\r\n
+    | 3     | Warm            |\r\n
+    | 4     | Cool            |\r\n
+    | 5     | Cold            |\r\n
+    | 6     | Arctic cold     |\r\n
+    \r\n
+    ### Wind \r\n
+    | Stage | Condition     |\r\n
+    |-------|---------------|\r\n
+    | 1     | Calm          |\r\n
+    | 2     | Moderate wind |\r\n
+    | 3     | Strong wind   |\r\n
+    | 4     | Gale          |\r\n
+    | 5     | Storm         |
+  spellType: ['weather']
   source: SRD
 counterspell:
   spellName: Counterspell
@@ -1129,6 +1424,7 @@ counterspell:
     has no effect. If it is casting a spell of 4th level or higher, make an
     ability check using your spellcasting ability. The DC equals 10 + the
     spell's level. On a success, the creature's spell fails and has no effect.
+  spellType: ['antimagic']
   source: SRD
 create_food_and_water:
   spellName: Create Food and Water
@@ -1145,6 +1441,7 @@ create_food_and_water:
     containers within range, enough to sustain up to fifteen humanoids or five
     steeds for 24 hours. The food is bland but nourishing, and spoils if uneaten
     after 24 hours. The water is clean and doesn't go bad.
+  spellType: ['food']
   source: SRD
 create_or_destroy water:
   spellName: Create or Destroy Water
@@ -1160,7 +1457,14 @@ create_or_destroy water:
     When you cast this spell using a spell slot of 2nd level or higher, you
     create or destroy 10 additional gallons of water, or the size of the cube
     increases by 5 feet, for each slot level above 1st.
-  description: "You either create or destroy water.    \r\n**Create Water.** You create up to 10 gallons of clean water within range in an open container. Alternatively, the water falls as rain in a 30-foot cube within range, extinguishing exposed flames in the area.    \r\n**Destroy Water.** You destroy up to 10 gallons of water in an open container within range. Alternatively, you destroy fog in a 30-foot cube within range."
+  description: >-
+    You either create or destroy water.    \r\n
+    **Create Water.** You create up to 10 gallons of clean water within range in an 
+    open container. Alternatively, the water falls as rain in a 30-foot cube within 
+    range, extinguishing exposed flames in the area.    \r\n
+    **Destroy Water.** You destroy up to 10 gallons of water in an open container 
+    within range. Alternatively, you destroy fog in a 30-foot cube within range.
+  spellType: ['water']
   source: SRD
 create_undead:
   spellName: Create Undead
@@ -1179,7 +1483,24 @@ create_undead:
     or two ghasts or wights. When you cast this spell using a 9th-level spell
     slot, you can animate or reassert control over six ghouls, three ghasts or
     wights, or two mummies.
-  description: "You can cast this spell only at night. Choose up to three corpses of Medium or Small humanoids within range. Each corpse becomes a ghoul under your control. (The GM has game statistics for these creatures.)    \r\nAs a bonus action on each of your turns, you can mentally command any creature you animated with this spell if the creature is within 120 feet of you (if you control multiple creatures, you can command any or all of them at the same time, issuing the same command to each one). You decide what action the creature will take and where it will move during its next turn, or you can issue a general command, such as to guard a particular chamber or corridor. If you issue no commands, the creature only defends itself against hostile creatures. Once given an order, the creature continues to follow it until its task is complete.    \r\nThe creature is under your control for 24 hours, after which it stops obeying any command you have given it. To maintain control of the creature for another 24 hours, you must cast this spell on the creature before the current 24-hour period ends. This use of the spell reasserts your control over up to three creatures you have animated with this spell, rather than animating new ones."
+  description: >-
+    You can cast this spell only at night. Choose up to three corpses of Medium 
+    or Small humanoids within range. Each corpse becomes a ghoul under your control. 
+    (The GM has game statistics for these creatures.)    \r\n
+    As a bonus action on each of your turns, you can mentally command any creature 
+    you animated with this spell if the creature is within 120 feet of you (if you 
+    control multiple creatures, you can command any or all of them at the same time, 
+    issuing the same command to each one). You decide what action the creature will 
+    take and where it will move during its next turn, or you can issue a general 
+    command, such as to guard a particular chamber or corridor. If you issue no 
+    commands, the creature only defends itself against hostile creatures. Once 
+    given an order, the creature continues to follow it until its task is complete.    \r\n
+    The creature is under your control for 24 hours, after which it stops obeying any 
+    command you have given it. To maintain control of the creature for another 24 hours, 
+    you must cast this spell on the creature before the current 24-hour period ends. This 
+    use of the spell reasserts your control over up to three creatures you have animated 
+    with this spell, rather than animating new ones.
+  spellType: ['necromancy']
   source: SRD
 creation:
   spellName: Creation
@@ -1194,7 +1515,24 @@ creation:
   atHigherLevels: >-
     When you cast this spell using a spell slot of 6th level or higher, the cube
     increases by 5 feet for each slot level above 5th.
-  description: "You pull wisps of shadow material from the Shadowfell to create a nonliving object of vegetable matter within range: soft goods, rope, wood, or something similar. You can also use this spell to create mineral objects such as stone, crystal, or metal. The object created must be no larger than a 5-foot cube, and the object must be of a form and material that you have seen before.    \r\nThe duration depends on the object's material. If the object is composed of multiple materials, use the shortest duration. \r\n\r\n| Material              | Duration   |\r\n|-----------------------|------------|\r\n| Vegetable matter      | 1 day      |        \r\n| Stone or crystal      | 12 hours   |           \r\n| Precious metals       | 1 hour     |         \r\n| Gems                  | 10 minutes |             \r\n| Adamantine or mithral | 1 minute   |           \r\n\r\nUsing any material created by this spell as another spell's material component causes that spell to fail."
+  description: >-
+    You pull wisps of shadow material from the Shadowfell to create a nonliving 
+    object of vegetable matter within range: soft goods, rope, wood, or something 
+    similar. You can also use this spell to create mineral objects such as stone, 
+    crystal, or metal. The object created must be no larger than a 5-foot cube, 
+    and the object must be of a form and material that you have seen before.    \r\n
+    The duration depends on the object's material. If the object is composed of multiple 
+    materials, use the shortest duration. \r\n\r\n
+    | Material              | Duration   |\r\n
+    |-----------------------|------------|\r\n
+    | Vegetable matter      | 1 day      |        \r\n
+    | Stone or crystal      | 12 hours   |           \r\n
+    | Precious metals       | 1 hour     |         \r\n
+    | Gems                  | 10 minutes |             \r\n
+    | Adamantine or mithral | 1 minute   |           \r\n
+    \r\n
+    Using any material created by this spell as another spell's material component causes that spell to fail.
+  spellType: ['magic']
   source: SRD
 cure_wounds:
   spellName: Cure Wounds
@@ -1213,6 +1551,9 @@ cure_wounds:
     A creature you touch regains a number of hit points equal to 1d8 + your
     spellcasting ability modifier. This spell has no effect on undead or
     constructs.
+  spellType: ['healing']
+  damage: 1d8
+  damageAtHigherLevels: 1d8
   source: SRD
 dancing_lights:
   spellName: Dancing Lights
@@ -1224,7 +1565,15 @@ dancing_lights:
   components: "V, S, M"
   duration: "Concentration, up to 1 minute"
   concentration: true
-  description: "You create up to four torch-sized lights within range, making them appear as torches, lanterns, or glowing orbs that hover in the air for the duration. You can also combine the four lights into one glowing vaguely humanoid form of Medium size. Whichever form you choose, each light sheds dim light in a 10- foot radius.    \r\nAs a bonus action on your turn, you can move the lights up to 60 feet to a new spot within range. A light must be within 20 feet of another light created by this spell, and a light winks out if it exceeds the spell's range."
+  description: >-
+    You create up to four torch-sized lights within range, making them appear as torches, 
+    lanterns, or glowing orbs that hover in the air for the duration. You can also combine 
+    the four lights into one glowing vaguely humanoid form of Medium size. Whichever form 
+    you choose, each light sheds dim light in a 10- foot radius.    \r\n
+    As a bonus action on your turn, you can move the lights up to 60 feet to a new spot 
+    within range. A light must be within 20 feet of another light created by this spell, 
+    and a light winks out if it exceeds the spell's range.
+  spellType: ['light']
   source: SRD
 darkness:
   spellName: Darkness
@@ -1236,7 +1585,16 @@ darkness:
   components: "V, M"
   duration: "Concentration, up to 10 minutes"
   concentration: true
-  description: "Magical darkness spreads from a point you choose within range to fill a 15-foot-radius sphere for the duration. The darkness spreads around corners. A creature with darkvision can't see through this darkness, and nonmagical light can't illuminate it.    \r\nIf the point you choose is on an object you are holding or one that isn't being worn or carried, the darkness emanates from the object and moves with it. Completely covering the source of the darkness with an opaque object, such as a bowl or a helm, blocks the darkness.    \r\nIf any of this spell's area overlaps with an area of light created by a spell of 2nd level or lower, the spell that created the light is dispelled."
+  description: >- 
+    Magical darkness spreads from a point you choose within range to fill a 15-foot-radius 
+    sphere for the duration. The darkness spreads around corners. A creature with darkvision 
+    can't see through this darkness, and nonmagical light can't illuminate it.    \r\n
+    If the point you choose is on an object you are holding or one that isn't being worn or 
+    carried, the darkness emanates from the object and moves with it. Completely covering 
+    the source of the darkness with an opaque object, such as a bowl or a helm, blocks the darkness.    \r\n
+    If any of this spell's area overlaps with an area of light created by a spell of 2nd level or lower, 
+    the spell that created the light is dispelled.
+  spellType: ['dark']
   source: SRD
 darkvision:
   spellName: Darkvision
@@ -1262,7 +1620,15 @@ daylight:
   components: "V, S"
   duration: 1 hour
   concentration: false
-  description: "A 60-foot-radius sphere of light spreads out from a point you choose within range. The sphere is bright light and sheds dim light for an additional 60 feet.    \r\nIf you chose a point on an object you are holding or one that isn't being worn or carried, the light shines from the object and moves with it. Completely covering the affected object with an opaque object, such as a bowl or a helm, blocks the light.    \r\nIf any of this spell's area overlaps with an area of darkness created by a spell of 3rd level or lower, the spell that created the darkness is dispelled."
+  description: >-
+    A 60-foot-radius sphere of light spreads out from a point you choose within range. 
+    The sphere is bright light and sheds dim light for an additional 60 feet.    \r\n
+    If you chose a point on an object you are holding or one that isn't being worn or 
+    carried, the light shines from the object and moves with it. Completely covering 
+    the affected object with an opaque object, such as a bowl or a helm, blocks the light.    \r\n
+    If any of this spell's area overlaps with an area of darkness created by a spell of 3rd 
+    level or lower, the spell that created the darkness is dispelled.
+  spellType: ['light']
   source: SRD
 death_ward:
   spellName: Death Ward
@@ -1274,7 +1640,14 @@ death_ward:
   components: "V, S"
   duration: 8 hours
   concentration: false
-  description: "You touch a creature and grant it a measure of protection from death.    \r\nThe first time the target would drop to 0 hit points as a result of taking damage, the target instead drops to 1 hit point, and the spell ends.    \r\nIf the spell is still in effect when the target is subjected to an effect that would kill it instantaneously without dealing damage, that effect is instead negated against the target, and the spell ends."
+  description: >-
+    You touch a creature and grant it a measure of protection from death.    \r\n
+    The first time the target would drop to 0 hit points as a result of taking damage, 
+    the target instead drops to 1 hit point, and the spell ends.    \r\n
+    If the spell is still in effect when the target is subjected to an effect that 
+    would kill it instantaneously without dealing damage, that effect is instead 
+    negated against the target, and the spell ends.
+  spellType: ['shield']
   source: SRD
 delayed_blast_fireball:
   spellName: Delayed Blast Fireball
@@ -1289,7 +1662,26 @@ delayed_blast_fireball:
   atHigherLevels: >-
     When you cast this spell using a spell slot of 8th level or higher, the base
     damage increases by 1d6 for each slot level above 7th.
-  description: "A beam of yellow light flashes from your pointing finger, then condenses to linger at a chosen point within range as a glowing bead for the duration. When the spell ends, either because your concentration is broken or because you decide to end it, the bead blossoms with a low roar into an explosion of flame that spreads around corners. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A creature takes fire damage equal to the total accumulated damage on a failed save, or half as much damage on a successful one.    \r\nThe spell's base damage is 12d6. If at the end of your turn the bead has not yet detonated, the damage increases by 1d6.    \r\nIf the glowing bead is touched before the interval has expired, the creature touching it must make a Dexterity saving throw. On a failed save, the spell ends immediately, causing the bead to erupt in flame. On a successful save, the creature can throw the bead up to 40 feet. When it strikes a creature or a solid object, the spell ends, and the bead explodes.    \r\nThe fire damages objects in the area and ignites flammable objects that aren't being worn or carried."
+  description: >-
+    A beam of yellow light flashes from your pointing finger, then condenses 
+    to linger at a chosen point within range as a glowing bead for the duration. 
+    When the spell ends, either because your concentration is broken or because 
+    you decide to end it, the bead blossoms with a low roar into an explosion 
+    of flame that spreads around corners. Each creature in a 20-foot-radius sphere 
+    centered on that point must make a Dexterity saving throw. A creature takes 
+    fire damage equal to the total accumulated damage on a failed save, or half 
+    as much damage on a successful one.    \r\n
+    The spell's base damage is 12d6. If at the end of your turn the bead has not 
+    yet detonated, the damage increases by 1d6.    \r\n
+    If the glowing bead is touched before the interval has expired, the creature 
+    touching it must make a Dexterity saving throw. On a failed save, the spell ends 
+    immediately, causing the bead to erupt in flame. On a successful save, the 
+    creature can throw the bead up to 40 feet. When it strikes a creature or a 
+    solid object, the spell ends, and the bead explodes.    \r\n
+    The fire damages objects in the area and ignites flammable objects that aren't being worn or carried.
+  spellType: ['fire']
+  damage: 12d6
+  damageAtHigherLevels: 1d6
   source: SRD
 demiplane:
   spellName: Demiplane
@@ -1301,7 +1693,18 @@ demiplane:
   components: S
   duration: 1 hour
   concentration: false
-  description: "You create a shadowy door on a flat solid surface that you can see within range. The door is large enough to allow Medium creatures to pass through unhindered. When opened, the door leads to a demiplane that appears to be an empty room 30 feet in each dimension, made of wood or stone. When the spell ends, the door disappears, and any creatures or objects inside the demiplane remain trapped there, as the door also disappears from the other side.    \r\nEach time you cast this spell, you can create a new demiplane, or have the shadowy door connect to a demiplane you created with a previous casting of this spell. Additionally, if you know the nature and contents of a demiplane created by a casting of this spell by another creature, you can have the shadowy door connect to its demiplane instead."
+  description: >- 
+    You create a shadowy door on a flat solid surface that you can see within range. The 
+    door is large enough to allow Medium creatures to pass through unhindered. When opened, 
+    the door leads to a demiplane that appears to be an empty room 30 feet in each dimension, 
+    made of wood or stone. When the spell ends, the door disappears, and any creatures or 
+    objects inside the demiplane remain trapped there, as the door also disappears from the 
+    other side.    \r\n
+    Each time you cast this spell, you can create a new demiplane, or have the shadowy door 
+    connect to a demiplane you created with a previous casting of this spell. Additionally, 
+    if you know the nature and contents of a demiplane created by a casting of this spell 
+    by another creature, you can have the shadowy door connect to its demiplane instead.
+  spellType: ['travel']
   source: SRD
 detect_evil_and_good:
   spellName: Detect Evil and Good
@@ -1314,6 +1717,7 @@ detect_evil_and_good:
   duration: "Concentration, up to 10 minutes"
   concentration: true
   description: "For the duration, you know if there is an aberration, celestial, elemental, fey, fiend, or undead within 30 feet of you, as well as where the creature is located. Similarly, you know if there is a place or object within 30 feet of you that has been magically consecrated or desecrated.    \r\nThe spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt."
+  spellType: ['divination']
   source: SRD
 detect_magic:
   spellName: Detect Magic
@@ -1326,6 +1730,7 @@ detect_magic:
   duration: "Concentration, up to 10 minutes"
   concentration: true
   description: "For the duration, you sense the presence of magic within 30 feet of you. If you sense magic in this way, you can use your action to see a faint aura around any visible creature or object in the area that bears magic, and you learn its school of magic, if any.    \r\nThe spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt."
+  spellType: ['divination']
   source: SRD
 detect_poison_and_disease:
   spellName: Detect Poison and Disease
@@ -1338,6 +1743,7 @@ detect_poison_and_disease:
   duration: "Concentration, up to 10 minutes"
   concentration: true
   description: "For the duration, you can sense the presence and location of poisons, poisonous creatures, and diseases within 30 feet of you. You also identify the kind of poison, poisonous creature, or disease in each case.    \r\nThe spell can penetrate most barriers, but it is blocked by 1 foot of stone, 1 inch of common metal, a thin sheet of lead, or 3 feet of wood or dirt."
+  spellType: ['divination']
   source: SRD
 detect_thoughts:
   spellName: Detect Thoughts
@@ -1350,6 +1756,7 @@ detect_thoughts:
   duration: "Concentration, up to 1 minute"
   concentration: true
   description: "For the duration, you can read the thoughts of certain creatures. When you cast the spell and as your action on each turn until the spell ends, you can focus your mind on any one creature that you can see within 30 feet of you. If the creature you choose has an Intelligence of 3 or lower or doesn't speak any language, the creature is unaffected.    \r\nYou initially learn the surface thoughts of the creature--what is most on its mind in that moment. As an action, you can either shift your attention to another creature's thoughts or attempt to probe deeper into the same creature's mind. If you probe deeper, the target must make a Wisdom saving throw. If it fails, you gain insight into its reasoning (if any), its emotional state, and something that looms large in its mind (such as something it worries over, loves, or hates). If it succeeds, the spell ends. Either way, the target knows that you are probing into its mind, and unless you shift your attention to another creature's thoughts, the creature can use its action on its turn to make an Intelligence check contested by your Intelligence check; if it succeeds, the spell ends.    \r\nQuestions verbally directed at the target creature naturally shape the course of its thoughts, so this spell is particularly effective as part of an interrogation.    \r\nYou can also use this spell to detect the presence of thinking creatures you can't see. When you cast the spell or as your action during the duration, you can search for thoughts within 30 feet of you. The spell can penetrate barriers, but 2 feet of rock, 2 inches of any metal other than lead, or a thin sheet of lead blocks you. You can't detect a creature with an Intelligence of 3 or lower or one that doesn't speak any language.    \r\nOnce you detect the presence of a creature in this way, you can read its thoughts for the rest of the duration as described above, even if you can't see it, but it must still be within range."
+  spellType: ['divination']
   source: SRD
 dimension_door:
   spellName: Dimension Door
@@ -1362,6 +1769,7 @@ dimension_door:
   duration: Instantaneous Y
   concentration: false
   description: "You teleport yourself from your current location to any other spot within range. You arrive at exactly the spot desired. It can be a place you can see, one you can visualize, or one you can describe by stating distance and direction, such as \"200 feet straight downward\" or \"upward to the northwest at a 45- degree angle, 300 feet.\"    \r\nYou can bring along objects as long as their weight doesn't exceed what you can carry. You can also bring one willing creature of your size or smaller who is carrying gear up to its carrying capacity. The creature must be within 5 feet of you when you cast this spell.    \r\nIf you would arrive in a place already occupied by an object or a creature, you and any creature traveling with you each take 4d6 force damage, and the spell fails to teleport you."
+  spellType: ['travel']
   source: SRD
 disguise_self:
   spellName: Disguise Self
@@ -1401,6 +1809,7 @@ dispel_evil_and_good:
   duration: "Concentration, up to 1 minute"
   concentration: true
   description: "Shimmering energy surrounds and protects you from fey, undead, and creatures originating from beyond the Material Plane. For the duration, celestials, elementals, fey, fiends, and undead have disadvantage on attack rolls against you.    \r\nYou can end the spell early by using either of the following special functions.    \r\n**Break Enchantment.** As your action, you touch a creature you can reach that is charmed, frightened, or possessed by a celestial, an elemental, a fey, a fiend, or an undead. The creature you touch is no longer charmed, frightened, or possessed by such creatures.    \r\n**Dismissal.** As your action, make a melee spell attack against a celestial, an elemental, a fey, a fiend, or an undead you can reach. On a hit, you attempt to drive the creature back to its home plane. The creature must succeed on a Charisma saving throw or be sent back to its home plane (if it isn't there already). If they aren't on their home plane, undead are sent to the Shadowfell, and fey are sent to the Feywild."
+  spellType: ['shield']
   source: SRD
 dispel_magic:
   spellName: Dispel Magic
@@ -1421,6 +1830,7 @@ dispel_magic:
     3rd level or lower on the target ends. For each spell of 4th level or higher
     on the target, make an ability check using your spellcasting ability. The DC
     equals 10 + the spell's level. On a successful check, the spell ends.
+  spellType: ['antimagic']
   source: SRD
 divination:
   spellName: Divination
@@ -1433,6 +1843,7 @@ divination:
   duration: Instantaneous
   concentration: false
   description: "Your magic and an offering put you in contact with a god or a god's servants. You ask a single question concerning a specific goal, event, or activity to occur within 7 days. The GM offers a truthful reply. The reply might be a short phrase, a cryptic rhyme, or an omen.    \r\nThe spell doesn't take into account any possible circumstances that might change the outcome, such as the casting of additional spells or the loss or gain of a companion.    \r\nIf you cast the spell two or more times before finishing your next long rest, there is a cumulative 25 percent chance for each casting after the first that you get a random reading. The GM makes this roll in secret."
+  spellType: ['divination']
   source: SRD
 divine_favor:
   spellName: Divine Favor
@@ -1447,6 +1858,7 @@ divine_favor:
   description: >-
     Your prayer empowers you with divine radiance. Until the spell ends, your
     weapon attacks deal an extra 1d4 radiant damage on a hit.
+  spellType: ['radiant','buff']
   source: SRD
 divine_word:
   spellName: Divine Word
@@ -1458,7 +1870,19 @@ divine_word:
   components: V
   duration: Instantaneous
   concentration: false
-  description: "You utter a divine word, imbued with the power that shaped the world at the dawn of creation. Choose any number of creatures you can see within range. Each creature that can hear you must make a Charisma saving throw. On a failed save, a creature suffers an effect based on its current hit points:\r\n\r\n* 50 hit points or fewer: deafened for 1 minute\r\n* 40 hit points or fewer: deafened and blinded for 10 minutes\r\n* 30 hit points or fewer: blinded, deafened, and stunned for 1 hour\r\n* 20 hit points or fewer: killed instantly \r\n\r\nRegardless of its current hit points, a celestial, an elemental, a fey, or a fiend that fails its save is forced back to its plane of origin (if it isn't there already) and can't return to your current plane for 24 hours by any means short of a **_wish_** spell."
+  description: >-
+    You utter a divine word, imbued with the power that shaped the world at the dawn of 
+    creation. Choose any number of creatures you can see within range. Each creature that 
+    can hear you must make a Charisma saving throw. On a failed save, a creature suffers 
+    an effect based on its current hit points:\r\n\r\n
+    * 50 hit points or fewer: deafened for 1 minute\r\n
+    * 40 hit points or fewer: deafened and blinded for 10 minutes\r\n
+    * 30 hit points or fewer: blinded, deafened, and stunned for 1 hour\r\n
+    * 20 hit points or fewer: killed instantly \r\n\r\n
+    Regardless of its current hit points, a celestial, an elemental, a fey, or a fiend 
+    that fails its save is forced back to its plane of origin (if it isn't there already) 
+    and can't return to your current plane for 24 hours by any means short of a _wish_ spell.
+  spellType: ['stun']
   source: SRD
 dominate_beast:
   spellName: Dominate Beast
@@ -1476,6 +1900,7 @@ dominate_beast:
     duration is concentration, up to 1 hour. When you use a spell slot of 7th
     level or higher, the duration is concentration, up to 8 hours.
   description: "You attempt to beguile a beast that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw.    \r\nWhile the beast is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as \"Attack that creature,\" \"Run over there,\" or \"Fetch that object.\" If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability.    \r\nYou can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well.    \r\nEach time the target takes damage, it makes a new Wisdom saving throw against the spell. If the saving throw succeeds, the spell ends."
+  spellType: ['stun', 'animal']
   source: SRD
 dominate_monster:
   spellName: Dominate Monster
@@ -1491,6 +1916,7 @@ dominate_monster:
     When you cast this spell with a 9th-level spell slot, the duration is
     concentration, up to 8 hours.
   description: "You attempt to beguile a creature that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw.    \r\nWhile the creature is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as \"Attack that creature,\" \"Run over there,\" or \"Fetch that object.\" If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability.    \r\nYou can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time, you can also cause the creature to use a reaction, but this requires you to use your own reaction as well.    \r\nEach time the target takes damage, it makes a new Wisdom saving throw against the spell. If the saving throw succeeds, the spell ends."
+  spellType: ['stun']
   source: SRD
 dominate_person:
   spellName: Dominate Person
@@ -1508,6 +1934,7 @@ dominate_person:
     duration is concentration, up to 1 hour. When you use a spell slot of 8th
     level or higher, the duration is concentration, up to 8 hours.
   description: "You attempt to beguile a humanoid that you can see within range. It must succeed on a Wisdom saving throw or be charmed by you for the duration. If you or creatures that are friendly to you are fighting it, it has advantage on the saving throw.    \r\nWhile the target is charmed, you have a telepathic link with it as long as the two of you are on the same plane of existence. You can use this telepathic link to issue commands to the creature while you are conscious (no action required), which it does its best to obey. You can specify a simple and general course of action, such as \"Attack that creature,\" \"Run over there,\" or \"Fetch that object.\" If the creature completes the order and doesn't receive further direction from you, it defends and preserves itself to the best of its ability.    \r\nYou can use your action to take total and precise control of the target. Until the end of your next turn, the creature takes only the actions you choose, and doesn't do anything that you don't allow it to do. During this time you can also cause the creature to use a reaction, but this requires you to use your own reaction as well.    \r\nEach time the target takes damage, it makes a new Wisdom saving throw against the spell. If the saving throw succeeds, the spell ends."
+  spellType: ['stun']
   source: SRD
 dream:
   spellName: Dream
@@ -1519,7 +1946,28 @@ dream:
   components: "V, S, M"
   duration: 8 hours
   concentration: false
-  description: "This spell shapes a creature's dreams. Choose a creature known to you as the target of this spell. The target must be on the same plane of existence as you. Creatures that don't sleep, such as elves, can't be contacted by this spell. You, or a willing creature you touch, enters a trance state, acting as a messenger. While in the trance, the messenger is aware of his or her surroundings, but can't take actions or move.    \r\nIf the target is asleep, the messenger appears in the target's dreams and can converse with the target as long as it remains asleep, through the duration of the spell. The messenger can also shape the environment of the dream, creating landscapes, objects, and other images. The messenger can emerge from the trance at any time, ending the effect of the spell early. The target recalls the dream perfectly upon waking. If the target is awake when you cast the spell, the messenger knows it, and can either end the trance (and the spell) or wait for the target to fall asleep, at which point the messenger appears in the target's dreams.    \r\nYou can make the messenger appear monstrous and terrifying to the target. If you do, the messenger can deliver a message of no more than ten words and then the target must make a Wisdom saving throw. On a failed save, echoes of the phantasmal monstrosity spawn a nightmare that lasts the duration of the target's sleep and prevents the target from gaining any benefit from that rest. In addition, when the target wakes up, it takes 3d6 psychic damage.    \r\nIf you have a body part, lock of hair, clipping from a nail, or similar portion of the target's body, the target makes its saving throw with disadvantage."
+  description: >-
+    This spell shapes a creature's dreams. Choose a creature known to you as the target of this 
+    spell. The target must be on the same plane of existence as you. Creatures that don't sleep, 
+    such as elves, can't be contacted by this spell. You, or a willing creature you touch, enters 
+    a trance state, acting as a messenger. While in the trance, the messenger is aware of his or 
+    her surroundings, but can't take actions or move.    \r\n
+    If the target is asleep, the messenger appears in the target's dreams and can converse with the 
+    target as long as it remains asleep, through the duration of the spell. The messenger can also 
+    shape the environment of the dream, creating landscapes, objects, and other images. The messenger 
+    can emerge from the trance at any time, ending the effect of the spell early. The target recalls 
+    the dream perfectly upon waking. If the target is awake when you cast the spell, the messenger 
+    knows it, and can either end the trance (and the spell) or wait for the target to fall asleep, 
+    at which point the messenger appears in the target's dreams.    \r\n
+    You can make the messenger appear monstrous and terrifying to the target. If you do, the messenger 
+    can deliver a message of no more than ten words and then the target must make a Wisdom saving throw. 
+    On a failed save, echoes of the phantasmal monstrosity spawn a nightmare that lasts the duration of 
+    the target's sleep and prevents the target from gaining any benefit from that rest. In addition, 
+    when the target wakes up, it takes 3d6 psychic damage.    \r\n
+    If you have a body part, lock of hair, clipping from a nail, or similar portion of the target's 
+    body, the target makes its saving throw with disadvantage.
+  spellType: ['psychic']
+  damage: 3d6
   source: SRD
 druidcraft:
   spellName: Druidcraft
@@ -1543,7 +1991,30 @@ earthquake:
   components: "V, S, M"
   duration: "Concentration, up to 1 minute"
   concentration: true
-  description: "You create a seismic disturbance at a point on the ground that you can see within range. For the duration, an intense tremor rips through the ground in a 100-foot-radius circle centered on that point and shakes creatures and structures in contact with the ground in that area.    \r\nThe ground in the area becomes difficult terrain. Each creature on the ground that is concentrating must make a Constitution saving throw. On a failed save, the creature's concentration is broken.    \r\nWhen you cast this spell and at the end of each turn you spend concentrating on it, each creature on the ground in the area must make a Dexterity saving throw. On a failed save, the creature is knocked prone.    \r\nThis spell can have additional effects depending on the terrain in the area, as determined by the GM.    \r\n**Fissures.** Fissures open throughout the spell's area at the start of your next turn after you cast the spell. A total of 1d6 such fissures open in locations chosen by the GM. Each is 1d10 × 10 feet deep, 10 feet wide, and extends from one edge of the spell's area to the opposite side. A creature standing on a spot where a fissure opens must succeed on a Dexterity saving throw or fall in. A creature that successfully saves moves with the fissure's edge as it opens.    \r\nA fissure that opens beneath a structure causes it to automatically collapse (see below).    \r\n**Structures.** The tremor deals 50 bludgeoning damage to any structure in contact with the ground in the area when you cast the spell and at the start of each of your turns until the spell ends. If a structure drops to 0 hit points, it collapses and potentially damages nearby creatures. A creature within half the distance of a structure's height must make a Dexterity saving throw. On a failed save, the creature takes 5d6 bludgeoning damage, is knocked prone, and is buried in the rubble, requiring a DC 20 Strength (Athletics) check as an action to escape. The GM can adjust the DC higher or lower, depending on the nature of the rubble. On a successful save, the creature takes half as much damage and doesn't fall prone or become buried."
+  description: >-
+    You create a seismic disturbance at a point on the ground that you can see within range. 
+    For the duration, an intense tremor rips through the ground in a 100-foot-radius circle 
+    centered on that point and shakes creatures and structures in contact with the ground in that area.    \r\n
+    The ground in the area becomes difficult terrain. Each creature on the ground that is concentrating 
+    must make a Constitution saving throw. On a failed save, the creature's concentration is broken.    \r\n
+    When you cast this spell and at the end of each turn you spend concentrating on it, each creature on the 
+    ground in the area must make a Dexterity saving throw. On a failed save, the creature is knocked prone.    \r\n
+    This spell can have additional effects depending on the terrain in the area, as determined by the GM.    \r\n
+    **Fissures.** Fissures open throughout the spell's area at the start of your next turn after you cast the spell. 
+    A total of 1d6 such fissures open in locations chosen by the GM. Each is 1d10 × 10 feet deep, 10 feet wide, 
+    and extends from one edge of the spell's area to the opposite side. A creature standing on a spot where a 
+    fissure opens must succeed on a Dexterity saving throw or fall in. A creature that successfully saves moves 
+    with the fissure's edge as it opens.    \r\n
+    A fissure that opens beneath a structure causes it to automatically collapse (see below).    \r\n
+    **Structures.** The tremor deals 50 bludgeoning damage to any structure in contact with the ground in the area 
+    when you cast the spell and at the start of each of your turns until the spell ends. If a structure drops to 0 
+    hit points, it collapses and potentially damages nearby creatures. A creature within half the distance of a 
+    structure's height must make a Dexterity saving throw. On a failed save, the creature takes 5d6 bludgeoning damage, 
+    is knocked prone, and is buried in the rubble, requiring a DC 20 Strength (Athletics) check as an action to escape. 
+    The GM can adjust the DC higher or lower, depending on the nature of the rubble. On a successful save, the creature 
+    takes half as much damage and doesn't fall prone or become buried.
+  spellType: ['bludgeoning']
+  damage: 5d6
   source: SRD
 eldritch_blast:
   spellName: Eldritch Blast
@@ -1554,8 +2025,15 @@ eldritch_blast:
   ritual: false
   components: "V, S"
   duration: Instantaneous
+  atHigherLevels: >-
+    The spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, 
+    and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam.
   concentration: false
-  description: "A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. On a hit, the target takes 1d10 force damage.    \r\nThe spell creates more than one beam when you reach higher levels: two beams at 5th level, three beams at 11th level, and four beams at 17th level. You can direct the beams at the same target or at different ones. Make a separate attack roll for each beam."
+  description: >-
+    A beam of crackling energy streaks toward a creature within range. Make a ranged spell attack against the target. 
+    On a hit, the target takes 1d10 force damage.    \r\n
+  damage: 1d10
+  spellType: ['force']
   source: SRD
 enhance_ability:
   spellName: Enhance Ability
@@ -1571,6 +2049,7 @@ enhance_ability:
     When you cast this spell using a spell slot of 3rd level or higher, you can
     target one additional creature for each slot level above 2nd.
   description: "You touch a creature and bestow upon it a magical enhancement. Choose one of the following effects; the target gains that effect until the spell ends.    \r\n**Bear's Endurance.** The target has advantage on Constitution checks. It also gains 2d6 temporary hit points, which are lost when the spell ends.    \r\n**Bull's Strength.** The target has advantage on Strength checks, and his or her carrying capacity doubles.    \r\n**Cat's Grace.** The target has advantage on Dexterity checks. It also doesn't take damage from falling 20 feet or less if it isn't incapacitated.    \r\n**Eagle's Splendor.** The target has advantage on Charisma checks.    \r\n**Fox's Cunning.** The target has advantage on Intelligence checks.    \r\n**Owl's Wisdom.** The target has advantage on Wisdom checks."
+  spellType: ['buff']
   source: SRD
 enlarge:
   spellName: Enlarge
@@ -1583,6 +2062,7 @@ enlarge:
   duration: "Concentration, up to 1 minute"
   concentration: true
   description: "You cause a creature or an object you can see within range to grow larger or smaller for the duration. Choose either a creature or an object that is neither worn nor carried. If the target is unwilling, it can make a Constitution saving throw. On a success, the spell has no effect.    \r\nIf the target is a creature, everything it is wearing and carrying changes size with it. Any item dropped by an affected creature returns to normal size at once.    \r\n**Enlarge.** The target's size doubles in all dimensions, and its weight is multiplied by eight. This growth increases its size by one category-- from Medium to Large, for example. If there isn't enough room for the target to double its size, the creature or object attains the maximum possible size in the space available. Until the spell ends, the target also has advantage on Strength checks and Strength saving throws. The target's weapons also grow to match its new size. While these weapons are enlarged, the target's attacks with them deal 1d4 extra damage.    \r\n**Reduce.** The target's size is halved in all dimensions, and its weight is reduced to one-eighth of normal. This reduction decreases its size by one category--from Medium to Small, for example. Until the spell ends, the target also has disadvantage on Strength checks and Strength saving throws. The target's weapons also shrink to match its new size. While these weapons are reduced, the target's attacks with them deal 1d4 less damage (this can't reduce the damage below 1)."
+  spellType: ['buff']
   source: SRD
 entangle:
   spellName: Entangle
@@ -1595,6 +2075,7 @@ entangle:
   duration: "Concentration, up to 1 minute"
   concentration: true
   description: "Grasping weeds and vines sprout from the ground in a 20-foot square starting from a point within range. For the duration, these plants turn the ground in the area into difficult terrain.    \r\nA creature in the area when you cast the spell must succeed on a Strength saving throw or be restrained by the entangling plants until the spell ends. A creature restrained by the plants can use its action to make a Strength check against your spell save DC. On a success, it frees itself.    \r\nWhen the spell ends, the conjured plants wilt away."
+  spellType: ['restrain']
   source: SRD
 enthrall:
   spellName: Enthrall
@@ -1615,6 +2096,7 @@ enthrall:
     Wisdom (Perception) checks made to perceive any creature other than you
     until the spell ends or until the target can no longer hear you. The spell
     ends if you are incapacitated or can no longer speak.
+  spellType: ['stun']
   source: SRD
 etherealness:
   spellName: Etherealness
@@ -1632,6 +2114,7 @@ etherealness:
     above 7th. The creatures must be within 10 feet of you when you cast the
     spell.
   description: "You step into the border regions of the Ethereal Plane, in the area where it overlaps with your current plane. You remain in the Border Ethereal for the duration or until you use your action to dismiss the spell. During this time, you can move in any direction. If you move up or down, every foot of movement costs an extra foot. You can see and hear the plane you originated from, but everything there looks gray, and you can't see anything more than 60 feet away.    \r\nWhile on the Ethereal Plane, you can only affect and be affected by other creatures on that plane. Creatures that aren't on the Ethereal Plane can't perceive you and can't interact with you, unless a special ability or magic has given them the ability to do so.    \r\nYou ignore all objects and effects that aren't on the Ethereal Plane, allowing you to move through objects you perceive on the plane you originated from.    \r\nWhen the spell ends, you immediately return to the plane you originated from in the spot you currently occupy. If you occupy the same spot as a solid object or creature when this happens, you are immediately shunted to the nearest unoccupied space that you can occupy and take force damage equal to twice the number of feet you are moved.    \r\nThis spell has no effect if you cast it while you are on the Ethereal Plane or a plane that doesn't border it, such as one of the Outer Planes."
+  spellType: ['travel']
   source: SRD
 expeditious_retreat:
   spellName: Expeditious Retreat
@@ -1647,6 +2130,7 @@ expeditious_retreat:
     This spell allows you to move at an incredible pace. When you cast this
     spell, and then as a bonus action on each of your turns until the spell
     ends, you can take the Dash action.
+  spellType: ['speed']
   source: SRD
 eyebite:
   spellName: Eyebite
@@ -1658,7 +2142,21 @@ eyebite:
   components: "V, S"
   duration: "Concentration, up to 1 minute"
   concentration: true
-  description: "For the spell's duration, your eyes become an inky void imbued with dread power. One creature of your choice within 60 feet of you that you can see must succeed on a Wisdom saving throw or be affected by one of the following effects of your choice for the duration. On each of your turns until the spell ends, you can use your action to target another creature but can't target a creature again if it has succeeded on a saving throw against this casting of **_eyebite_**.    \r\n**Asleep.** The target falls unconscious. It wakes up if it takes any damage or if another creature uses its action to shake the sleeper awake.    \r\n**Panicked.** The target is frightened of you. On each of its turns, the frightened creature must take the Dash action and move away from you by the safest and shortest available route, unless there is nowhere to move. If the target moves to a place at least 60 feet away from you where it can no longer see you, this effect ends.    \r\n**Sickened.** The target has disadvantage on attack rolls and ability checks. At the end of each of its turns, it can make another Wisdom saving throw. If it succeeds, the effect ends."
+  description: >-
+    For the spell's duration, your eyes become an inky void imbued with dread power. One creature 
+    of your choice within 60 feet of you that you can see must succeed on a Wisdom saving throw or 
+    be affected by one of the following effects of your choice for the duration. On each of your 
+    turns until the spell ends, you can use your action to target another creature but can't target 
+    a creature again if it has succeeded on a saving throw against this casting of _eyebite_.    \r\n
+    **Asleep.** The target falls unconscious. It wakes up if it takes any damage or if another creature 
+    uses its action to shake the sleeper awake.    \r\n
+    **Panicked.** The target is frightened of you. On each of its turns, the frightened creature must 
+    take the Dash action and move away from you by the safest and shortest available route, unless there 
+    is nowhere to move. If the target moves to a place at least 60 feet away from you where it can no longer 
+    see you, this effect ends.    \r\n
+    **Sickened.** The target has disadvantage on attack rolls and ability checks. At the end of each 
+    of its turns, it can make another Wisdom saving throw. If it succeeds, the effect ends.
+  spellType: ['debuff']
   source: SRD
 fabricate:
   spellName: Fabricate
@@ -1671,6 +2169,7 @@ fabricate:
   duration: Instantaneous
   concentration: false
   description: "You convert raw materials into products of the same material. For example, you can fabricate a wooden bridge from a clump of trees, a rope from a patch of hemp, and clothes from flax or wool.    \r\nChoose raw materials that you can see within range. You can fabricate a Large or smaller object (contained within a 10-foot cube, or eight connected 5-foot cubes), given a sufficient quantity of raw material. If you are working with metal, stone, or another mineral substance, however, the fabricated object can be no larger than Medium (contained within a single 5-foot cube). The quality of objects made by the spell is commensurate with the quality of the raw materials.    \r\nCreatures or magic items can't be created or transmuted by this spell. You also can't use it to create items that ordinarily require a high degree of craftsmanship, such as jewelry, weapons, glass, or armor, unless you have proficiency with the type of artisan's tools used to craft such objects."
+  spellType: ['magic']
   source: SRD
 faerie_fire:
   spellName: Faerie Fire
@@ -1683,6 +2182,7 @@ faerie_fire:
   duration: "Concentration, up to 1 minute"
   concentration: true
   description: "Each object in a 20-foot cube within range is outlined in blue, green, or violet light (your choice). Any creature in the area when the spell is cast is also outlined in light if it fails a Dexterity saving throw. For the duration, objects and affected creatures shed dim light in a 10-foot radius.    \r\nAny attack roll against an affected creature or object has advantage if the attacker can see it, and the affected creature or object can't benefit from being invisible."
+  spellType: ['light','debuff']
   source: SRD
 faithful_hound:
   spellName: Faithful Hound
@@ -1695,6 +2195,8 @@ faithful_hound:
   duration: 8 hours
   concentration: false
   description: "You conjure a phantom watchdog in an unoccupied space that you can see within range, where it remains for the duration, until you dismiss it as an action, or until you move more than 100 feet away from it.    \r\nThe hound is invisible to all creatures except you and can't be harmed. When a Small or larger creature comes within 30 feet of it without first speaking the password that you specify when you cast this spell, the hound starts barking loudly. The hound sees invisible creatures and can see into the Ethereal Plane. It ignores illusions.    \r\nAt the start of each of your turns, the hound attempts to bite one creature within 5 feet of it that is hostile to you. The hound's attack bonus is equal to your spellcasting ability modifier + your proficiency bonus. On a hit, it deals 4d8 piercing damage."
+  spellType: ['hound', 'piercing']
+  damage: 4d8
   source: SRD
 false_life:
   spellName: False Life
@@ -1712,6 +2214,7 @@ false_life:
   description: >-
     Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4
     temporary hit points for the duration.
+  spellType: ['healing']
   source: SRD
 fear:
   spellName: Fear
@@ -1723,7 +2226,16 @@ fear:
   components: "V, S, M"
   duration: "Concentration, up to 1 minute"
   concentration: true
-  description: "You project a phantasmal image of a creature's worst fears. Each creature in a 30-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding and become frightened for the duration.    \r\nWhile frightened by this spell, a creature must take the Dash action and move away from you by the safest available route on each of its turns, unless there is nowhere to move. If the creature ends its turn in a location where it doesn't have line of sight to you, the creature can make a Wisdom saving throw. On a successful save, the spell ends for that creature."
+  description: >-
+    You project a phantasmal image of a creature's worst fears. Each creature in a 
+    0-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding 
+    and become frightened for the duration.    \r\n
+    While frightened by this spell, a creature must take the Dash action and move away 
+    from you by the safest available route on each of its turns, unless there is nowhere 
+    to move. If the creature ends its turn in a location where it doesn't have line of 
+    sight to you, the creature can make a Wisdom saving throw. On a successful save, 
+    the spell ends for that creature.
+  spellType: ['fear']
   source: SRD
 feather_fall:
   spellName: Feather Fall
@@ -1740,6 +2252,7 @@ feather_fall:
     of descent slows to 60 feet per round until the spell ends. If the creature
     lands before the spell ends, it takes no falling damage and can land on its
     feet, and the spell ends for that creature.
+  spellType: ['shield']
   source: SRD
 feeblemind:
   spellName: Feeblemind
@@ -1751,7 +2264,18 @@ feeblemind:
   components: "V, S, M"
   duration: Instantaneous
   concentration: false
-  description: "You blast the mind of a creature that you can see within range, attempting to shatter its intellect and personality. The target takes 4d6 psychic damage and must make an Intelligence saving throw.    \r\nOn a failed save, the creature's Intelligence and Charisma scores become 1. The creature can't cast spells, activate magic items, understand language, or communicate in any intelligible way. The creature can, however, identify its friends, follow them, and even protect them.    \r\nAt the end of every 30 days, the creature can repeat its saving throw against this spell. If it succeeds on its saving throw, the spell ends.    \r\nThe spell can also be ended by **_greater restoration_**, **_heal_**, or **_wish_**."
+  description: >-
+    You blast the mind of a creature that you can see within range, attempting to shatter its 
+    intellect and personality. The target takes 4d6 psychic damage and must make an Intelligence 
+    saving throw.    \r\n
+    On a failed save, the creature's Intelligence and Charisma scores become 1. The creature 
+    can't cast spells, activate magic items, understand language, or communicate in any intelligible 
+    way. The creature can, however, identify its friends, follow them, and even protect them.    \r\n
+    At the end of every 30 days, the creature can repeat its saving throw against this spell. If it 
+    succeeds on its saving throw, the spell ends.    \r\n
+    The spell can also be ended by _greater restoration_, _heal_, or _wish_.
+  spellType: ['psychic', 'stun', 'debuff']
+  damage: 4d6
   source: SRD
 find_familiar:
   spellName: Find Familiar
@@ -1764,6 +2288,7 @@ find_familiar:
   duration: Instantaneous
   concentration: false
   description: "You gain the service of a familiar, a spirit that takes an animal form you choose: bat, cat, crab, frog (toad), hawk, lizard, octopus, owl, poisonous snake, fish (quipper), rat, raven, sea horse, spider, or weasel. Appearing in an unoccupied space within range, the familiar has the statistics of the chosen form, though it is a celestial, fey, or fiend (your choice) instead of a beast.    \r\nYour familiar acts independently of you, but it always obeys your commands. In combat, it rolls its own initiative and acts on its own turn. A familiar can't attack, but it can take other actions as normal.    \r\nWhen the familiar drops to 0 hit points, it disappears, leaving behind no physical form. It reappears after you cast this spell again.    \r\nWhile your familiar is within 100 feet of you, you can communicate with it telepathically. Additionally, as an action, you can see through your familiar's eyes and hear what it hears until the start of your next turn, gaining the benefits of any special senses that the familiar has. During this time, you are deaf and blind with regard to your own senses.    \r\nAs an action, you can temporarily dismiss your familiar. It disappears into a pocket dimension where it awaits your summons. Alternatively, you can dismiss it forever. As an action while it is temporarily dismissed, you can cause it to reappear in any unoccupied space within 30 feet of you.    \r\nYou can't have more than one familiar at a time. If you cast this spell while you already have a familiar, you instead cause it to adopt a new form. Choose one of the forms from the above list. Your familiar transforms into the chosen creature.    \r\nFinally, when you cast a spell with a range of touch, your familiar can deliver the spell as if it had cast the spell. Your familiar must be within 100 feet of you, and it must use its reaction to deliver the spell when you cast it. If the spell requires an attack roll, you use your attack modifier for the roll."
+  spellType: ['summon', 'animal']
   source: SRD
 find_steed:
   spellName: Find Steed
@@ -1776,6 +2301,7 @@ find_steed:
   duration: Instantaneous
   concentration: false
   description: "You summon a spirit that assumes the form of an unusually intelligent, strong, and loyal steed, creating a long-lasting bond with it. Appearing in an unoccupied space within range, the steed takes on a form that you choose: a warhorse, a pony, a camel, an elk, or a mastiff. (Your GM might allow other animals to be summoned as steeds.) The steed has the statistics of the chosen form, though it is a celestial, fey, or fiend (your choice) instead of its normal type. Additionally, if your steed has an Intelligence of 5 or less, its Intelligence becomes 6, and it gains the ability to understand one language of your choice that you speak.    \r\nYour steed serves you as a mount, both in combat and out, and you have an instinctive bond with it that allows you to fight as a seamless unit. While mounted on your steed, you can make any spell you cast that targets only you also target your steed.    \r\nWhen the steed drops to 0 hit points, it disappears, leaving behind no physical form. You can also dismiss your steed at any time as an action, causing it to disappear. In either case, casting this spell again summons the same steed, restored to its hit point maximum.    \r\nWhile your steed is within 1 mile of you, you can communicate with it telepathically.    \r\nYou can't have more than one steed bonded by this spell at a time. As an action, you can release the steed from its bond at any time, causing it to disappear."
+  spellType: ['summon']
   source: SRD
 find_the_path:
   spellName: Find the Path
@@ -1788,6 +2314,7 @@ find_the_path:
   duration: "Concentration, up to 1 day"
   concentration: true
   description: "This spell allows you to find the shortest, most direct physical route to a specific fixed location that you are familiar with on the same plane of existence. If you name a destination on another plane of existence, a destination that moves (such as a mobile fortress), or a destination that isn't specific (such as \"a green dragon's lair\"), the spell fails.    \r\nFor the duration, as long as you are on the same plane of existence as the destination, you know how far it is and in what direction it lies. While you are traveling there, whenever you are presented with a choice of paths along the way, you automatically determine which path is the shortest and most direct route (but not necessarily the safest route) to the destination."
+  spellType: ['divination']
   source: SRD
 find_traps:
   spellName: Find Traps
@@ -1800,6 +2327,7 @@ find_traps:
   duration: Instantaneous
   concentration: false
   description: "You sense the presence of any trap within range that is within line of sight. A trap, for the purpose of this spell, includes anything that would inflict a sudden or unexpected effect you consider harmful or undesirable, which was specifically intended as such by its creator. Thus, the spell would sense an area affected by the **_alarm_** spell, a **_glyph of warding_**, or a mechanical pit trap, but it would not reveal a natural weakness in the floor, an unstable ceiling, or a hidden sinkhole.    \r\nThis spell merely reveals that a trap is present. You don't learn the location of each trap, but you do learn the general nature of the danger posed by a trap you sense."
+  spellType: ['divination']
   source: SRD
 finger_of_death:
   spellName: Finger of Death
@@ -1811,7 +2339,14 @@ finger_of_death:
   components: "V, S"
   duration: Instantaneous
   concentration: false
-  description: "You send negative energy coursing through a creature that you can see within range, causing it searing pain. The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic damage on a failed save, or half as much damage on a successful one.    \r\nA humanoid killed by this spell rises at the start of your next turn as a zombie that is permanently under your command, following your verbal orders to the best of its ability."
+  description: >-
+    You send negative energy coursing through a creature that you can see within range, causing it 
+    searing pain. The target must make a Constitution saving throw. It takes 7d8 + 30 necrotic 
+    damage on a failed save, or half as much damage on a successful one.    \r\n
+    A humanoid killed by this spell rises at the start of your next turn as a zombie that is 
+    permanently under your command, following your verbal orders to the best of its ability.
+  damage: 7d8+30
+  spellType: ['necrotic']
   source: SRD
 fireball:
   spellName: Fireball

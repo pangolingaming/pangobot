@@ -13,16 +13,24 @@ const typeIcons = {
   antimagic: ":cross:",
   bludgeoning: ":hammer:",
   buff: ":muscle:",
+  celestial: ":angel:",
   charm: ":heart_eyes:",
   cold: ":snowflake:",
+  dark: ":black_circle:",
   debuff: ":drop_of_blood:",
   disguise: ":disguised_face:",
   divination: ":crystal_ball:",
+  fear: ":scream:",
   fire: ":fire:",
+  food: ":stew:",
   force: ":magic_wand:",
   healing: ":adhesive_bandage:",
+  hound: ":dog:",
+  language: ":speech_balloon:",
+  light: ":bulb:",
   lightning: ":cloud_lightning:",
   lock: ":locked:",
+  magic: ":magic_wand:",
   message: ":envelope:",
   move: ":right_arrow:",
   necrotic: ":skull:",
@@ -35,12 +43,32 @@ const typeIcons = {
   shield: ":shield:",
   slashing: ":axe:",
   speed: ":fast_forward:",
+  stun: ":dizzy_face:",
   thunder: ":boom",
   travel: ":world_map:",
+  water: ":droplet:",
+  weather: ":white_sun_rain_cloud:"
     
 };
 
 const dndDamageTypes = ['acid', 'bludgeoning', 'cold', 'fire', 'force', 'lightning', 'necrotic', 'piercing', 'poison', 'psychic', 'radiant', 'slashing', 'thunder']
+
+
+/* TBD: Spells with effect tables. */
+
+// Confusion
+// Control Weather
+
+/* TBD: Healing spells. */
+
+/* TBD: Spellcasting modifiers. */
+
+/* TBD: Various special damage effects. */
+
+// Delayed Blast Fireball
+// Cantrip progression - beams (Eldritch Blast)
+// False Life
+// Finger of Death
 
 function parseRoll(rollString) {
   const roll = rollString.split("d");
