@@ -12,6 +12,7 @@ acid_arrow:
     When you cast this spell using a spell slot of 3rd level or higher, the
     damage (both initial and later) increases by 1d4 for each slot level above
     2nd.
+  spellRollText: 'damage'
   damage: 4d4
   spellType: ["acid"]
   damageAtHigherLevels: 1d4
@@ -42,6 +43,7 @@ acid_splash:
     succeed on a Dexterity saving throw or take 1d6 acid damage.
   damage: 1d6
   spellType: ["acid"]
+  spellRollText: 'damage'
   damageAtHigherLevels: 1d6
   source: SRD
 aid:
@@ -108,7 +110,7 @@ animal_friendship:
     beast that you can see within range. It must see and hear you. If the
     beast's Intelligence is 4 or higher, the spell fails. Otherwise, the beast
     must succeed on a Wisdom saving throw or be charmed by you for the spell's
-    duration. If you or one of your companions harms the target, the spells
+    duration. If you or one of your companions harms the target, the spell
     ends.
   spellType: ["animal", "charm"]
   source: SRD
@@ -307,6 +309,7 @@ arcane_hand:
   spellType: ['force', 'bludgeoning', 'move', 'restrain', 'shield']
   damage: 4d8
   damageAtHigherLevels: 2d8
+  spellRollText: 'damage'
   source: SRD
 arcane_lock:
   spellName: Arcane Lock
@@ -339,6 +342,7 @@ arcane_sword:
   Until the spell ends, you can use a bonus action on each of your turns to move the sword up to 20 feet to a spot you can see and repeat this attack against the same 
   target or a different one."
   damage: 3d10
+  spellRollText: 'damage'
   spellType: ['force']
   source: SRD
 astral_projection:
@@ -404,7 +408,7 @@ awaken:
   the awakened plant, such as the statistics for the awakened shrub or the awakened tree.   \r\n
   The awakened beast or plant is charmed by you for 30 days or until you or your companions do anything harmful to it. When the charmed condition ends, the awakened creature 
   chooses whether to remain friendly to you, based on how you treated it while it was charmed."
-  spellType: ['healing']
+  spellType: ['plant']
   source: SRD
 bane:
   spellName: Bane
@@ -541,6 +545,7 @@ blade_barrier:
   When a creature enters the wall's area for the first time on a turn or starts its turn there, the creature must make a Dexterity saving throw. On a failed save, the creature 
   takes 6d10 slashing damage. On a successful save, the creature takes half as much damage."
   spellType: ['slashing', 'shield']
+  spellRollText: 'damage'
   damage: 6d10
   source: SRD
 bless:
@@ -582,6 +587,7 @@ blight:
   If you target a nonmagical plant that isn't a creature, such as a tree or shrub, it doesn't make a saving throw; it simply withers and dies."
   spellType: ['necrotic']
   damage: 8d8
+  spellRollText: 'damage'
   source: SRD
 blindness:
   spellName: Blindness
@@ -614,13 +620,14 @@ blink:
   components: "V, S"
   duration: 1 minute
   concentration: false
-  description: "Roll a d20 at the end of each of your turns for the duration of the spell. On a roll of 11 or higher, you vanish from your current plane of existence and appear 
-  in the Ethereal Plane (the spell fails and the casting is wasted if you were already on that plane). At the start of your next turn, and when the spell ends if you are on the 
-  Ethereal Plane, you return to an unoccupied space of your choice that you can see within 10 feet of the space you vanished from. If no unoccupied space is available within that 
-  range, you appear in the nearest unoccupied space (chosen at random if more than one space is equally near). You can dismiss this spell as an action.    
-  \r\nWhile on the Ethereal Plane, you can see and hear the plane you originated from, which is cast in shades of gray, and you can't see anything there more than 60 feet away. 
-  You can only affect and be affected by other creatures on the Ethereal Plane. Creatures that aren't there can't perceive you or interact with you, unless they have the ability 
-  to do so."
+  description: >-
+    Roll a d20 at the end of each of your turns for the duration of the spell. On a roll of 11 or higher, you vanish from your current plane of existence and appear 
+    in the Ethereal Plane (the spell fails and the casting is wasted if you were already on that plane). At the start of your next turn, and when the spell ends if you are on the 
+    Ethereal Plane, you return to an unoccupied space of your choice that you can see within 10 feet of the space you vanished from. If no unoccupied space is available within that 
+    range, you appear in the nearest unoccupied space (chosen at random if more than one space is equally near). You can dismiss this spell as an action.    \r\n
+    While on the Ethereal Plane, you can see and hear the plane you originated from, which is cast in shades of gray, and you can't see anything there more than 60 feet away. 
+    You can only affect and be affected by other creatures on the Ethereal Plane. Creatures that aren't there can't perceive you or interact with you, unless they have the ability 
+    to do so.
   spellType: ['travel', 'shield']
   source: SRD
 blur:
@@ -662,6 +669,7 @@ branding_smite:
   spellType: ['radiant']
   damage: 2d6
   damageAtHigherLevels: 1d6
+  spellRollText: 'damage'
   source: SRD
 burning_hands:
   spellName: Burning Hands
@@ -682,6 +690,7 @@ burning_hands:
   spellType: ['fire']
   damage: 3d6
   damageAtHigherLevels: 1d6
+  spellRollText: 'damage'
   source: SRD
 call_lightning:
   spellName: Call Lightning
@@ -706,6 +715,7 @@ call_lightning:
   spellType: ['lightning']
   damage: 3d10
   damageAtHigherLevels: 1d10
+  spellRollText: 'damage'
   source: SRD
 calm_emotions:
   spellName: Calm Emotions
@@ -733,9 +743,13 @@ chain_lightning:
     When you cast this spell using a spell slot of 7th level or higher, one
     additional bolt leaps from the first target to another target for each slot
     level above 6th.
-  description: "You create a bolt of lightning that arcs toward a target of your choice that you can see within range. Three bolts then leap from that target to as many as three other targets, each of which must be within 30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.    
-  \r\nA target must make a Dexterity saving throw. The target takes 10d8 lightning damage on a failed save, or half as much damage on a successful one."
+  description: >-
+    You create a bolt of lightning that arcs toward a target of your choice that you can see within range. 
+    Three bolts then leap from that target to as many as three other targets, each of which must be within 
+    30 feet of the first target. A target can be a creature or an object and can be targeted by only one of the bolts.    \r\n
+    A target must make a Dexterity saving throw. The target takes 10d8 lightning damage on a failed save, or half as much damage on a successful one.
   damage: 10d8
+  spellRollText: 'damage'
   spellType: ['lightning']
   source: SRD
 charm_person:
@@ -780,6 +794,7 @@ chill_touch:
     of the grave. On a hit, the target takes 1d8 necrotic damage, and it can't regain hit 
     points until the start of your next turn. Until then, the hand clings to the target.    \r\n
     If you hit an undead target, it also has disadvantage on attack rolls against you until the end of your next turn.
+  spellRollText: 'damage'
   spellType: ['necrotic']
   damage: 1d8
   damageAtHigherLevels: 1d8
@@ -803,6 +818,7 @@ circle_of_death:
     saving throw. A target takes 8d6 necrotic damage on a failed save, or half
     as much damage on a successful one.
   spellType: ['necrotic']
+  spellRollText: 'damage'
   damageAtHigherLevels: 2d6
   damage: 8d6
   source: SRD
@@ -835,12 +851,14 @@ clone:
   components: "V, S, M"
   duration: Instantaneous
   concentration: false
-  description: "This spell grows an inert duplicate of a living creature as a safeguard against death. This clone forms inside a sealed vessel 
-  and grows to full size and maturity after 120 days; you can also choose to have the clone be a younger version of the same creature. It remains 
-  inert and endures indefinitely, as long as its vessel remains undisturbed.    \r\nAt any time after the clone matures, if the original creature 
-  dies, its soul transfers to the clone, provided that the soul is free and willing to return. The clone is physically identical to the original 
-  and has the same personality, memories, and abilities, but none of the original's equipment. The original creature's physical remains, if they 
-  still exist, become inert and can't thereafter be restored to life, since the creature's soul is elsewhere."
+  description: >-
+    This spell grows an inert duplicate of a living creature as a safeguard against death. This clone forms inside a sealed vessel 
+    and grows to full size and maturity after 120 days; you can also choose to have the clone be a younger version of the same creature. It remains 
+    inert and endures indefinitely, as long as its vessel remains undisturbed.    \r\n
+    At any time after the clone matures, if the original creature dies, its soul transfers to the clone, provided that the soul is free and 
+    willing to return. The clone is physically identical to the original and has the same personality, memories, and abilities, but 
+    none of the original's equipment. The original creature's physical remains, if they still exist, become inert and can't thereafter 
+    be restored to life, since the creature's soul is elsewhere.
   spellType: ['necromancy']
   source: SRD
 cloudkill:
@@ -865,6 +883,7 @@ cloudkill:
     The fog moves 10 feet away from you at the start of each of your turns, rolling along the surface of the ground. The vapors, being heavier than air, 
     sink to the lowest level of the land, even pouring down openings."
   spellType: ['poison']
+  spellRollText: 'damage'
   damage: 5d8
   damageAtHigherLevels: 1d8
   source: SRD
@@ -887,7 +906,10 @@ color_spray:
     Starting with the creature that has the lowest current hit points, each creature affected by this spell is blinded until the spell ends. Subtract each creature's 
     hit points from the total before moving on to the creature with the next lowest hit points. A creature's hit points must be equal to or less than the remaining total 
     for that creature to be affected.
-  spellType: ['debuff']
+  damage: 6d10
+  damageAtHigherLevels: 2d10
+  spellRollText: 'HP of creatures affected'
+  spellType: ['rainbow', 'debuff']
   source: SRD
 command:
   spellName: Command
@@ -936,7 +958,7 @@ commune:
     no. You must ask your questions before the spell ends. You receive a correct answer for each question.    \r\n
     Divine beings aren't necessarily omniscient, so you might receive \"unclear\" as an answer if a question pertains 
     to information that lies beyond the deity's knowledge. In a case where a one-word answer could be misleading or 
-    contrary to the deity's interests, the GM might offer a short phrase as an answer instead.    \r\n]
+    contrary to the deity's interests, the GM might offer a short phrase as an answer instead.    \r\n
     If you cast the spell two or more times before finishing your next long rest, there is a cumulative 25 percent 
     chance for each casting after the first that you get no answer. The GM makes this roll in secret.
   spellType: ['divination']
@@ -1020,6 +1042,7 @@ cone_of_cold:
     Constitution saving throw. A creature takes 8d8 cold damage on a failed save, or half as 
     much damage on a successful one.    \r\n
     A creature killed by this spell becomes a frozen statue until it thaws.
+  spellRollText: 'damage'
   spellType: ['cold']
   source: SRD
 confusion:
@@ -1552,6 +1575,7 @@ cure_wounds:
     spellcasting ability modifier. This spell has no effect on undead or
     constructs.
   spellType: ['healing']
+  spellRollText: 'healing'
   damage: 1d8
   damageAtHigherLevels: 1d8
   source: SRD

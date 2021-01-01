@@ -22,6 +22,7 @@
   "homepage": "https://github.com/discworldian/pangobot#readme",
   "dependencies": {
     "discord.js": "^12.5.1",
+    "expr-eval": "^2.0.2",
     "js-yaml": "^3.14.1",
     "yaml": "^1.10.0"
   }

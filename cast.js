@@ -36,9 +36,11 @@ const typeIcons = {
   necrotic: ":skull:",
   necromancy: ":skull:",
   piercing: ":dagger:",
+  plant: ":leaves:",
   poison: ":snake:",
   psychic: ":brain:",
   radiant: ":star2:",
+  rainbow: ":rainbow:",
   restrain: ":web:",
   shield: ":shield:",
   slashing: ":axe:",
@@ -53,12 +55,11 @@ const typeIcons = {
 
 const dndDamageTypes = ['acid', 'bludgeoning', 'cold', 'fire', 'force', 'lightning', 'necrotic', 'piercing', 'poison', 'psychic', 'radiant', 'slashing', 'thunder']
 
-
 /* TBD: Spells with effect tables. */
 
 // Confusion
 // Control Weather
-
+// Blink 
 /* TBD: Healing spells. */
 
 /* TBD: Spellcasting modifiers. */
@@ -102,12 +103,25 @@ function cast(msg) {
 
   const spell = spellsList[args[0].toLowerCase()];
 
+  let spellCastLevel;
+  let spellAttackMod;
+  let charLevel;
+
+  args.slice(1).forEach((arg) => {
+    if (arg[0].match(/[Ll]/)) {
+      spellCastLevel = parseInt(arg.substring(1))
+    } else if (arg[0].match(/[+-]/)) {
+      spellAttackMod = parseInt(arg)
+    }
+  })
+
+
   /* Check for concentration - this will be used in duration later */
 
   const concentration = spell.concentration ? ":regional_indicator_c: " : "";
 
   /* Figure out whether spell is upcast or not - mostly for damage purposes. */
-  let spellCastLevel = parseInt(args[1]);
+  
   if (!Number.isInteger(spellCastLevel)) {
     spellCastLevel = spell.spellLevel;
   }
@@ -126,23 +140,24 @@ function cast(msg) {
     upCastBy = spellCastLevel - spellBaseLevel;
   }
 
-  /* Roll for damage */
-  if (spell.damage) {
-    var damageRoll = spell.damage;
+  /* Roll for damage or healing or hpAffected or tempHP */
 
+    if (spell.damage) {
+    var effectRoll = spell.damage;
+    
     if (upCast === true) {
-      var spellDamageDice = parseRoll(spell.damage);
+      var spellEffectDice = parseRoll(effectRoll);
 
       /* Add extra damage dice if it's upcast */
       var higherLevelsDice = parseRoll(spell.damageAtHigherLevels);
       var upCastDiceNumber =
-        higherLevelsDice.number * upCastBy + spellDamageDice.number;
+        higherLevelsDice.number * upCastBy + spellEffectDice.number;
 
-      damageRoll = upCastDiceNumber + "d" + spellDamageDice.sides;
+      effectRoll = upCastDiceNumber + "d" + spellEffectDice.sides;
     }
 
-    var damage = roll(damageRoll);
-  }
+    var damage = roll(effectRoll);
+    }
 
   /* Footer */
 
@@ -223,8 +238,14 @@ function cast(msg) {
     });
   }
 
-  /* Add damage inline field. Turn damagetypes into a longer string if needed. */
-  let damageTypeString
+  /* Add damage inline field. Turn damagetypes into a longer string if needed. Add modifier(s) to roll. */
+
+  let damageTotal = damage.diceTotal
+  if (spellAttackMod) {
+    damageTotal = damageTotal + spellAttackMod
+  }
+
+  let spellRollText = spell.spellRollText
   
   if (damageTypes.length > 1) {
     damageTypeString = damageTypes.toString().replace(',', ' or ')
@@ -233,9 +254,9 @@ function cast(msg) {
   if (spell.damage) {
     castEmbed.fields.push({
       name: "Result",
-      value: `**${damage.diceTotal}** ${damageTypes} damage - ${
+      value: `**${damageTotal}** ${damageTypes} ${spellRollText} - ${
         damage.rollString
-      } rolled (${damage.diceRoll.toString()}).`,
+      } rolled (${damage.diceRoll.toString()}) ${spellAttackMod ? '+  ' + spellAttackMod : ''}.`,
     });
   }
   msg.reply(castEmbed);
