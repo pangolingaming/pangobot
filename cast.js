@@ -86,19 +86,26 @@ const dndDamageTypes = [
 // Delayed Blast Fireball
 // Cantrip progression - beams (Eldritch Blast)
 // Flamestrike - two types of damage
+// Ice Storm - same thing
+// Combine these two in array?
 
-/* function to account for more than one damage type */
+/* function to account for more than one damage type option */
 
 function joinArrayWithCommas(damageTypeString, damageTypes) {
   if (damageTypes.length > 1) {
-    let comma = ''
-    if (damageTypes.length > 2) {comma = ','}
-    damageTypeString = damageTypes.slice(0,(damageTypes.length-1)).join(", ") + comma + " or " + damageTypes[damageTypes.length - 1]
+    let comma = "";
+    if (damageTypes.length > 2) {
+      comma = ",";
+    }
+    damageTypeString =
+      damageTypes.slice(0, damageTypes.length - 1).join(", ") +
+      comma +
+      " or " +
+      damageTypes[damageTypes.length - 1];
   } else damageTypeString = damageTypes[0];
 }
 
 /* To calculate the dice from a roll string */
-
 
 function parseRoll(rollString) {
   const roll = rollString.split("d");
@@ -208,7 +215,7 @@ function cast(msg) {
       damageTypes.push(spell.spellType[i]);
     }
   }
-  let damageTypeString
+  let damageTypeString;
 
   joinArrayWithCommas(damageTypeString, damageTypes);
 
@@ -302,9 +309,15 @@ function cast(msg) {
   // If there's multiple options for damage, split them with "or". Going for an Oxford comma in this list.
 
   if (damageTypes.length > 1) {
-    let comma = ''
-    if (damageTypes.length > 2) {comma = ','}
-    damageTypeString = damageTypes.slice(0,(damageTypes.length-1)).join(", ") + comma + " or " + damageTypes[damageTypes.length - 1]
+    let comma = "";
+    if (damageTypes.length > 2) {
+      comma = ",";
+    }
+    damageTypeString =
+      damageTypes.slice(0, damageTypes.length - 1).join(", ") +
+      comma +
+      " or " +
+      damageTypes[damageTypes.length - 1];
   } else damageTypeString = damageTypes[0];
 
   /* Create the damage string */
@@ -312,14 +325,16 @@ function cast(msg) {
   if (spell.damage) {
     castEmbed.fields.push({
       name: "Result",
-      value: `**${damageTotal}** ${damageTypeString === undefined ? '' : damageTypeString} ${spellRollText}${
-        damage.rollString === "0d0" ? "" : " - " + damage.rollString + ' '
+      value: `**${damageTotal}** ${
+        damageTypeString === undefined ? "" : damageTypeString
+      } ${spellRollText}${
+        damage.rollString === "0d0" ? "" : " - " + damage.rollString + " "
       }${
         damage.rollString === "0d0"
           ? ""
-          : "rolled (" + damage.diceRoll.toString() + ')'
+          : "rolled (" + damage.diceRoll.toString() + ")"
       }${spellAttackMod ? "+  " + spellAttackMod : ""}${
-        (plusTotal && damage.rollString !== "0d0") ? "+  " + plusTotal : ""
+        plusTotal && damage.rollString !== "0d0" ? "+  " + plusTotal : ""
       }.`,
     });
   }
