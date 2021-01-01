@@ -2925,7 +2925,37 @@ guards_and_wards:
   components: "V, S, M"
   duration: 24 hours
   concentration: false
-  description: "You create a ward that protects up to 2,500 square feet of floor space (an area 50 feet square, or one hundred 5-foot squares or twenty-five 10-foot squares). The warded area can be up to 20 feet tall, and shaped as you desire. You can ward several stories of a stronghold by dividing the area among them, as long as you can walk into each contiguous area while you are casting the spell.    \r\nWhen you cast this spell, you can specify individuals that are unaffected by any or all of the effects that you choose. You can also specify a password that, when spoken aloud, makes the speaker immune to these effects.    \r\n**_Guards and wards_** creates the following effects within the warded area.   \r\n**Corridors.** Fog fills all the warded corridors, making them heavily obscured. In addition, at each intersection or branching passage offering a choice of direction, there is a 50 percent chance that a creature other than you will believe it is going in the opposite direction from the one it chooses.    \r\n**Doors.** All doors in the warded area are magically locked, as if sealed by an **_arcane lock_** spell. In addition, you can cover up to ten doors with an illusion (equivalent to the illusory object function of the **_minor illusion_** spell) to make them appear as plain sections of wall.    \r\n**Stairs.** Webs fill all stairs in the warded area from top to bottom, as the **_web_** spell. These strands regrow in 10 minutes if they are burned or torn away while **_guards and wards_** lasts.    \r\n**Other Spell Effect.** You can place your choice of one of the following magical effects within the warded area of the stronghold.\r\n\r\n* Place **_dancing lights_** in four corridors. You can designate a simple program that the lights repeat as long as **_guards and wards_** lasts.\r\n* Place **_magic mouth_** in two locations.\r\n* Place **_stinking cloud_** in two locations. The vapors appear in the places you designate; they return within 10 minutes if dispersed by wind while **_guards and wards_** lasts.\r\n* Place a **_constant gust of wind_** in one corridor or room.\r\n* Place a **_suggestion_** in one location. You select an area of up to 5 feet square, and any creature that enters or passes through the area receives the suggestion mentally. \r\n\r\nThe whole warded area radiates magic. A **_dispel magic_** cast on a specific effect, if successful, removes only that effect.    \r\nYou can create a permanently guarded and warded structure by casting this spell there every day for one year."
+  description: >-
+    You create a ward that protects up to 2,500 square feet of floor space (an area 50 feet square, 
+    or one hundred 5-foot squares or twenty-five 10-foot squares). The warded area can be up to 20 feet 
+    tall, and shaped as you desire. You can ward several stories of a stronghold by dividing the area 
+    among them, as long as you can walk into each contiguous area while you are casting the spell.    \r\n
+    When you cast this spell, you can specify individuals that are unaffected by any or all of the effects 
+    that you choose. You can also specify a password that, when spoken aloud, makes the speaker immune to 
+    these effects.    \r\n
+    _Guards and wards_ creates the following effects within the warded area.   \r\n
+    **Corridors.** Fog fills all the warded corridors, making them heavily obscured. In addition, at each 
+    intersection or branching passage offering a choice of direction, there is a 50 percent chance that a 
+    creature other than you will believe it is going in the opposite direction from the one it chooses.    \r\n
+    **Doors.** All doors in the warded area are magically locked, as if sealed by an _arcane lock_ spell. In 
+    addition, you can cover up to ten doors with an illusion (equivalent to the illusory object function of 
+    the _minor illusion_ spell) to make them appear as plain sections of wall.    \r\n
+    **Stairs.** Webs fill all stairs in the warded area from top to bottom, as the _web_ spell. These strands 
+    regrow in 10 minutes if they are burned or torn away while _guards and wards_ lasts.    \r\n
+    **Other Spell Effect.** You can place your choice of one of the following magical effects within the warded 
+    area of the stronghold.\r\n\r\n
+    * Place _dancing lights_ in four corridors. You can designate a simple program that the lights repeat as long as 
+    _guards and wards_ lasts.\r\n
+    * Place _magic mouth_ in two locations.\r\n
+    * Place _stinking cloud_ in two locations. The vapors appear in the places you designate; they return within 10 
+    minutes if dispersed by wind while _guards and wards_ lasts.\r\n
+    * Place a _constant gust of wind_ in one corridor or room.\r\n
+    * Place a _suggestion_ in one location. You select an area of up to 5 feet square, and any creature that enters 
+    or passes through the area receives the suggestion mentally. \r\n\r\n
+    The whole warded area radiates magic. A _dispel magic_ cast on a specific effect, if successful, removes only that 
+    effect.    \r\n
+    You can create a permanently guarded and warded structure by casting this spell there every day for one year.
+  spellType: ['lock', 'shield']
   source: SRD
 guidance:
   spellName: Guidance
@@ -2942,6 +2972,7 @@ guidance:
     roll a d4 and add the number rolled to one ability check of its choice. It
     can roll the die before or after making the ability check. The spell then
     ends.
+  spellType: ['buff']
   source: SRD
 guiding_bolt:
   spellName: Guiding Bolt
@@ -2962,6 +2993,9 @@ guiding_bolt:
     radiant damage, and the next attack roll made against this target before the
     end of your next turn has advantage, thanks to the mystical dim light
     glittering on the target until then.
+  spellType: ['radiant', 'debuff', 'light']
+  damage: 4d6
+  damageAtHigherLevels: 1d6
   source: SRD
 gust_of_wind:
   spellName: Gust of Wind
@@ -2973,7 +3007,15 @@ gust_of_wind:
   components: "V, S, M"
   duration: "Concentration, up to 1 minute"
   concentration: true
-  description: "A line of strong wind 60 feet long and 10 feet wide blasts from you in a direction you choose for the spell's duration. Each creature that starts its turn in the line must succeed on a Strength saving throw or be pushed 15 feet away from you in a direction following the line.    \r\nAny creature in the line must spend 2 feet of movement for every 1 foot it moves when moving closer to you.    \r\nThe gust disperses gas or vapor, and it extinguishes candles, torches, and similar unprotected flames in the area. It causes protected flames, such as those of lanterns, to dance wildly and has a 50 percent chance to extinguish them.    \r\nAs a bonus action on each of your turns before the spell ends, you can change the direction in which the line blasts from you."
+  description: >-
+    A line of strong wind 60 feet long and 10 feet wide blasts from you in a direction 
+    you choose for the spell's duration. Each creature that starts its turn in the line 
+    must succeed on a Strength saving throw or be pushed 15 feet away from you in a direction following the line.    \r\n
+    Any creature in the line must spend 2 feet of movement for every 1 foot it moves when moving closer to you.    \r\n
+    The gust disperses gas or vapor, and it extinguishes candles, torches, and similar unprotected flames in the area. 
+    It causes protected flames, such as those of lanterns, to dance wildly and has a 50 percent chance to extinguish them.    \r\n
+    As a bonus action on each of your turns before the spell ends, you can change the direction in which the line blasts from you.
+  spellType: ['wind']
   source: SRD
 hallow:
   spellName: Hallow
@@ -2985,7 +3027,38 @@ hallow:
   components: "V, S, M"
   duration: Until dispelled
   concentration: false
-  description: "You touch a point and infuse an area around it with holy (or unholy) power. The area can have a radius up to 60 feet, and the spell fails if the radius includes an area already under the effect a **_hallow_** spell. The affected area is subject to the following effects.    \r\nFirst, celestials, elementals, fey, fiends, and undead can't enter the area, nor can such creatures charm, frighten, or possess creatures within it. Any creature charmed, frightened, or possessed by such a creature is no longer charmed, frightened, or possessed upon entering the area. You can exclude one or more of those types of creatures from this effect.    \r\nSecond, you can bind an extra effect to the area. Choose the effect from the following list, or choose an effect offered by the GM. Some of these effects apply to creatures in the area; you can designate whether the effect applies to all creatures, creatures that follow a specific deity or leader, or creatures of a specific sort, such as orcs or trolls. When a creature that would be affected enters the spell's area for the first time on a turn or starts its turn there, it can make a Charisma saving throw. On a success, the creature ignores the extra effect until it leaves the area.    \r\n**Courage.** Affected creatures can't be frightened while in the area.    \r\n**Darkness.** Darkness fills the area. Normal light, as well as magical light created by spells of a lower level than the slot you used to cast this spell, can't illuminate the area.    \r\n**Daylight.** Bright light fills the area. Magical darkness created by spells of a lower level than the slot you used to cast this spell can't extinguish the light.    \r\n**Energy Protection.** Affected creatures in the area have resistance to one damage type of your choice, except for bludgeoning, piercing, or slashing.    \r\n**Energy Vulnerability.** Affected creatures in the area have vulnerability to one damage type of your choice, except for bludgeoning, piercing, or slashing.    \r\n**Everlasting Rest.** Dead bodies interred in the area can't be turned into undead.    \r\n**Extradimensional Interference.** Affected creatures can't move or travel using teleportation or by extradimensional or interplanar means.    \r\n**Fear.** Affected creatures are frightened while in the area.    \r\n**Silence.** No sound can emanate from within the area, and no sound can reach into it.    \r\n**Tongues.** Affected creatures can communicate with any other creature in the area, even if they don't share a common language."
+  description: >-
+    You touch a point and infuse an area around it with holy (or unholy) power. The area can have 
+    a radius up to 60 feet, and the spell fails if the radius includes an area already under the 
+    effect a _hallow_ spell. The affected area is subject to the following effects.    \r\n
+    First, celestials, elementals, fey, fiends, and undead can't enter the area, nor can such 
+    creatures charm, frighten, or possess creatures within it. Any creature charmed, frightened, 
+    or possessed by such a creature is no longer charmed, frightened, or possessed upon entering 
+    the area. You can exclude one or more of those types of creatures from this effect.    \r\n
+    Second, you can bind an extra effect to the area. Choose the effect from the following list, 
+    or choose an effect offered by the GM. Some of these effects apply to creatures in the area; 
+    you can designate whether the effect applies to all creatures, creatures that follow a specific 
+    deity or leader, or creatures of a specific sort, such as orcs or trolls. When a creature that 
+    would be affected enters the spell's area for the first time on a turn or starts its turn there, 
+    it can make a Charisma saving throw. On a success, the creature ignores the extra effect until it 
+    leaves the area.    \r\n
+    **Courage.** Affected creatures can't be frightened while in the area.    \r\n
+    **Darkness.** Darkness fills the area. Normal light, as well as magical light created by spells 
+    of a lower level than the slot you used to cast this spell, can't illuminate the area.    \r\n
+    **Daylight.** Bright light fills the area. Magical darkness created by spells of a lower level 
+    than the slot you used to cast this spell can't extinguish the light.    \r\n
+    **Energy Protection.** Affected creatures in the area have resistance to one damage type of your 
+    choice, except for bludgeoning, piercing, or slashing.    \r\n
+    **Energy Vulnerability.** Affected creatures in the area have vulnerability to one damage type of 
+    your choice, except for bludgeoning, piercing, or slashing.    \r\n
+    **Everlasting Rest.** Dead bodies interred in the area can't be turned into undead.    \r\n
+    **Extradimensional Interference.** Affected creatures can't move or travel using teleportation 
+    or by extradimensional or interplanar means.    \r\n
+    **Fear.** Affected creatures are frightened while in the area.    \r\n
+    **Silence.** No sound can emanate from within the area, and no sound can reach into it.    \r\n
+    **Tongues.** Affected creatures can communicate with any other creature in the area, even if they 
+    don't share a common language.
+  spellType: ['shield']
   source: SRD
 hallucinatory_terrain:
   spellName: Hallucinatory Terrain
@@ -2998,6 +3071,7 @@ hallucinatory_terrain:
   duration: 24 hours
   concentration: false
   description: "You make natural terrain in a 150-foot cube in range look, sound, and smell like some other sort of natural terrain. Thus, open fields or a road can be made to resemble a swamp, hill, crevasse, or some other difficult or impassable terrain. A pond can be made to seem like a grassy meadow, a precipice like a gentle slope, or a rock-strewn gully like a wide and smooth road. Manufactured structures, equipment, and creatures within the area aren't changed in appearance.    \r\nThe tactile characteristics of the terrain are unchanged, so creatures entering the area are likely to see through the illusion. If the difference isn't obvious by touch, a creature carefully examining the illusion can attempt an Intelligence (Investigation) check against your spell save DC to disbelieve it. A creature who discerns the illusion for what it is, sees it as a vague image superimposed on the terrain."
+  spellType: ['terrain']
   source: SRD
 harm:
   spellName: Harm
@@ -3017,6 +3091,8 @@ harm:
     saving throw, its hit point maximum is reduced for 1 hour by an amount equal
     to the necrotic damage it took. Any effect that removes a disease allows a
     creature's hit point maximum to return to normal before that time passes.
+  spellType: ['necrotic']
+  damage: 14d6
   source: SRD
 haste:
   spellName: Haste
@@ -3036,7 +3112,7 @@ haste:
     weapon attack only), Dash, Disengage, Hide, or Use an Object action. When
     the spell ends, the target can't move or take actions until after its next
     turn, as a wave of lethargy sweeps over it.
-  spellType: speed
+  spellType: ['speed']
   source: SRD
 heal:
   spellName: Heal
@@ -3056,7 +3132,11 @@ heal:
     washes through the creature, causing it to regain 70 hit points. This spell
     also ends blindness, deafness, and any diseases affecting the target. This
     spell has no effect on constructs or undead.
-  spellType: healing
+  plus: 70
+  plusAtHigherLevels: 10
+  damage: 0d0
+  spellRollText: 'healing'
+  spellType: ['healing']
   source: SRD
 healing_word:
   spellName: Healing Word

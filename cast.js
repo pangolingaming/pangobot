@@ -50,10 +50,12 @@ const typeIcons = {
   slashing: ":axe:",
   speed: ":fast_forward:",
   stun: ":dizzy_face:",
+  terrain: ":mountain:",
   thunder: ":boom",
   travel: ":world_map:",
   water: ":droplet:",
   weather: ":white_sun_rain_cloud:",
+  wind: ":wind_blowing_face:",
 };
 
 const dndDamageTypes = [
@@ -85,6 +87,19 @@ const dndDamageTypes = [
 // Cantrip progression - beams (Eldritch Blast)
 // Flamestrike - two types of damage
 
+/* function to account for more than one damage type */
+
+function joinArrayWithCommas(damageTypeString, damageTypes) {
+  if (damageTypes.length > 1) {
+    let comma = ''
+    if (damageTypes.length > 2) {comma = ','}
+    damageTypeString = damageTypes.slice(0,(damageTypes.length-1)).join(", ") + comma + " or " + damageTypes[damageTypes.length - 1]
+  } else damageTypeString = damageTypes[0];
+}
+
+/* To calculate the dice from a roll string */
+
+
 function parseRoll(rollString) {
   const roll = rollString.split("d");
   return {
@@ -92,6 +107,8 @@ function parseRoll(rollString) {
     sides: parseInt(roll[1]),
   };
 }
+
+/* To roll for damage */
 
 function roll(rollString) {
   const roll = parseRoll(rollString);
@@ -191,6 +208,9 @@ function cast(msg) {
       damageTypes.push(spell.spellType[i]);
     }
   }
+  let damageTypeString
+
+  joinArrayWithCommas(damageTypeString, damageTypes);
 
   const castEmbed = new Discord.MessageEmbed()
     .setTitle(`${typeIcon} ${spell.spellName} ${typeIcon}`)
@@ -281,18 +301,18 @@ function cast(msg) {
 
   // If there's multiple options for damage, split them with "or". Going for an Oxford comma in this list.
 
-  let damageTypeString;
-
   if (damageTypes.length > 1) {
     let comma = ''
     if (damageTypes.length > 2) {comma = ','}
     damageTypeString = damageTypes.slice(0,(damageTypes.length-1)).join(", ") + comma + " or " + damageTypes[damageTypes.length - 1]
   } else damageTypeString = damageTypes[0];
 
+  /* Create the damage string */
+
   if (spell.damage) {
     castEmbed.fields.push({
       name: "Result",
-      value: `**${damageTotal}** ${damageTypeString} ${spellRollText}${
+      value: `**${damageTotal}** ${damageTypeString === undefined ? '' : damageTypeString} ${spellRollText}${
         damage.rollString === "0d0" ? "" : " - " + damage.rollString + ' '
       }${
         damage.rollString === "0d0"
