@@ -2238,6 +2238,10 @@ false_life:
   description: >-
     Bolstering yourself with a necromantic facsimile of life, you gain 1d4 + 4
     temporary hit points for the duration.
+  damage: 1d4
+  plusAtHigherLevels: 5
+  plus: 4
+  spellRollText: 'temporary hitpoints'
   spellType: ['healing']
   source: SRD
 fear:

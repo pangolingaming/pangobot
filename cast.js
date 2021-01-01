@@ -62,8 +62,6 @@ const dndDamageTypes = ['acid', 'bludgeoning', 'cold', 'fire', 'force', 'lightni
 // Blink 
 /* TBD: Healing spells. */
 
-/* TBD: Spellcasting modifiers. */
-
 /* TBD: Various special damage effects. */
 
 // Delayed Blast Fireball
@@ -140,20 +138,23 @@ function cast(msg) {
     upCastBy = spellCastLevel - spellBaseLevel;
   }
 
+
+
   /* Roll for damage or healing or hpAffected or tempHP */
 
     if (spell.damage) {
     var effectRoll = spell.damage;
     
-    if (upCast === true) {
+    if (upCast && spell.damage) {
       var spellEffectDice = parseRoll(effectRoll);
 
-      /* Add extra damage dice if it's upcast */
-      var higherLevelsDice = parseRoll(spell.damageAtHigherLevels);
-      var upCastDiceNumber =
-        higherLevelsDice.number * upCastBy + spellEffectDice.number;
+      /* Add extra damage dice if it's upcast and that provides extra damage. */
 
+      if(spell.damageAtHigherLevels) {
+      var higherLevelsDice = parseRoll(spell.damageAtHigherLevels);
+      var upCastDiceNumber = higherLevelsDice.number * upCastBy + spellEffectDice.number;
       effectRoll = upCastDiceNumber + "d" + spellEffectDice.sides;
+      }
     }
 
     var damage = roll(effectRoll);
@@ -241,8 +242,27 @@ function cast(msg) {
   /* Add damage inline field. Turn damagetypes into a longer string if needed. Add modifier(s) to roll. */
 
   let damageTotal = damage.diceTotal
+
+  // Spell attack mod
   if (spellAttackMod) {
     damageTotal = damageTotal + spellAttackMod
+  }
+  
+  // Spells that innately add some amount (see False Life)
+
+  let plusTotal = spell.plus
+
+  if (spell.plus) {
+    damageTotal = damageTotal + spell.plus
+  
+  // Only False Life gives a total bonus for each level above the first, I think, but let's add a way to handle that.
+
+    
+
+    if (upCast && spell.plusAtHigherLevels) {
+      damageTotal = damageTotal + (spell.plusAtHigherLevels * upCastBy)  
+      plusTotal = (spell.plusAtHigherLevels * upCastBy) + spell.plus
+    }
   }
 
   let spellRollText = spell.spellRollText
@@ -256,7 +276,7 @@ function cast(msg) {
       name: "Result",
       value: `**${damageTotal}** ${damageTypes} ${spellRollText} - ${
         damage.rollString
-      } rolled (${damage.diceRoll.toString()}) ${spellAttackMod ? '+  ' + spellAttackMod : ''}.`,
+      } rolled (${damage.diceRoll.toString()}) ${spellAttackMod ? '+  ' + spellAttackMod : ''} ${plusTotal ? '+  ' + plusTotal : ''}.`,
     });
   }
   msg.reply(castEmbed);
