@@ -11,6 +11,7 @@ const typeIcons = {
   animal: ":bear:",
   animate: ":broom:",
   antimagic: ":cross:",
+  berry: ":strawberry:",
   bludgeoning: ":hammer:",
   buff: ":muscle:",
   celestial: ":angel:",
@@ -23,13 +24,15 @@ const typeIcons = {
   fear: ":scream:",
   fire: ":fire:",
   food: ":stew:",
+  fog: ":fog:",
   force: ":magic_wand:",
   healing: ":adhesive_bandage:",
   hound: ":dog:",
+  insect: ":insect:",
   language: ":speech_balloon:",
   light: ":bulb:",
   lightning: ":cloud_lightning:",
-  lock: ":locked:",
+  lock: ":lock:",
   magic: ":magic_wand:",
   message: ":envelope:",
   move: ":right_arrow:",
@@ -42,6 +45,7 @@ const typeIcons = {
   radiant: ":star2:",
   rainbow: ":rainbow:",
   restrain: ":web:",
+  rock: ":rock:",
   shield: ":shield:",
   slashing: ":axe:",
   speed: ":fast_forward:",
@@ -49,25 +53,37 @@ const typeIcons = {
   thunder: ":boom",
   travel: ":world_map:",
   water: ":droplet:",
-  weather: ":white_sun_rain_cloud:"
-    
+  weather: ":white_sun_rain_cloud:",
 };
 
-const dndDamageTypes = ['acid', 'bludgeoning', 'cold', 'fire', 'force', 'lightning', 'necrotic', 'piercing', 'poison', 'psychic', 'radiant', 'slashing', 'thunder']
+const dndDamageTypes = [
+  "acid",
+  "bludgeoning",
+  "cold",
+  "fire",
+  "force",
+  "lightning",
+  "necrotic",
+  "piercing",
+  "poison",
+  "psychic",
+  "radiant",
+  "slashing",
+  "thunder",
+];
 
 /* TBD: Spells with effect tables. */
 
 // Confusion
 // Control Weather
-// Blink 
+// Blink
 /* TBD: Healing spells. */
 
 /* TBD: Various special damage effects. */
 
 // Delayed Blast Fireball
 // Cantrip progression - beams (Eldritch Blast)
-// False Life
-// Finger of Death
+// Flamestrike - two types of damage
 
 function parseRoll(rollString) {
   const roll = rollString.split("d");
@@ -107,19 +123,18 @@ function cast(msg) {
 
   args.slice(1).forEach((arg) => {
     if (arg[0].match(/[Ll]/)) {
-      spellCastLevel = parseInt(arg.substring(1))
+      spellCastLevel = parseInt(arg.substring(1));
     } else if (arg[0].match(/[+-]/)) {
-      spellAttackMod = parseInt(arg)
+      spellAttackMod = parseInt(arg);
     }
-  })
-
+  });
 
   /* Check for concentration - this will be used in duration later */
 
   const concentration = spell.concentration ? ":regional_indicator_c: " : "";
 
   /* Figure out whether spell is upcast or not - mostly for damage purposes. */
-  
+
   if (!Number.isInteger(spellCastLevel)) {
     spellCastLevel = spell.spellLevel;
   }
@@ -138,27 +153,26 @@ function cast(msg) {
     upCastBy = spellCastLevel - spellBaseLevel;
   }
 
-
-
   /* Roll for damage or healing or hpAffected or tempHP */
 
-    if (spell.damage) {
+  if (spell.damage) {
     var effectRoll = spell.damage;
-    
+
     if (upCast && spell.damage) {
       var spellEffectDice = parseRoll(effectRoll);
 
       /* Add extra damage dice if it's upcast and that provides extra damage. */
 
-      if(spell.damageAtHigherLevels) {
-      var higherLevelsDice = parseRoll(spell.damageAtHigherLevels);
-      var upCastDiceNumber = higherLevelsDice.number * upCastBy + spellEffectDice.number;
-      effectRoll = upCastDiceNumber + "d" + spellEffectDice.sides;
+      if (spell.damageAtHigherLevels) {
+        var higherLevelsDice = parseRoll(spell.damageAtHigherLevels);
+        var upCastDiceNumber =
+          higherLevelsDice.number * upCastBy + spellEffectDice.number;
+        effectRoll = upCastDiceNumber + "d" + spellEffectDice.sides;
       }
     }
 
     var damage = roll(effectRoll);
-    }
+  }
 
   /* Footer */
 
@@ -172,11 +186,11 @@ function cast(msg) {
 
   var typeIcon = typeIcons[spell.spellType[0]] || "";
   let damageTypes = [];
-   for (i = 0; i < spell.spellType.length; i++) {
-     if (dndDamageTypes.includes(spell.spellType[i])) {
-       damageTypes.push(spell.spellType[i])
-     }
-   }
+  for (i = 0; i < spell.spellType.length; i++) {
+    if (dndDamageTypes.includes(spell.spellType[i])) {
+      damageTypes.push(spell.spellType[i]);
+    }
+  }
 
   const castEmbed = new Discord.MessageEmbed()
     .setTitle(`${typeIcon} ${spell.spellName} ${typeIcon}`)
@@ -241,42 +255,52 @@ function cast(msg) {
 
   /* Add damage inline field. Turn damagetypes into a longer string if needed. Add modifier(s) to roll. */
 
-  let damageTotal = damage.diceTotal
+  let damageTotal = damage.diceTotal;
 
   // Spell attack mod
   if (spellAttackMod) {
-    damageTotal = damageTotal + spellAttackMod
+    damageTotal = damageTotal + spellAttackMod;
   }
-  
+
   // Spells that innately add some amount (see False Life)
 
-  let plusTotal = spell.plus
+  let plusTotal = spell.plus;
 
   if (spell.plus) {
-    damageTotal = damageTotal + spell.plus
-  
-  // Only False Life gives a total bonus for each level above the first, I think, but let's add a way to handle that.
+    damageTotal = damageTotal + spell.plus;
 
-    
+    // Only False Life gives a total bonus for each level above the first, I think, but let's add a way to handle that.
 
     if (upCast && spell.plusAtHigherLevels) {
-      damageTotal = damageTotal + (spell.plusAtHigherLevels * upCastBy)  
-      plusTotal = (spell.plusAtHigherLevels * upCastBy) + spell.plus
+      damageTotal = damageTotal + spell.plusAtHigherLevels * upCastBy;
+      plusTotal = spell.plusAtHigherLevels * upCastBy + spell.plus;
     }
   }
 
-  let spellRollText = spell.spellRollText
-  
+  let spellRollText = spell.spellRollText || "damage";
+
+  // If there's multiple options for damage, split them with "or". Going for an Oxford comma in this list.
+
+  let damageTypeString;
+
   if (damageTypes.length > 1) {
-    damageTypeString = damageTypes.toString().replace(',', ' or ')
-  } else damageTypeString = damageTypes[0]
+    let comma = ''
+    if (damageTypes.length > 2) {comma = ','}
+    damageTypeString = damageTypes.slice(0,(damageTypes.length-1)).join(", ") + comma + " or " + damageTypes[damageTypes.length - 1]
+  } else damageTypeString = damageTypes[0];
 
   if (spell.damage) {
     castEmbed.fields.push({
       name: "Result",
-      value: `**${damageTotal}** ${damageTypes} ${spellRollText} - ${
-        damage.rollString
-      } rolled (${damage.diceRoll.toString()}) ${spellAttackMod ? '+  ' + spellAttackMod : ''} ${plusTotal ? '+  ' + plusTotal : ''}.`,
+      value: `**${damageTotal}** ${damageTypeString} ${spellRollText}${
+        damage.rollString === "0d0" ? "" : " - " + damage.rollString + ' '
+      }${
+        damage.rollString === "0d0"
+          ? ""
+          : "rolled (" + damage.diceRoll.toString() + ')'
+      }${spellAttackMod ? "+  " + spellAttackMod : ""}${
+        (plusTotal && damage.rollString !== "0d0") ? "+  " + plusTotal : ""
+      }.`,
     });
   }
   msg.reply(castEmbed);

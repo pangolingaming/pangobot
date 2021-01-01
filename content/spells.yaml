@@ -2241,7 +2241,7 @@ false_life:
   damage: 1d4
   plusAtHigherLevels: 5
   plus: 4
-  spellRollText: 'temporary hitpoints'
+  spellRollText: 'temporary hit points'
   spellType: ['healing']
   source: SRD
 fear:
@@ -2256,7 +2256,7 @@ fear:
   concentration: true
   description: >-
     You project a phantasmal image of a creature's worst fears. Each creature in a 
-    0-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding 
+    30-foot cone must succeed on a Wisdom saving throw or drop whatever it is holding 
     and become frightened for the duration.    \r\n
     While frightened by this spell, a creature must take the Dash action and move away 
     from you by the safest available route on each of its turns, unless there is nowhere 
@@ -2373,7 +2373,8 @@ finger_of_death:
     damage on a failed save, or half as much damage on a successful one.    \r\n
     A humanoid killed by this spell rises at the start of your next turn as a zombie that is 
     permanently under your command, following your verbal orders to the best of its ability.
-  damage: 7d8+30
+  damage: 7d8
+  plus: 30
   spellType: ['necrotic']
   source: SRD
 fireball:
@@ -2391,7 +2392,7 @@ fireball:
     damage increases by 1d6 for each slot level above 3rd.
   description: "A bright streak flashes from your pointing finger to a point you choose within range and then blossoms with a low roar into an explosion of flame. Each creature in a 20-foot-radius sphere centered on that point must make a Dexterity saving throw. A target takes 8d6 fire damage on a failed save, or half as much damage on a successful one.    \r\nThe fire spreads around corners. It ignites flammable objects in the area that aren't being worn or carried."
   damage: 8d6
-  spellType: fire
+  spellType: ['fire']
   damageAtHigherLevels: 1d6
   source: SRD
 fire_bolt:
@@ -2434,6 +2435,7 @@ fire_shield:
     The warm shield grants you resistance to cold damage, and the chill shield grants you resistance to fire damage.    \r\n
     In addition, whenever a creature within 5 feet of you hits you with a melee attack, the shield erupts with flame.
     The attacker takes 2d8 fire damage from a warm shield, or 2d8 cold damage from a cold shield."
+  damage: 2d8
   spellType: [fire, cold]
   source: SRD
 fire_storm:
@@ -2446,7 +2448,15 @@ fire_storm:
   components: "V, S"
   duration: Instantaneous
   concentration: false
-  description: "A storm made up of sheets of roaring flame appears in a location you choose within range. The area of the storm consists of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face of another cube. Each creature in the area must make a Dexterity saving throw. It takes 7d10 fire damage on a failed save, or half as much damage on a successful one.    \r\nThe fire damages objects in the area and ignites flammable objects that aren't being worn or carried. If you choose, plant life in the area is unaffected by this spell."
+  description: >-
+    A storm made up of sheets of roaring flame appears in a location you choose within range. The area of the storm consists 
+    of up to ten 10-foot cubes, which you can arrange as you wish. Each cube must have at least one face adjacent to the face 
+    of another cube. Each creature in the area must make a Dexterity saving throw. It takes 7d10 fire damage on a failed save, 
+    or half as much damage on a successful one.    \r\n
+    The fire damages objects in the area and ignites flammable objects that aren't being worn or carried. If you choose, 
+    plant life in the area is unaffected by this spell.
+  damage: 7d10
+  spellType: ['fire']
   source: SRD
 flame_blade:
   spellName: Flame Blade
@@ -2461,7 +2471,15 @@ flame_blade:
   atHigherLevels: >-
     When you cast this spell using a spell slot of 4th level or higher, the
     damage increases by 1d6 for every two slot levels above 2nd.
-  description: "You evoke a fiery blade in your free hand. The blade is similar in size and shape to a scimitar, and it lasts for the duration. If you let go of the blade, it disappears, but you can evoke the blade again as a bonus action.    \r\nYou can use your action to make a melee spell attack with the fiery blade. On a hit, the target takes 3d6 fire damage.    \r\nThe flaming blade sheds bright light in a 10-foot radius and dim light for an additional 10 feet."
+  description: >-
+    You evoke a fiery blade in your free hand. The blade is similar in size and shape to a scimitar, 
+    and it lasts for the duration. If you let go of the blade, it disappears, but you can evoke the 
+    blade again as a bonus action.    \r\n
+    You can use your action to make a melee spell attack with the fiery blade. On a hit, the target takes 3d6 fire damage.    \r\n
+    The flaming blade sheds bright light in a 10-foot radius and dim light for an additional 10 feet.
+  damage: 3d6
+  damageAtHigherLevels: 1d6
+  spellType: ['fire']
   source: SRD
 flame_strike:
   spellName: Flame Strike
@@ -2483,6 +2501,9 @@ flame_strike:
     centered on a point within range must make a Dexterity saving throw. A
     creature takes 4d6 fire damage and 4d6 radiant damage on a failed save, or
     half as much damage on a successful one.
+  damage: 4d6
+  damageAtHigherLevels: 1d6
+  spellType: ['fire', 'radiant']
   source: SRD
 flaming_sphere:
   spellName: Flaming Sphere
@@ -2497,7 +2518,17 @@ flaming_sphere:
   atHigherLevels: >-
     When you cast this spell using a spell slot of 3rd level or higher, the
     damage increases by 1d6 for each slot level above 2nd.
-  description: "A 5-foot-diameter sphere of fire appears in an unoccupied space of your choice within range and lasts for the duration. Any creature that ends its turn within 5 feet of the sphere must make a Dexterity saving throw. The creature takes 2d6 fire damage on a failed save, or half as much damage on a successful one.    \r\nAs a bonus action, you can move the sphere up to 30 feet. If you ram the sphere into a creature, that creature must make the saving throw against the sphere's damage, and the sphere stops moving this turn.    \r\nWhen you move the sphere, you can direct it over barriers up to 5 feet tall and jump it across pits up to 10 feet wide. The sphere ignites flammable objects not being worn or carried, and it sheds bright light in a 20-foot radius and dim light for an additional 20 feet."
+  description: >-
+    A 5-foot-diameter sphere of fire appears in an unoccupied space of your choice within range and 
+    lasts for the duration. Any creature that ends its turn within 5 feet of the sphere must make a 
+    Dexterity saving throw. The creature takes 2d6 fire damage on a failed save, or half as much damage on a successful one.    \r\n
+    As a bonus action, you can move the sphere up to 30 feet. If you ram the sphere into a creature, that creature must make the 
+    saving throw against the sphere's damage, and the sphere stops moving this turn.    \r\n
+    When you move the sphere, you can direct it over barriers up to 5 feet tall and jump it across pits up to 10 feet wide. 
+    The sphere ignites flammable objects not being worn or carried, and it sheds bright light in a 20-foot radius and dim light for an additional 20 feet.
+  damage: 2d6
+  damageAtHigherLevels: 1d6
+  spellType: ['fire']  
   source: SRD
 flesh_to_stone:
   spellName: Flesh to Stone
@@ -2510,7 +2541,8 @@ flesh_to_stone:
   duration: "Concentration, up to 1 minute"
   concentration: true
   description: "You attempt to turn one creature that you can see within range into stone. If the target's body is made of flesh, the creature must make a Constitution saving throw. On a failed save, it is restrained as its flesh begins to harden. On a successful save, the creature isn't affected.    \r\nA creature restrained by this spell must make another Constitution saving throw at the end of each of its turns. If it successfully saves against this spell three times, the spell ends. If it fails its saves three times, it is turned to stone and subjected to the petrified condition for the duration. The successes and failures don't need to be consecutive; keep track of both until the target collects three of a kind.    \r\nIf the creature is physically broken while petrified, it suffers from similar deformities if it reverts to its original state.    \r\nIf you maintain your concentration on this spell for the entire possible duration, the creature is turned to stone until the effect is removed."
-  source: SRD
+  spellType: ['rock','debuff']
+  ource: SRD
 floating_disk:
   spellName: Floating Disk
   spellLevel: "1"
@@ -2540,6 +2572,7 @@ fly:
     You touch a willing creature. The target gains a flying speed of 60 feet for
     the duration. When the spell ends, the target falls if it is still aloft,
     unless it can stop the fall.
+  spellType: ['speed']
   source: SRD
 fog_cloud:
   spellName: Fog Cloud
@@ -2559,6 +2592,7 @@ fog_cloud:
     The sphere spreads around corners, and its area is heavily obscured. It
     lasts for the duration or until a wind of moderate or greater speed (at
     least 10 miles per hour) disperses it.
+  spellType: ['fog']
   source: SRD
 forbiddance:
   spellName: Forbiddance
@@ -2570,7 +2604,19 @@ forbiddance:
   components: "V, S, M"
   duration: 1 day
   concentration: false
-  description: "You create a ward against magical travel that protects up to 40,000 square feet of floor space to a height of 30 feet above the floor. For the duration, creatures can't teleport into the area or use portals, such as those created by the **_gate_** spell, to enter the area. The spell proofs the area against planar travel, and therefore prevents creatures from accessing the area by way of the Astral Plane, Ethereal Plane, Feywild, Shadowfell, or the **_plane shift_** spell.    \r\nIn addition, the spell damages types of creatures that you choose when you cast it. Choose one or more of the following: celestials, elementals, fey, fiends, and undead. When a chosen creature enters the spell's area for the first time on a turn or starts its turn there, the creature takes 5d10 radiant or necrotic damage (your choice when you cast this spell).    \r\nWhen you cast this spell, you can designate a password. A creature that speaks the password as it enters the area takes no damage from the spell.    \r\nThe spell's area can't overlap with the area of another **_forbiddance_** spell. If you cast **_forbiddance_** every day for 30 days in the same location, the spell lasts until it is dispelled, and the material components are consumed on the last casting."
+  description: >-
+    You create a ward against magical travel that protects up to 40,000 square feet of floor space to a height of 30 feet above the floor. 
+    For the duration, creatures can't teleport into the area or use portals, such as those created by the _gate_ spell, to enter the area. 
+    The spell proofs the area against planar travel, and therefore prevents creatures from accessing the area by way of the Astral Plane, 
+    Ethereal Plane, Feywild, Shadowfell, or the _plane shift_ spell.    \r\n
+    In addition, the spell damages types of creatures that you choose when you cast it. Choose one or more of the following: celestials, 
+    elementals, fey, fiends, and undead. When a chosen creature enters the spell's area for the first time on a turn or starts its turn there, 
+    the creature takes 5d10 radiant or necrotic damage (your choice when you cast this spell).    \r\n
+    When you cast this spell, you can designate a password. A creature that speaks the password as it enters the area takes no damage from the spell.    \r\n
+    The spell's area can't overlap with the area of another _forbiddance_ spell. If you cast _forbiddance_ every day for 30 days in the same location, 
+    the spell lasts until it is dispelled, and the material components are consumed on the last casting.
+  damage: 5d10
+  spellType: ['shield', 'lock', 'radiant', 'necrotic']
   source: SRD
 forcecage:
   spellName: Forcecage
@@ -2583,6 +2629,7 @@ forcecage:
   duration: 1 hour
   concentration: false
   description: "An immobile, invisible, cube-shaped prison composed of magical force springs into existence around an area you choose within range. The prison can be a cage or a solid box, as you choose.    \r\nA prison in the shape of a cage can be up to 20 feet on a side and is made from 1/2-inch diameter bars spaced 1/2 inch apart. A prison in the shape of a box can be up to 10 feet on a side, creating a solid barrier that prevents any matter from passing through it and blocking any spells cast into or out from the area.    \r\nWhen you cast the spell, any creature that is completely inside the cage's area is trapped. Creatures only partially within the area, or those too large to fit inside the area, are pushed away from the center of the area until they are completely outside the area.    \r\nA creature inside the cage can't leave it by nonmagical means. If the creature tries to use teleportation or interplanar travel to leave the cage, it must first make a Charisma saving throw. On a success, the creature can use that magic to exit the cage. On a failure, the creature can't exit the cage and wastes the use of the spell or effect. The cage also extends into the Ethereal Plane, blocking ethereal travel.    \r\nThis spell can't be dispelled by **_dispel magic_**."
+  spellType: ['lock']
   source: SRD
 foresight:
   spellName: Foresight
@@ -2595,6 +2642,7 @@ foresight:
   duration: 8 hours
   concentration: false
   description: "You touch a willing creature and bestow a limited ability to see into the immediate future. For the duration, the target can't be surprised and has advantage on attack rolls, ability checks, and saving throws. Additionally, other creatures have disadvantage on attack rolls against the target for the duration.    \r\nThis spell immediately ends if you cast it again before its duration ends."
+  spellType: ['divination']
   source: SRD
 freedom_of_movement:
   spellName: Freedom of Movement
@@ -2607,6 +2655,7 @@ freedom_of_movement:
   duration: 1 hour
   concentration: false
   description: "You touch a willing creature. For the duration, the target's movement is unaffected by difficult terrain, and spells and other magical effects can neither reduce the target's speed nor cause the target to be paralyzed or restrained.    \r\nThe target can also spend 5 feet of movement to automatically escape from nonmagical restraints, such as manacles or a creature that has it grappled. Finally, being underwater imposes no penalties on the target's movement or attacks."
+  spellType: ['speed']
   source: SRD
 freezing_sphere:
   spellName: Freezing Sphere
@@ -2621,7 +2670,21 @@ freezing_sphere:
   atHigherLevels: >-
     When you cast this spell using a spell slot of 7th level or higher, the
     damage increases by 1d6 for each slot level above 6th.
-  description: "A frigid globe of cold energy streaks from your fingertips to a point of your choice within range, where it explodes in a 60-foot-radius sphere. Each creature within the area must make a Constitution saving throw. On a failed save, a creature takes 10d6 cold damage. On a successful save, it takes half as much damage.    \r\nIf the globe strikes a body of water or a liquid that is principally water (not including water-based creatures), it freezes the liquid to a depth of 6 inches over an area 30 feet square. This ice lasts for 1 minute. Creatures that were swimming on the surface of frozen water are trapped in the ice. A trapped creature can use an action to make a Strength check against your spell save DC to break free.    \r\nYou can refrain from firing the globe after completing the spell, if you wish. A small globe about the size of a sling stone, cool to the touch, appears in your hand. At any time, you or a creature you give the globe to can throw the globe (to a range of 40 feet) or hurl it with a sling (to the sling's normal range). It shatters on impact, with the same effect as the normal casting of the spell. You can also set the globe down without shattering it. After 1 minute, if the globe hasn't already shattered, it explodes."
+  description: >-
+    A frigid globe of cold energy streaks from your fingertips to a point of your choice within range, 
+    where it explodes in a 60-foot-radius sphere. Each creature within the area must make a Constitution saving throw. 
+    On a failed save, a creature takes 10d6 cold damage. On a successful save, it takes half as much damage.    \r\n
+    If the globe strikes a body of water or a liquid that is principally water (not including water-based creatures), 
+    it freezes the liquid to a depth of 6 inches over an area 30 feet square. This ice lasts for 1 minute. Creatures 
+    that were swimming on the surface of frozen water are trapped in the ice. A trapped creature can use an action to 
+    make a Strength check against your spell save DC to break free.    \r\nYou can refrain from firing the globe after 
+    completing the spell, if you wish. A small globe about the size of a sling stone, cool to the touch, appears in your 
+    hand. At any time, you or a creature you give the globe to can throw the globe (to a range of 40 feet) or hurl it with 
+    a sling (to the sling's normal range). It shatters on impact, with the same effect as the normal casting of the spell. 
+    You can also set the globe down without shattering it. After 1 minute, if the globe hasn't already shattered, it explodes.
+  damage: 10d6
+  damageAtHigherLevels: 1d6
+  spellType: ['cold']
   source: SRD
 gaseous_form:
   spellName: Gaseous Form
@@ -2634,6 +2697,7 @@ gaseous_form:
   duration: "Concentration, up to 1 hour"
   concentration: true
   description: "You transform a willing creature you touch, along with everything it's wearing and carrying, into a misty cloud for the duration. The spell ends if the creature drops to 0 hit points. An incorporeal creature isn't affected.    \r\nWhile in this form, the target's only method of movement is a flying speed of 10 feet. The target can enter and occupy the space of another creature. The target has resistance to nonmagical damage, and it has advantage on Strength, Dexterity, and Constitution saving throws. The target can pass through small holes, narrow openings, and even mere cracks, though it treats liquids as though they were solid surfaces. The target can't fall and remains hovering in the air even when stunned or otherwise incapacitated.    \r\nWhile in the form of a misty cloud, the target can't talk or manipulate objects, and any objects it was carrying or holding can't be dropped, used, or otherwise interacted with. The target can't attack or cast spells."
+  spellType: ['fog']
   source: SRD
 gate:
   spellName: Gate
@@ -2646,6 +2710,7 @@ gate:
   duration: "Concentration, up to 1 minute"
   concentration: true
   description: "You conjure a portal linking an unoccupied space you can see within range to a precise location on a different plane of existence. The portal is a circular opening, which you can make 5 to 20 feet in diameter. You can orient the portal in any direction you choose. The portal lasts for the duration.    \r\nThe portal has a front and a back on each plane where it appears. Travel through the portal is possible only by moving through its front. Anything that does so is instantly transported to the other plane, appearing in the unoccupied space nearest to the portal.    \r\nDeities and other planar rulers can prevent portals created by this spell from opening in their presence or anywhere within their domains.    \r\nWhen you cast this spell, you can speak the name of a specific creature (a pseudonym, title, or nickname doesn't work). If that creature is on a plane other than the one you are on, the portal opens in the named creature's immediate vicinity and draws the creature through it to the nearest unoccupied space on your side of the portal. You gain no special power over the creature, and it is free to act as the GM deems appropriate. It might leave, attack you, or help you."
+  spellType: ['travel']
   source: SRD
 geas:
   spellName: Geas
@@ -2663,6 +2728,7 @@ geas:
     level, the spell lasts until it is ended by one of the spells mentioned
     above.
   description: "You place a magical command on a creature that you can see within range, forcing it to carry out some service or refrain from some action or course of activity as you decide. If the creature can understand you, it must succeed on a Wisdom saving throw or become charmed by you for the duration. While the creature is charmed by you, it takes 5d10 psychic damage each time it acts in a manner directly counter to your instructions, but no more than once each day. A creature that can't understand you is unaffected by the spell.    \r\nYou can issue any command you choose, short of an activity that would result in certain death. Should you issue a suicidal command, the spell ends. You can end the spell early by using an action to dismiss it. A **_remove curse_**, **_greater restoration_**, or **_wish_** spell also ends it."
+  spellType: ['charm']
   source: SRD
 gentle_repose:
   spellName: Gentle Repose
@@ -2675,6 +2741,7 @@ gentle_repose:
   duration: 10 days
   concentration: false
   description: "You touch a corpse or other remains. For the duration, the target is protected from decay and can't become undead.    \r\nThe spell also effectively extends the time limit on raising the target from the dead, since days spent under the influence of this spell don't count against the time limit of spells such as **_raise dead_**."
+  spellType: ['shield']
   source: SRD
 giant_insect:
   spellName: Giant Insect
@@ -2687,6 +2754,7 @@ giant_insect:
   duration: "Concentration, up to 10 minutes"
   concentration: true
   description: "You transform up to ten centipedes, three spiders, five wasps, or one scorpion within range into giant versions of their natural forms for the duration. A centipede becomes a giant centipede, a spider becomes a giant spider, a wasp becomes a giant wasp, and a scorpion becomes a giant scorpion.    \r\nEach creature obeys your verbal commands, and in combat, they act on your turn each round. The GM has the statistics for these creatures and resolves their actions and movement.    \r\nA creature remains in its giant size for the duration, until it drops to 0 hit points, or until you use an action to dismiss the effect on it.    \r\nThe GM might allow you to choose different targets. For example, if you transform a bee, its giant version might have the same statistics as a giant wasp."
+  spellType: ['insect']
   source: SRD
 glibness:
   spellName: Glibness
@@ -2703,6 +2771,7 @@ glibness:
     number you roll with a 15. Additionally, no matter what you say, magic that
     would determine if you are telling the truth indicates that you are being
     truthful.
+  spellType: ['language']
   source: SRD
 globe_of_invulnerability:
   spellName: Globe of Invulnerability
@@ -2718,6 +2787,7 @@ globe_of_invulnerability:
     When you cast this spell using a spell slot of 7th level or higher, the
     barrier blocks spells of one level higher for each slot level above 6th.
   description: "An immobile, faintly shimmering barrier springs into existence in a 10-foot radius around you and remains for the duration.    \r\nAny spell of 5th level or lower cast from outside the barrier can't affect creatures or objects within it, even if the spell is cast using a higher level spell slot. Such a spell can target creatures and objects within the barrier, but the spell has no effect on them. Similarly, the area within the barrier is excluded from the areas affected by such spells."
+  spellType: ['antimagic']
   source: SRD
 glyph_of_warding:
   spellName: Glyph of Warding
@@ -2734,7 +2804,40 @@ glyph_of_warding:
     damage of an **explosive runes** glyph increases by 1d8 for each slot level
     above 3rd. If you create a **spell glyph**, you can store any spell of up to
     the same level as the slot you use for the **_glyph of warding_**.
-  description: "When you cast this spell, you inscribe a glyph that harms other creatures, either upon a surface (such as a table or a section of floor or wall) or within an object that can be closed (such as a book, a scroll, or a treasure chest) to conceal the glyph. If you choose a surface, the glyph can cover an area of the surface no larger than 10 feet in diameter. If you choose an object, that object must remain in its place; if the object is moved more than 10 feet from where you cast this spell, the glyph is broken, and the spell ends without being triggered.    \r\nThe glyph is nearly invisible and requires a successful Intelligence (Investigation) check against your spell save DC to be found.    \r\nYou decide what triggers the glyph when you cast the spell. For glyphs inscribed on a surface, the most typical triggers include touching or standing on the glyph, removing another object covering the glyph, approaching within a certain distance of the glyph, or manipulating the object on which the glyph is inscribed. For glyphs inscribed within an object, the most common triggers include opening that object, approaching within a certain distance of the object, or seeing or reading the glyph. Once a glyph is triggered, this spell ends.    \r\nYou can further refine the trigger so the spell activates only under certain circumstances or according to physical characteristics (such as height or weight), creature kind (for example, the ward could be set to affect aberrations or drow), or alignment. You can also set conditions for creatures that don't trigger the glyph, such as those who say a certain password.    \r\nWhen you inscribe the glyph, choose **explosive runes** or a **spell glyph**.    \r\n**Explosive Runes.** When triggered, the glyph erupts with magical energy in a 20-foot-radius sphere centered on the glyph. The sphere spreads around corners. Each creature in the area must make a Dexterity saving throw. A creature takes 5d8 acid, cold, fire, lightning, or thunder damage on a failed saving throw (your choice when you create the glyph), or half as much damage on a successful one.    \r\n**Spell Glyph.** You can store a prepared spell of 3rd level or lower in the glyph by casting it as part of creating the glyph. The spell must target a single creature or an area. The spell being stored has no immediate effect when cast in this way. When the glyph is triggered, the stored spell is cast. If the spell has a target, it targets the creature that triggered the glyph. If the spell affects an area, the area is centered on that creature. If the spell summons hostile creatures or creates harmful objects or traps, they appear as close as possible to the intruder and attack it. If the spell requires concentration, it lasts until the end of its full duration."
+  description: >-
+    When you cast this spell, you inscribe a glyph that harms other creatures, either 
+    upon a surface (such as a table or a section of floor or wall) or within an object 
+    that can be closed (such as a book, a scroll, or a treasure chest) to conceal the 
+    glyph. If you choose a surface, the glyph can cover an area of the surface no larger 
+    than 10 feet in diameter. If you choose an object, that object must remain in its place; 
+    if the object is moved more than 10 feet from where you cast this spell, the glyph is broken, 
+    and the spell ends without being triggered.    \r\n
+    The glyph is nearly invisible and requires a successful Intelligence (Investigation) check 
+    against your spell save DC to be found.    \r\n
+    You decide what triggers the glyph when you cast the spell. For glyphs inscribed on a surface, 
+    the most typical triggers include touching or standing on the glyph, removing another object 
+    covering the glyph, approaching within a certain distance of the glyph, or manipulating the 
+    object on which the glyph is inscribed. For glyphs inscribed within an object, the most common 
+    triggers include opening that object, approaching within a certain distance of the object, or 
+    seeing or reading the glyph. Once a glyph is triggered, this spell ends.    \r\n
+    You can further refine the trigger so the spell activates only under certain circumstances or 
+    according to physical characteristics (such as height or weight), creature kind (for example, 
+    the ward could be set to affect aberrations or drow), or alignment. You can also set conditions 
+    for creatures that don't trigger the glyph, such as those who say a certain password.    \r\n
+    When you inscribe the glyph, choose **explosive runes** or a **spell glyph**.    \r\n
+    **Explosive Runes.** When triggered, the glyph erupts with magical energy in a 20-foot-radius 
+    sphere centered on the glyph. The sphere spreads around corners. Each creature in the area must 
+    make a Dexterity saving throw. A creature takes 5d8 acid, cold, fire, lightning, or thunder damage 
+    on a failed saving throw (your choice when you create the glyph), or half as much damage on a successful one.    \r\n
+    **Spell Glyph.** You can store a prepared spell of 3rd level or lower in the glyph by casting it as part of 
+    creating the glyph. The spell must target a single creature or an area. The spell being stored has no immediate 
+    effect when cast in this way. When the glyph is triggered, the stored spell is cast. If the spell has a target, 
+    it targets the creature that triggered the glyph. If the spell affects an area, the area is centered on that creature. 
+    If the spell summons hostile creatures or creates harmful objects or traps, they appear as close as possible to the 
+    intruder and attack it. If the spell requires concentration, it lasts until the end of its full duration.
+  spellType: ['lock', 'acid', 'cold', 'fire', 'lightning', 'thunder']
+  damage: 5d8
+  damageAtHigherLevels: 1d8
   source: SRD
 goodberry:
   spellName: Goodberry
@@ -2747,6 +2850,7 @@ goodberry:
   duration: Instantaneous
   concentration: false
   description: "Up to ten berries appear in your hand and are infused with magic for the duration. A creature can use its action to eat one berry. Eating a berry restores 1 hit point, and the berry provides enough nourishment to sustain a creature for one day.    \r\nThe berries lose their potency if they have not been consumed within 24 hours of the casting of this spell."
+  spellType: ['berry', 'healing']
   source: SRD
 grease:
   spellName: Grease
@@ -2759,6 +2863,7 @@ grease:
   duration: 1 minute
   concentration: false
   description: "Slick grease covers the ground in a 10-foot square centered on a point within range and turns it into difficult terrain for the duration.    \r\nWhen the grease appears, each creature standing in its area must succeed on a Dexterity saving throw or fall prone. A creature that enters the area or ends its turn there must also succeed on a Dexterity saving throw or fall prone."
+  spellType: ['water']
   source: SRD
 greater_invisibility:
   spellName: Greater Invisibility
@@ -2774,6 +2879,7 @@ greater_invisibility:
     You or a creature you touch becomes invisible until the spell ends. Anything
     the target is wearing or carrying is invisible as long as it is on the
     target's person.
+  spellType: ['disguise']
   source: SRD
 greater_restoration:
   spellName: Greater Restoration
@@ -2786,6 +2892,7 @@ greater_restoration:
   duration: Instantaneous
   concentration: false
   description: "You imbue a creature you touch with positive energy to undo a debilitating effect. You can reduce the target's exhaustion level by one, or end one of the following effects on the target:\r\n\r\n* One effect that charmed or petrified the target\r\n* One curse, including the target's attunement to a cursed magic item \r\n* Any reduction to one of the target's ability scores\r\n* One effect reducing the target's hit point maximum"
+  spellType: ['healing']
   source: SRD
 guardian_of_faith:
   spellName: Guardian of Faith
@@ -2797,7 +2904,16 @@ guardian_of_faith:
   components: V
   duration: 8 hours
   concentration: false
-  description: "A Large spectral guardian appears and hovers for the duration in an unoccupied space of your choice that you can see within range. The guardian occupies that space and is indistinct except for a gleaming sword and shield emblazoned with the symbol of your deity.    \r\nAny creature hostile to you that moves to a space within 10 feet of the guardian for the first time on a turn must succeed on a Dexterity saving throw. The creature takes 20 radiant damage on a failed save, or half as much damage on a successful one. The guardian vanishes when it has dealt a total of 60 damage."
+  description: >-
+    A Large spectral guardian appears and hovers for the duration in an unoccupied space of your 
+    choice that you can see within range. The guardian occupies that space and is indistinct except 
+    for a gleaming sword and shield emblazoned with the symbol of your deity.    \r\n
+    Any creature hostile to you that moves to a space within 10 feet of the guardian for the first 
+    time on a turn must succeed on a Dexterity saving throw. The creature takes 20 radiant damage 
+    on a failed save, or half as much damage on a successful one. The guardian vanishes when it has dealt a total of 60 damage.
+  damage: 0d0
+  plus: 20
+  spellType: ['radiant', 'shield']
   source: SRD
 guards_and_wards:
   spellName: Guards and Wards
