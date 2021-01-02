@@ -369,10 +369,10 @@ function cast(msg) {
 
   /* Sort the rolls and make a neater string */
 
-  const diceRolls = damage.diceRoll.sort((a, b) => b-a).join(", ")
+  if (damage) {const diceRolls = damage.diceRoll.sort((a, b) => b-a).join(", ")}
   
 
-  /* Add the damage string(s) to the message */
+  /* Add the damage string(s) to the message. Vampiric Touch restores half HP so that needs a separate indicator. */
 
   if (spell.damage) {
     castEmbed.fields.push({
