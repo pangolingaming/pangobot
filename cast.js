@@ -369,7 +369,9 @@ function cast(msg) {
 
   /* Sort the rolls and make a neater string */
 
-  if (damage) {const diceRolls = damage.diceRoll.sort((a, b) => b-a).join(", ")}
+  let diceRolls
+
+  if (damage) {diceRolls = damage.diceRoll.sort((a, b) => b-a).join(", ")}
   
 
   /* Add the damage string(s) to the message. Vampiric Touch restores half HP so that needs a separate indicator. */
