@@ -200,7 +200,7 @@ function cast(msg) {
   const spell = spellsList[args[0].toLowerCase()];
 
   /* Graceful exit if spell name doesn't match anything */
-  
+
   if (spell === undefined) {
     return msg.reply(
       "I can't find this spell in my spellbook, and I know a lot of spells. Did you add underscores into the spell name? Did you make sure to use its SRD name?"
@@ -367,6 +367,11 @@ function cast(msg) {
 
   let spellRollText = spell.spellRollText || "damage";
 
+  /* Sort the rolls and make a neater string */
+
+  const diceRolls = damage.diceRoll.sort((a, b) => b-a).join(", ")
+  
+
   /* Add the damage string(s) to the message */
 
   if (spell.damage) {
@@ -379,7 +384,7 @@ function cast(msg) {
       }${
         damage.rollString === "0d0"
           ? ""
-          : "rolled (" + damage.diceRoll.toString() + ")"
+          : "rolled (" + diceRolls + ")"
       }${spellAttackMod ? " +  " + spellAttackMod : ""}${
         plusTotal && damage.rollString !== "0d0" ? " + " + plusTotal : ""
       }.${
