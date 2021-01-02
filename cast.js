@@ -199,17 +199,21 @@ function cast(msg) {
   const args = splitString(msg);
   const spell = spellsList[args[0].toLowerCase()];
 
+  /* Graceful exit if spell name doesn't match anything */
+  
+  if (spell === undefined) {
+    return msg.reply(
+      "I can't find this spell in my spellbook, and I know a lot of spells. Did you add underscores into the spell name? Did you make sure to use its SRD name?"
+    );
+  }
+
   const spellBaseLevel = parseInt(spell.spellLevel);
 
   /* Check for concentration and add a C symbol - this will be used in the duration field later */
 
   const concentration = spell.concentration ? ":regional_indicator_c: " : "";
 
-  if (spell === undefined) {
-    return msg.reply(
-      "I can't find this spell. Did you add underscores into the spell name?"
-    );
-  }
+  
 
   args.slice(1).forEach((arg) => {
     if (arg[0].match(/[Ll]/)) {
