@@ -21,6 +21,7 @@ const typeIcons = {
   debuff: ":drop_of_blood:",
   disguise: ":disguised_face:",
   divination: ":crystal_ball:",
+  door: ":door:",
   fear: ":scream:",
   fire: ":fire:",
   food: ":stew:",
@@ -28,12 +29,15 @@ const typeIcons = {
   force: ":magic_wand:",
   healing: ":adhesive_bandage:",
   hound: ":dog:",
+  horse: ":horse:",
+  house: ":house:",
   insect: ":insect:",
   language: ":speech_balloon:",
   light: ":bulb:",
   lightning: ":cloud_lightning:",
   lock: ":lock:",
   magic: ":magic_wand:",
+  mending: ":sewing_needle:",
   message: ":envelope:",
   move: ":right_arrow:",
   necrotic: ":skull:",
@@ -45,16 +49,23 @@ const typeIcons = {
   radiant: ":star2:",
   rainbow: ":rainbow:",
   restrain: ":web:",
+  revive: ":coffin:",
+  rope: ":knot:",
   rock: ":rock:",
+  scroll: ":scroll:",
   shield: ":shield:",
+  silence: ":no_mouth:",
   slashing: ":axe:",
+  sleep: ":sleeping:",
   speed: ":fast_forward:",
   stun: ":dizzy_face:",
+  summon: ":o:",
   terrain: ":mountain:",
   thunder: ":boom",
   travel: ":world_map:",
   water: ":droplet:",
   weather: ":white_sun_rain_cloud:",
+  web: ":spider_web:",
   wind: ":wind_blowing_face:",
 };
 
@@ -74,20 +85,27 @@ const dndDamageTypes = [
   "thunder",
 ];
 
-/* TBD: Spells with effect tables. */
+/* TBD: Spells with effect tables and super long spells. */
 
 // Confusion
 // Control Weather
 // Blink
-/* TBD: Healing spells. */
+// Prismatic Spray
+// Storm of Vengeance
 
 /* TBD: Various special damage effects. */
 
 // Delayed Blast Fireball
 // Cantrip progression - beams (Eldritch Blast)
+// Magic missile - beams
+// Scorching Ray - beams
 // Flamestrike - two types of damage
 // Ice Storm - same thing
+// Meteor Swarm - same thing
+// Wall of Ice - same thing
 // Combine these two in array?
+//
+// Combine in array - type, damage, athigherlevels for each damage
 
 /* function to account for more than one damage type option */
 
@@ -134,6 +152,16 @@ function roll(rollString) {
   };
 
   return diceRoll;
+}
+
+/* Multiple attack rolls, separate damage (e.g. magic missile) */
+
+function rollMultipleAttacks(attacks, rollString) {
+  let attacksArray = [];
+  for (i = 1; i <= attacks; i++) {
+    attacksArray.push(roll(RollString));
+  }
+  return attacksArray;
 }
 
 function cast(msg) {
@@ -281,8 +309,11 @@ function cast(msg) {
   }
 
   /* Add damage inline field. Turn damagetypes into a longer string if needed. Add modifier(s) to roll. */
+  let damageTotal;
 
-  let damageTotal = damage.diceTotal;
+  if (spell.damage) {
+    damageTotal = damage.diceTotal;
+  }
 
   // Spell attack mod
   if (spellAttackMod) {
@@ -320,7 +351,7 @@ function cast(msg) {
       damageTypes[damageTypes.length - 1];
   } else damageTypeString = damageTypes[0];
 
-  /* Create the damage string */
+  /* Add the damage string(s) to the message */
 
   if (spell.damage) {
     castEmbed.fields.push({
@@ -333,9 +364,9 @@ function cast(msg) {
         damage.rollString === "0d0"
           ? ""
           : "rolled (" + damage.diceRoll.toString() + ")"
-      }${spellAttackMod ? "+  " + spellAttackMod : ""}${
-        plusTotal && damage.rollString !== "0d0" ? "+  " + plusTotal : ""
-      }.`,
+      }${spellAttackMod ? " +  " + spellAttackMod : ""}${
+        plusTotal && damage.rollString !== "0d0" ? " + " + plusTotal : ""
+      }.${spell.spellName === 'Vampiric Touch' ? ' Regain **' + (Math.floor(damageTotal/2)) + '** hp.' : ''}`,
     });
   }
   msg.reply(castEmbed);
