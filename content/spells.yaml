@@ -2416,7 +2416,7 @@ fire_bolt:
     damage. A flammable object hit by this spell ignites if it isn't being worn
     or carried.
   damage: 1d10
-  spellType: fire
+  spellType: ['fire']
   damageAtHigherLevels: 1d10
   source: SRD
 fire_shield:
@@ -2438,7 +2438,7 @@ fire_shield:
     In addition, whenever a creature within 5 feet of you hits you with a melee attack, the shield erupts with flame.
     The attacker takes 2d8 fire damage from a warm shield, or 2d8 cold damage from a cold shield."
   damage: 2d8
-  spellType: [fire, cold]
+  spellType: ['fire', 'cold']
   source: SRD
 fire_storm:
   spellName: Fire Storm
@@ -2503,7 +2503,11 @@ flame_strike:
     centered on a point within range must make a Dexterity saving throw. A
     creature takes 4d6 fire damage and 4d6 radiant damage on a failed save, or
     half as much damage on a successful one.
-  damage: 4d6
+  damageArray: 
+    - type: fire
+      dice: 4d6
+    - type: radiant
+      dice: 4d6
   damageAtHigherLevels: 1d6
   spellType: ['fire', 'radiant']
   source: SRD
@@ -3381,7 +3385,14 @@ ice_storm:
     cold damage on a failed save, or half as much damage on a successful one.    \r\n
     Hailstones turn the storm's area of effect into difficult terrain until the end 
     of your next turn.
-  damage: [[damage: '2d8', type: 'bludgeoning'], [damage: '4d6', type: 'cold']]
+  damageArray: 
+    - type: bludgeoning
+      dice: 2d8
+      when: onCast
+      atHigherLevels: 1d8
+    - type: cold
+      dice: 4d6
+      when: onCast
   spellType: ['cold', bludgeoning]
   source: SRD
 identify:
@@ -4007,7 +4018,13 @@ meteor_swarm:
     successful one. A creature in the area of more than one fiery burst is affected only once.    \r\n
     The spell damages objects in the area and ignites flammable objects that aren't being worn or carried.
   spellType: ['fire', 'bludgeoning']
-  damageArray: [['fire', '20d6'],['bludgeoning', '20d6']]
+  damageArray:
+    - type: fire 
+      damage: 20d6
+      when: onCast
+    - type: bludgeoning
+      damage: 20d6
+      when: onCast
   source: SRD
 mind_blank:
   spellName: Mind Blank
@@ -5829,7 +5846,15 @@ wall_of_ice:
     points destroys it and leaves behind a sheet of frigid air in the space the wall occupied. A creature 
     moving through the sheet of frigid air for the first time on a turn must make a Constitution saving throw. 
     That creature takes 5d6 cold damage on a failed save, or half as much damage on a successful one.
-  damageArray: [['cold', '10d6', 2d6], ['cold', '5d6', '1d6']]
+  damageArray: 
+    - type: cold
+      dice: 10d6
+      atHigherLevels: 2d6
+      when: onCast
+    - type: cold
+      dice: 5d6
+      atHigherLevels: 1d6
+      when: onMove
   spellType: ['cold']
   source: SRD
 wall_of_stone:
