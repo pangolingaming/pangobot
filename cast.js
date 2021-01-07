@@ -5,6 +5,8 @@ const yaml = require("js-yaml");
 const spellsData = fs.readFileSync("./content/spells.yaml", "utf8");
 const spellsList = yaml.safeLoad(spellsData);
 
+const dice = require("./dice");
+
 const typeIcons = {
   acid: ":lemon:",
   alarm: ":bell:",
@@ -105,8 +107,10 @@ const dndDamageTypes = [
 
 /* Function to split the string into an array, removing "!cast" */
 
-function splitString(msg) {
-  return msg.content.slice("!cast".length).trim().split(" ");
+function splitString(msg, command) {
+  if (msg.content) {
+  return msg.content.slice(command.length).trim().split(" ");
+  } else console.log('Message does not contain enough arguments.')
 }
 
 /* Set spell type icons and create title. First spell type determines the icon in the title. */
@@ -145,43 +149,13 @@ function joinArrayWithCommas(damageTypes) {
   }
 
 
-/* To calculate the dice from a roll string */
-
-function parseRoll(rollString) {
-  const roll = rollString.split("d");
-  return {
-    number: parseInt(roll[0]),
-    sides: parseInt(roll[1]),
-  };
-}
-
-/* To roll for damage */
-
-function roll(rollString) {
-  const roll = parseRoll(rollString);
-
-  var diceRollArray = [];
-
-  for (n = 1; n <= roll.number; n++) {
-    diceRollArray.push(Math.floor(Math.random() * roll.sides + 1));
-  }
-  var diceRoll = {
-    rollString: rollString,
-    diceRoll: diceRollArray,
-    diceTotal: diceRollArray.reduce(function (a, b) {
-      return a + b;
-    }, 0),
-  };
-
-  return diceRoll;
-}
 
 /* Multiple attack rolls, separate damage (e.g. magic missile) */
 
 function rollMultipleAttacks(attacks, rollString) {
   let attacksArray = [];
   for (i = 1; i <= attacks; i++) {
-    attacksArray.push(roll(RollString));
+    attacksArray.push(dice.roll(RollString));
   }
   return attacksArray;
 }
@@ -196,14 +170,14 @@ let short;
 
 function cast(msg) {
 
-  const args = splitString(msg);
+  const args = splitString(msg, "!cast");
   const spell = spellsList[args[0].toLowerCase()];
 
   /* Graceful exit if spell name doesn't match anything */
 
   if (spell === undefined) {
     return msg.reply(
-      "I can't find this spell in my spellbook, and I know a lot of spells. Did you add underscores into the spell name? Did you make sure to use its SRD name?"
+      "I can't find this spell in my spellbook, and I know a _lot_ of spells. Did you add underscores into the spell name? Did you make sure to use its SRD name?"
     );
   }
 
@@ -213,7 +187,7 @@ function cast(msg) {
 
   const concentration = spell.concentration ? ":regional_indicator_c: " : "";
 
-  
+  /* Check what needs to be rolled for, splitting the string and adding a modifier where needed */
 
   args.slice(1).forEach((arg) => {
     if (arg[0].match(/[Ll]/)) {
@@ -248,19 +222,19 @@ function cast(msg) {
     var effectRoll = spell.damage;
 
     if (upCast && spell.damage) {
-      var spellEffectDice = parseRoll(effectRoll);
+      var spellEffectDice = dice.parseRoll(effectRoll);
 
       /* Add extra damage dice if it's upcast and that provides extra damage. */
 
       if (spell.damageAtHigherLevels) {
-        var higherLevelsDice = parseRoll(spell.damageAtHigherLevels);
+        var higherLevelsDice = dice.parseRoll(spell.damageAtHigherLevels);
         var upCastDiceNumber =
           higherLevelsDice.number * upCastBy + spellEffectDice.number;
         effectRoll = upCastDiceNumber + "d" + spellEffectDice.sides;
       }
     }
 
-    var damage = roll(effectRoll);
+    var damage = dice.roll(effectRoll);
   }
 
   /* Footer */
@@ -400,3 +374,5 @@ function cast(msg) {
 }
 
 exports.cast = cast;
+exports.splitString = splitString;
+exports.joinArrayWithCommas = joinArrayWithCommas;

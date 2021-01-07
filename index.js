@@ -3,10 +3,12 @@
 const stats = require("./stats");
 const dice = require("./dice");
 const conditions = require("./conditions.js");
-const spells = require("./spells.js")
-const cast = require("./cast.js")
+const spells = require("./spells.js");
+const cast = require("./cast.js");
+const rolls = require("./rolls.js");
 
 const Discord = require("discord.js");
+const { rollDiceFromMessageContent } = require("./rolls");
 const client = new Discord.Client();
 
 client.on("ready", () => {
@@ -26,6 +28,10 @@ client.on("message", (msg) => {
     dice.dis(msg);
   }
 
+  if (msg.content.startsWith("!roll")) {
+    rolls.rollDiceFromMessageContent(msg);
+  }
+
   if (msg.content.startsWith("!condition")) {
     conditions.condition(msg);
   }
@@ -34,7 +40,7 @@ client.on("message", (msg) => {
     spells.spell(msg);
   }
 
-  if (msg.content.startsWith('!cast')) {
+  if (msg.content.startsWith("!cast")) {
     cast.cast(msg);
   }
 });
