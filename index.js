@@ -6,6 +6,7 @@ const conditions = require("./conditions.js");
 const spells = require("./spells.js");
 const cast = require("./cast.js");
 const rolls = require("./rolls.js");
+const help = require("./help.js");
 
 const Discord = require("discord.js");
 const { rollDiceFromMessageContent } = require("./rolls");
@@ -42,6 +43,10 @@ client.on("message", (msg) => {
 
   if (msg.content.startsWith("!cast")) {
     cast.cast(msg);
+  }
+
+  if (msg.content.startsWith("!help")) {
+    help.help(msg);
   }
 });
 
