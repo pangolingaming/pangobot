@@ -1,0 +1,84 @@
+padded_armor:
+  name: Padded
+  description: >-
+    Padded armor consists of quilted layers of cloth and batting.
+  armor:
+    type: light
+    ac: 11 + Dex modifier
+    stealth: Disadvantage
+  weight: 8
+  cost: 5
+leather_armor:
+  name: Leather
+  description: >-
+    The breastplate and shoulder protectors of this armor are made of leather that has been stiffened by being boiled in oil. 
+    The rest of the armor is made of softer and more flexible materials.
+  armor:
+    type: light
+    ac: 11 + Dex modifier
+  weight: 10
+  cost: 10
+studded_leather_armor:
+  name: Studded Leather
+  description: >-
+    Made from tough but flexible leather, studded leather is reinforced with close-set rivets or spikes.
+  armor:
+    type: light
+    ac: 12 + Dex modifier
+  weight: 13
+  cost: 25
+hide_armor:
+  name: Hide
+  description: >-
+    This crude armor consists of thick furs and pelts. It is commonly worn by barbarian tribes, evil humanoids, and other folk
+    who lack the tools and materials needed to create better armor.
+  armor:
+    type: medium
+    ac: 12 + Dex modifier (max 2)
+  weight: 12
+  cost: 10
+chain_shirt:
+  name: Chain Shirt
+  description: >-
+    Made of interlocking metal rings, a chain shirt is worn between layers of clothing or leather. This armor offers modest protection 
+    to the wearer's upper body and allows the sound of the rings rubbing against one another to be muffled by outer layers.
+  armor:
+    type: medium
+    ac: 13 + Dex modifier (max 2)
+  weight: 20
+  cost: 50
+scale_mail:
+  name: Scale Mail
+  description: >-
+    This armor consists of a coat and leggings (and perhaps a separate skirt) of leather covered with overlapping pieces of metal, much 
+    like the scales of a fish. The suit includes gauntlets.
+  armor:
+    type: medium
+    ac: 14 + Dex modifier (max 2)
+    stealth_dis: true
+  weight: 45
+  cost: 50
+breastplate:
+  name: Breastplate
+  description: >-
+    This armor consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, 
+    this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered.
+  armor: 
+    type: medium
+    ac: 14 + Dex modifier (max 2)
+  weight: 20
+  cost: 400
+half_plate:
+  name: Half Plate
+  description: >-
+    Half plate consists of shaped metal plates that cover most of the wearer's body. It does not include leg protection beyond simple greaves that 
+    are attached with leather straps.
+  armor:
+    type: medium
+    ac: 15 + Dex modifier (max 2)
+    stealth_dis: true
+  weight: 40
+  cost: 750
+
+
+

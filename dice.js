@@ -39,7 +39,8 @@ function parseRoll(rollString) {
   
   function roll(rollString) {
     const roll = parseRoll(rollString);
-  
+    if(roll[0] < 100) {
+    
     var diceRollArray = [];
   
     for (n = 1; n <= roll.number; n++) {
@@ -54,7 +55,7 @@ function parseRoll(rollString) {
     };
   
     return diceRoll;
-  }
+  } else return 0}
 
 exports.roll = roll;
 exports.parseRoll = parseRoll;  
