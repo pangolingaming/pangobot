@@ -63,7 +63,7 @@ breastplate:
   description: >-
     This armor consists of a fitted metal chest piece worn with supple leather. Although it leaves the legs and arms relatively unprotected, 
     this armor provides good protection for the wearer's vital organs while leaving the wearer relatively unencumbered.
-  armor: 
+  armor:
     type: medium
     ac: 14 + Dex modifier (max 2)
   weight: 20
@@ -79,6 +79,918 @@ half_plate:
     stealth_dis: true
   weight: 40
   cost: 750
+ring_mail:
+  name: Ring Mail
+  description: >-
+    This armor is leather armor with heavy rings sewn into it. The rings help reinforce the armor against blows from swords and axes. Ring mail is 
+    inferior to chain mail, and it's usually worn only by those who can't afford better armor.
+  armor:
+    type: heavy
+    ac: 14
+    stealth_dis: true
+  weight: 40
+  cost: 30
+chain_mail:
+  name: Chain Mail
+  description: >-
+    Made of interlocking metal rings, chain mail includes a layer of quilted fabric worn underneath the mail to prevent chafing and to cushion the 
+    impact of blows. The suit includes gauntlets.
+  armor:
+    type: heavy
+    ac: 16
+    stealth_dis: true
+    str: 13
+  weight: 55
+  cost: 75
+splint:
+  name: Splint
+  description: >-
+    This armor is made of narrow vertical strips of metal riveted to a backing of leather that is worn over cloth padding. Flexible chain mail protects the joints.
+  armor:
+    type: heavy
+    ac: 17
+    stealth_dis: true
+    str: 15
+  weight: 60
+  cost: 200
+plate:
+  name: Plate
+  description: >-
+    Plate consists of shaped, interlocking metal plates to cover the entire body. A suit of plate includes gauntlets, heavy leather boots, a visored helmet, 
+    and thick layers of padding underneath the armor. Buckles and straps distribute the weight over the body.
+  armor:
+    type: heavy
+    ac: 18
+    stealth_dis: true
+    str: 15
+  weight: 65
+  cost: 1500
+shield:
+  name: Shield
+  description: >-
+    A shield is made from wood or metal and is carried in one hand. Wielding a shield increases your Armor Class by 2. You can benefit from only one shield at a time.
+  armor:
+    type: shield
+    ac: 2
+  weight: 6
+  cost: 10
+club:
+  name: Club
+  description: >-
+    A club is a short staff or stick, usually made of wood, wielded as a weapon.
+  weapon:
+    type: ["simple", "melee"]
+    properties: ["light"]
+    damage: 1d4
+    damage_type: bludgeoning
+  weight: 2
+  cost: 0.1
+dagger:
+  name: Dagger
+  description: >-
+    A dagger is a large knife, used as a weapon for stabbing or thrusting.
+  weapon:
+    type: ["simple", "melee"]
+    properties: ["finesse", "light", "thrown"]
+    thrown_range: "20/60"
+    damage: 1d4
+    damage_type: piercing
+  weight: 1
+  cost: 2
+greatclub:
+  name: Greatclub
+  description: >-
+    A greatclub is a large, wide staff or stick that is wielded in two hands.
+  weapon:
+    type: ["simple", "melee"]
+    properties: ["two-handed"]
+    damage: 1d8
+    damage_type: bludgeoning
+  weight: 10
+  cost: 0.2
+handaxe:
+  name: Handaxe
+  description: >-
+    A handaxe is a small axe that can be used for splitting small logs or cutting branches off trees, as well as for self-defense.
+  weapon:
+    type: ["simple", "melee"]
+    properties: ["light", "thrown"]
+    thrown_range: "20/60"
+    damage: 1d6
+    damage_type: slashing
+  weight: 2
+  cost: 5
+javelin:
+  name: Javelin
+  description: >-
+    A javelin is a light spear, perfect for throwing at the enemy.
+  weapon:
+    type: ["simple", "melee"]
+    properties: ["thrown"]
+    thrown_range: "30/120"
+    damage: 1d6
+    damage_type: piercing
+  weight: 2
+  cost: .5
+light_hammer:
+  name: Light hammer
+  description: >-
+    The light hammer is a weapon with a handle and a weighted head at the top.
+  weapon:
+    type: ["simple", "melee"]
+    properties: ["light", "thrown"]
+    thrown_range: "20/60"
+    damage: 1d4
+    damage_type: bludgeoning
+  weight: 2
+  cost: 2
+mace:
+  name: Mace
+  description: >-
+    A mace is a blunt weapon with a large, often spiked head at the top of a long handle.
+  weapon:
+    type: ["simple", "melee"]
+    damage: 1d6
+    damage_type: bludgeoning
+  weight: 4
+  cost: 5
+quarterstaff:
+  name: Quarterstaff
+  description: >-
+    A quarterstaff is a long stick, sometimes over 6 feet tall, which can be used both as a walking stick and weapon.
+  weapon:
+    type: ["simple", "melee"]
+    damage: 1d6
+    damage_type: bludgeoning
+    properties: ["versatile"]
+    vers_damage: 1d8
+  weight: 4
+  cost: .2
+sickle:
+  name: Sickle
+  description: >-
+    Originally used by farmers to harvest crops like wheat, a sickle is a curved blade attached to a short handle.
+  weapon:
+    type: ["simple", "melee"]
+    damage: 1d4
+    damage_type: slashing
+    properties: ["light"]
+  weight: 2
+  cost: 1
+spear:
+  name: Spear
+  description: >-
+    A long staff with a pointed end, sometimes simply a sharpened stick, other times a spearhead made from flint or metal.
+  weapon:
+    type: ["simple", "melee"]
+    damage: 1d6
+    damage_type: piercing
+    properties: ["thrown, versatile"]
+    thrown_range: "20/60"
+    vers_damage: 1d8
+  weight: 3
+  cost: 1
+light_crossbow:
+  name: Light crossbow
+  description: A crossbow small enough to be wielded by a small creature.
+  weapon:
+    type: ["simple", "ranged"]
+    damage: 1d8
+    damage_type: piercing
+    properties: ["ammunition", "loading", "two-handed"]
+    range: "80/320"
+  weight: 5
+  cost: 25
+dart:
+  name: Dart
+  description: >-
+    A dart can be thrown, or used as ammunition for a blowgun.
+  weapon:
+    type: ["simple", "ranged"]
+    damage: 1d4
+    damage_type: piercing
+    properties: ["finesse", "thrown"]
+    range: "20/60"
+  weight: 0.25
+  cost: 0.05
+shortbow:
+  name: Shortbow
+  description: >-
+    A ranged weapon which fires arrows by using the stored energy from retracting the bowstring to propel the ammunition forward.
+  weapon:
+    type: ["simple", "ranged"]
+    damage: 1d6
+    damage_type: piercing
+    properties: ["ammunition", "two-handed"]
+    range: "80/320"
+  weight: 2
+  cost: 25
+sling:
+  name: Sling
+  description: >-
+    A very simple ranged weapon which uses the centripetal force to propel the pellet towards the enemy.
+  weapon:
+    type: ["simple", "ranged"]
+    damage: 1d4
+    damage_type: bludgeoning
+    properties: ["ammunition"]
+    range: "30/120"
+  cost: 0.1
+battleaxe:
+  name: Battleaxe
+  description: >-
+    A large axe, often used by dwarves, that can be wielded in one or two hands.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d8
+    damage_type: slashing
+    properties: ["versatile"]
+    vers_damage: 1d10
+  weight: 4
+  cost: 10
+flail:
+  name: Flail
+  description: >-
+    Based on a threshing tool, a flail is usually made of long sticks connected by a short chain.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d8
+    damage_type: bludgeoning
+  weight: 2
+  cost: 10
+glaive:
+  name: Glaive
+  description: >-
+    A polearm weapon with a blade on the end. Exampes include the naginata and the glaive-guisarme.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d10
+    damage_type: slashing
+    properties: ["heavy", "reach", "two-handed"]
+  weight: 6
+  cost: 20
+greataxe:
+  name: Greataxe
+  description: >-
+    A very large axe that is wielded with two hands.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d12
+    damage_type: slashing
+    properties: ["heavy", "two-handed"]
+  weight: 7
+  cost: 30
+greatsword:
+  name: Greatsword
+  description: >-
+    A large, two-handed sword. Examples include the claymore and zweihänder.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 2d6
+    damage_type: slashing
+    properties: ["heavy", "two-handed"]
+  weight: 6
+  cost: 50
+halberd:
+  name: Halberd
+  description: >-
+    A polearm with an axe-like blade at one end. Often wielded by guards and two allow the wielder 
+    to defend effectively against pikemen.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d10
+    damage_type: slashing
+    properties: ["heavy", "reach", "two-handed"]
+  weight: 6
+  cost: 20
+lance:
+  name: Lance
+  description: >-
+    A very long polearm, used predominantly in mounted combat.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d12
+    damage_type: piercing
+    properties: ["reach", "special"]
+    special_text: >-
+      You have disadvantage when you use a lance to attack a target within 5 feet of you. Also, a 
+      lance requires two hands to wield when you aren't mounted.
+  weight: 6
+  cost: 10
+longsword:
+  name: Longsword
+  description: >-
+    A sword with a grip that allows it to be wielded with one or two hands. The archetypical 
+    knightly sword.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d8
+    damage_type: slashing
+    properties: ["versatile"]
+    vers_damage: 1d10
+  weight: 3
+  cost: 15
+maul:
+  name: Maul
+  description: >-
+    A very large, two-handed hammer.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 2d6
+    damage_type: bludgeoning
+    properties: ["heavy", "two-handed"]
+  weight: 10
+  cost: 10
+morningstar:
+  name: Morningstar
+  description: >-
+    Similar to a mace or flail, this weapon consists of a short handle, to which a spiked ball 
+    is attached with a chain.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d8
+    damage_type: piercing
+  weight: 4
+  cost: 15
+pike:
+  name: Pike
+  description: >-
+    A pike is a very long and heavy spear used as a thrusting weapon.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d10
+    damage_type: piercing
+    properties: ["heavy", "reach", "two-handed"]
+  weight: 18
+  cost: 5
+rapier:
+  name: Rapier
+  description: >-
+    A rapier is a light sword, used in a jabbing, thrusting fashion.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d8
+    damage_type: piercing
+    properties: ["finesse"]
+  weight: 2
+  cost: 25
+scimitar:
+  name: Scimitar
+  description: >-
+    The scimitar is a short sword with a curved blade.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d6
+    damage_type: slashing
+    properties: ["finesse", "light"]
+  weight: 3
+  cost: 25
+shortsword:
+  name: Shortsword
+  description: >-
+    The shortsword allows for more flexibility in use due to its weight and size. 
+    It can be used as an off-hand weapon, or together with a shield.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d6
+    damage_type: piercing
+    properties: ["finesse", "light"]
+  weight: 2
+  cost: 10
+trident:
+  name: Trident
+  description: >-
+    Originally a tool used in fishing, the trident is a three-pronged spear with an 
+    undeniable aquatic connotation.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d6
+    damage_type: piercing
+    properties: ["thrown", "versatile"]
+    thrown_range: "20/60"
+    vers_damage: 1d8
+  weight: 4
+  cost: 5
+war_pick:
+  name: War Pick
+  description: >-
+    The war pick is a polearm weapon, similar to a pickaxe on a long pole.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d8
+    damage_type: piercing
+  weight: 2
+  cost: 5
+warhammer:
+  name: Warhammer
+  description: >-
+    A large, long-handled hammer used as a weapon, either with a shield, 
+    or wielded in two hands. Also known as a horseman's pick, it is a favorite of clerics.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d8
+    damage_type: bludgeoning
+    properties: ["versatile"]
+    vers_damage: 1d10
+  weight: 2
+  cost: 15
+whip:
+  name: Whip
+  description: >-
+    A flexible line that allows for longer reach and greater force in its strike.
+  weapon:
+    type: ["martial", "melee"]
+    damage: 1d4
+    damage_type: slashing
+    properties: ["finesse", "reach"]
+  weight: 3
+  cost: 2
+blowgun:
+  name: Blowgun
+  description: >-
+    A hollow tube that allows the wielder to shoot darts by expelling air out of 
+    their lungs.
+  weapon:
+    type: ["martial", "ranged"]
+    damage: 1
+    damage_type: piercing 
+    properties: ["ammunition", "loading"]
+    range: "25/100"
+  weight: 1
+  cost: 10
+hand_crossbow:
+  name: Hand crossbow
+  description: >-
+    A crossbow that is light enough to be wielded in one hand.
+  weapon:
+    type: ["martial", "ranged"]
+    damage: 1d6
+    damage_type: piercing 
+    properties: ["ammunition", "light", "loading"]
+    range: "30/120"
+  weight: 3
+  cost: 75
+heavy_crossbow:
+  name: Heavy crossbow
+  description: >-
+    A large crossbow, heavier to wield, but that can shoot its bolts with 
+    greater force.
+  weapon:
+    type: ["martial", "ranged"]
+    damage: 1d10
+    damage_type: piercing
+    properties: ["ammunition", "heavy", "loading", "two-handed"]
+    range: "100/400"
+  weight: 18
+  cost: 50
+longbow:
+  name: Longbow
+  description: >-
+    A bow that allows for a very long draw due to the length of its string.
+  weapon:
+    type: ["martial", "ranged"]
+    damage: 1d8
+    damage_type: piercing 
+    properties: ["ammunition", "heavy", "two-handed"]
+    range: "150/600"
+  weight: 2
+  cost: 50
+net:
+  name: Net
+  description: >-
+    Rather than deal damage, this weapon allows the wielder to capture and 
+    grapple their enemies.
+  weapon:
+    type: ["martial", "ranged"]
+    properties: ["special", "thrown"]
+    thrown_range: "5/15"
+    special_text: >-
+      A Large or smaller creature hit by a net is restrained until it is freed. A net has no effect on creatures that 
+      are formless, or creatures that are Huge or larger. A creature can use its action to make a DC 10 Strength check, 
+      freeing itself or another creature within its reach on a success. Dealing 5 slashing damage to the net (AC 10) 
+      also frees the creature without harming it, ending the effect and destroying the net./n
+      When you use an action, bonus action, or reaction to attack with a net, you can make only one attack regardless 
+      of the number of attacks you can normally make.
+  weight: 3
+  cost: 1
+abacus:
+  name: Abacus
+  description: >-
+    A tool used to aid in complex calculations.
+  weight: 2
+  cost: 2
+acid:
+  name: Acid (vial)
+  description: >-
+    As an action, you can splash the contents of this vial onto a creature within 5 feet of you or throw the vial up to 20 
+    feet, shattering it on impact. In either case, make a ranged attack against a creature or object, treating the acid as 
+    an improvised weapon. On a hit, the target takes 2d6 acid damage.
+  weapon:
+    type: ["improvised"]
+    properties: ["thrown"]
+    thrown_range: "20"
+    damage: 2d6
+    damage_type: acid
+  weight: 1
+  cost: 25
+alchemists_fire:
+  name: Alchemist\'s fire (flask)
+  description: >-
+    This sticky, adhesive fluid ignites when exposed to air. As an action, you can throw this flask up to 20 feet, shattering 
+    it on impact. Make a ranged attack against a creature or object, treating the alchemist's fire as an improvised weapon. 
+    On a hit, the target takes 1d4 fire damage at the start of each of its turns. A creature can end this damage by using its 
+    action to make a DC 10 Dexterity check to extinguish the flames.
+  weapon:
+    type: ["improvised"]
+    properties: ["thrown"]
+    thrown_range: "20"
+    damage: 1d4
+    damage_type: fire
+  weight: 1
+  cost: 50
+arrows:
+  name: Arrows (20)
+  description: >-
 
+  type: ammunition
+  weight: 1
+  cost: 1
+blowgun_needles:
+  name: Blowgun needles (50)
+  description: >-
 
+  type: ammunition
+  weight: 1
+  cost: 1
+crossbow_bolts:
+  name: Crossbow bolts (20)
+  description: >-
 
+  type: ammunition
+  weight: 1.5
+  cost: 1
+sling_bullets:
+  name: Sling bullets (20)
+  description: >-
+
+  type: ammunition
+  weight: 1.5
+  cost: 0.04
+antitoxin:
+  name: Antitoxin (vial)
+  description: >-
+    A creature that drinks this vial of liquid gains advantage on saving throws against poison for 1 hour. It confers no benefit to undead or constructs.
+  cost: 50
+crystal: 
+  name: Crystal (arcane focus)
+  description: >-
+    An arcane focus is a special item designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting 
+    focus. This type of arcane focus is a large crystal that can be held in one hand while casting spells.
+  type: "arcane focus"
+  weight: 1
+  cost: 10
+orb:
+  name: Orb (arcane focus)
+  description: >-
+    An arcane focus is a special item designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting 
+    focus. This type of arcane focus is an orb made from glass or crystal, possibly with items embedded in it.
+  type: "arcane focus"
+  weight: 3
+  cost: 20
+rod:
+  name: Rod (arcane focus)
+  description: >-
+    An arcane focus is a special item designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting 
+    focus. This type of arcane focus is an short rod, possibly inscribed with runes or other magical symbols.
+  type: "arcane focus"
+  weight: 2
+  cost: 10
+staff:
+  name: Staff (arcane focus)
+  description: >-
+    An arcane focus is a special item designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting 
+    focus. This type of arcane focus is a long staff, made from wood or metal, tipped with a crystal or other item of magical significance to the wielder.
+  type: "arcane focus"
+  weight: 4
+  cost: 5
+wand:
+  name: Wand (arcane focus)
+  description: >-
+    An arcane focus is a special item designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting 
+    focus. This type of arcane focus is a slim wand, created to match the wielder's preferences. 
+  type: "arcane focus"
+  weight: 1
+  cost: 10
+backpack:
+  name: 
+  description: >-
+    A backpack is a container that is carried on the wearer's shoulders with the aid of two straps. It can hold 1 cubic foot, or 30 pounds, of gear.
+  weight: 5
+  cost: 2
+ballbearings:
+  name: Ball bearings (bag of 1,000)
+  description: >-
+    As an action, you can spill these tiny metal balls from their pouch to cover a level, square area that is 10 feet on a side. A creature moving across the 
+    covered area must succeed on a DC 10 Dexterity saving throw or fall prone. A creature moving through the area at half speed doesn't need to make the save.
+  weight: 2
+  cost: 1
+barrel:
+  name: Barrel
+  description: >-
+    A barrel is a roughly cylindrical container that can hold 40 gallons of liquid or 4 cubic feet of solids.
+  weight: 70
+  cost: 2
+basket:
+  name: Basket
+  description: >-
+    A basket is made from reeds or wicker. It can hold 2 cubic feet, or 40 pounds, of gear.
+  weight: 2
+  cost: 0.4
+bedroll:
+  name: Bedroll
+  description: >-
+    A flexible, stuffed mattress that can be carried rolled up and attached to a backpack.
+  weight: 7
+  cost: 1
+bell:
+  name: Bell
+  description: >-
+    An object consisting of a hollow cup, which, when shaken, produces a loud noise as the internal clapper strikes the metal.
+  cost: 1
+blanket:
+  name: Blanket
+  description: >-
+    Made from textile fibres from animals or plants, this item helps the user keep warm during sleep.
+  weight: 3
+  cost: 0.5
+block_tackle:
+  name: Block and tackle
+  description: >-
+    A set of pulleys with a cable threaded through them and a hook to attach to objects, a block and tackle allows you to hoist up to four times the weight 
+    you can normally lift.
+book:
+  name: Book
+  description: >-
+    A book might contain poetry, historical accounts, information pertaining to a particular field of lore, diagrams and notes on gnomish contraptions, or 
+    just about anything else that can be represented using text or pictures. A book of spells is a spellbook.
+  cost: 25
+  weight: 5
+glass_bottle:
+  name: Glass bottle
+  description: >-
+    A bottle can hold 1 1/2 pints of liquid.
+  cost: 2
+  weight: 2
+bucket:
+  name: Bucket
+  description: >-
+    A bucket can hold 3 gallons of liquid, or 1/2 cubic foot of solid material.
+  cost: 0.05
+  weight: 2
+caltrops:
+  name: Caltrops (bag of 20)
+  description: >-
+    As an action, you can spread a bag of caltrops to cover a square area that is 5 feet on a side. Any creature that enters the area must succeed on a DC 
+    15 Dexterity saving throw or stop moving this turn and take 1 piercing damage. Taking this damage reduces the creature's walking speed by 10 feet until 
+    the creature regains at least 1 hit point. A creature moving through the area at half speed doesn't need to make the save.
+  cost: 1
+  weight: 2
+candle:
+  name: Candle
+  description: >-
+    For 1 hour, a candle sheds bright light in a 5-foot radius and dim light for an additional 5 feet.
+  cost: 0.01
+crossbow_bolt_case:
+  name: Crossbow bolt case
+  description: >-
+    This wooden case can hold up to twenty crossbow bolts.
+  cost: 1
+  weight: 1
+scroll_case:
+  name: Map or scroll case
+  description: >-
+    This cylindrical leather case can hold up to ten rolled-up sheets of paper or five rolled-up sheets of parchment.
+  cost: 1
+  weight: 1
+chain:
+  name: Chain (10 feet)
+  description: >-
+    A chain has 10 hit points. It can be burst with a successful DC 20 Strength check.
+  cost: 5
+  weight: 10
+chalk:
+  name: Chalk (1 piece)
+  description: >-
+    This small stick of chalk can be used to write, or to otherwise mark all kinds of surfaces.
+  cost: 0.01
+chest:
+  name: Chest
+  description: >-
+    A chest can hold 12 cubic feet, or 300 pounds of gear.
+  cost: 5
+  weight: 25
+climbers_kit:
+  name: Climber's Kit
+  description: >-
+    A climber's kit includes special pitons, boot tips, gloves, and a harness. You can use the climber's kit as an action 
+    to anchor yourself; when you do, you can't fall more than 25 feet from the point where you anchored yourself, and you 
+    can't climb more than 25 feet away from that point without undoing the anchor.
+  cost: 25
+  weight: 12
+common_clothes:
+  name: Common clothes
+  description: >-
+    A set of clothes of the type worn by peasants and other commoners. The type of outfit depends on the local dress.
+  cost: 0.5
+  weight: 3
+costume_clothes:
+  name: Costume clothes
+  description: >-
+    This outfit would be worn by a musician, travelling bard or jester, actor, or other type of entertainer.
+  cost: 5
+  weight: 4 
+fine_clothes:
+  name: Fine clothes
+  description: >-
+    The type of outfit worn by wealthy merchants or nobles. The price indicated here is a starting point, as these clothes may 
+    be encrusted with jewels, embroidered, covered in lace, and made from the finest and most expensive materials available.
+  cost: 15
+  weight: 6
+travelers_clothes:
+  name: Traveler\'s clothes
+  description: >-
+    An outfit made from hard-wearing materials, perfect for life on the road.
+  cost: 2
+  weight: 4
+component_pouch:
+  name: Component pouch
+  description: >-
+    A component pouch is a small, watertight leather belt pouch that has compartments to hold all the material components and other 
+    special items you need to cast your spells, except for those components that have a specific cost (as indicated in a spell's description).
+  cost: 25
+  weight: 2
+crowbar:
+  name: Crowbar
+  description: >-
+    Using a crowbar grants advantage to Strength checks where the crowbar's leverage can be applied.
+  weight: 5
+  cost: 2
+mistletoe:
+  name: Sprig of mistletoe (druidic focus)
+  description: >-
+    A sprig cut from the mistletoe, a parasitic plant often found on oak trees. A druid can use this item as a spellcasting focus.
+  type: "druidic focus"
+  cost: 1
+totem:
+  name: Totem (druidic focus)
+  description: >-
+    A small representation of a deity or animist force meaningful to the owner. A druid can use this item as a spellcasting focus.
+  type: "druidic focus"
+  cost: 1
+wooden_staff:
+  name: Wooden staff
+  description: >-
+    A staff cut from a tree meaningful to the owner. A druid can use this item as a spellcasting focus.
+  type: "druidic focus"
+  weight: 4
+  cost: 5
+yew_wand:
+  name: Yew wand (druidic focus)
+  description: >-
+    A wand cut from the yew tree. A druid can use this item as a spellcasting focus.
+  type: "druidic focus"
+  weight: 1
+  cost: 10
+fishing_tackle:
+  name: Fishing tackle
+  description: >-
+    This kit includes a wooden rod, silken line, corkwood bobbers, steel hooks, lead sinkers, velvet lures, and narrow netting.
+  weight: 4
+  cost: 1
+flask:
+  name: Flask
+  description: >-
+    This flask is made from leather or metal and can be closed with a cork and worn on a belt. It can hold 1 pint of liquid.
+  weight: 1
+  cost: 0.02
+tankard:
+  name: Tankard
+  description: >-
+    This tankard is made from metal or ceramic material and can be closed with a lid. It can hold 1 pint of liquid.
+  weight: 1
+  cost: 0.02
+grappling_hook:
+  name: Grappling hook
+  description: >-
+    When tied to the end of a rope, a grappling hook can secure the rope to a battlement, window ledge, tree limb, or other protrusion.
+  weight: 4
+  cost: 2
+hammer:
+  name: Hammer
+  description: >-
+    A hammer is a tool used in many trades, including carpentry and smithing. It consists of a handle and heavy, blunt head.
+  weight: 3
+  cost: 1
+sledge_hammer:
+  name: Sledge hammer
+  description: >-
+    A very heavy hammer that can be used to destroy walls and other masonry. It is also used in mining.
+  weight: 10
+  cost: 2
+healers_kit:
+  name: Healer's kit
+  description: >-
+    This kit is a leather pouch containing bandages, salves, and splints. The kit has ten uses. As an action, you can expend one use of 
+    the kit to stabilize a creature that has 0 hit points, without needing to make a Wisdom (Medicine) check.
+  weight: 3
+  cost: 5
+amulet:
+  name: Amulet (holy symbol)
+  description: >-
+    A holy symbol is a representation of a god or pantheon. A cleric or paladin can use a holy symbol as a spellcasting focus. 
+    To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield. This type of holy 
+    symbol is an amulet, depicting one or more aspects of a deity, often worn around the neck on a chain or leather strap.
+  type: "holy symbol"
+  weight: 1
+  cost: 5
+emblem:
+  name: Emblem (holy symbol)
+  description: >-
+    A holy symbol is a representation of a god or pantheon. A cleric or paladin can use a holy symbol as a spellcasting focus. 
+    To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield. This type of holy 
+    symbol is displayed on a shield, either painted, wrought from iron, or enamel.
+  type: "holy symbol"
+  cost: 5
+reliquary:
+  name: Reliquary (holy symbol)
+  description: >-
+    A holy symbol is a representation of a god or pantheon. A cleric or paladin can use a holy symbol as a spellcasting focus. 
+    To use the symbol in this way, the caster must hold it in hand, wear it visibly, or bear it on a shield. A reliquary contains 
+    the physical remains of a saint of the bearer's faith.
+  type: "holy symbol"
+  weight: 2
+  cost: 5
+holy_water:
+  name: Holy water (flask)
+  description: >-
+    As an action, you can splash the contents of this flask onto a creature within 5 feet of you or throw it up to 20 feet, shattering it 
+    on impact. In either case, make a ranged attack against a target creature, treating the holy water as an improvised weapon. If the 
+    target is a fiend or undead, it takes 2d6 radiant damage.\n
+    A cleric or paladin may create holy water by performing a special ritual. The ritual takes 1 hour to perform, uses 25 gp worth of powdered 
+    silver, and requires the caster to expend a 1st-level spell slot.
+  weapon: 
+    type: ["improvised"]
+    properties: ["thrown"]
+    thrown_range: "20"
+    damage: 2d6
+    damage_type: radiant
+  weight: 1
+  cost: 25
+hourglass:
+hunting_trap:
+ink:
+ink_pen:
+jug:
+pitcher:
+ladder:
+lamp:
+bullseye_lantern:
+hooded_lantern:
+lock:
+magnifying_glass:
+manacles:
+mess_kit:
+steel_mirror:
+oil:
+paper:
+parchment:
+perfume:
+miners_pick:
+piton:
+basic_poison:
+10_foot_pole:
+iron_pot:
+potion_of_healing:
+pouch:
+quiver:
+portable_ram:
+rations:
+robes:
+hempen_rope:
+silk_rope:
+sack:
+merchants_scale:
+sealing_wax:
+shovel:
+signal_whistle:
+signet_ring:
+soap:
+spellbook:
+iron_spikes:
+spyglass:
+two_person_tent:
+tinderbox:
+torch:
+vial:
+waterskin:
+whetstone:
