@@ -611,28 +611,28 @@ alchemists_fire:
 arrows:
   name: Arrows (20)
   description: >-
-
+      Arrows consist of a point, shaft, and fletching. They are used as ammunition for bows.
   type: ammunition
   weight: 1
   cost: 1
 blowgun_needles:
   name: Blowgun needles (50)
   description: >-
-
+    Blowgun needles are often used to inject poison or other harmful substances into an enemy's body.
   type: ammunition
   weight: 1
   cost: 1
 crossbow_bolts:
   name: Crossbow bolts (20)
   description: >-
-
+    Bolts are metal-shafted ammunition for crossbows.
   type: ammunition
   weight: 1.5
   cost: 1
 sling_bullets:
   name: Sling bullets (20)
   description: >-
-
+    Small metal, ceramic or stone bullets for use with slings.
   type: ammunition
   weight: 1.5
   cost: 0.04
