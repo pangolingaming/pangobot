@@ -22,14 +22,6 @@ client.on("message", (msg) => {
     stats.command(msg);
   }
 
-  if (msg.content === "!adv") {
-    dice.adv(msg);
-  }
-
-  if (msg.content === "!dis") {
-    dice.dis(msg);
-  }
-
   if (msg.content.startsWith("!roll")) {
     rolls.rollDiceFromMessageContent(msg);
   }

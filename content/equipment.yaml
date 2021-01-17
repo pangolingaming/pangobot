@@ -513,7 +513,7 @@ blowgun:
   weapon:
     type: ["martial", "ranged"]
     damage: 1
-    damage_type: piercing 
+    damage_type: piercing
     properties: ["ammunition", "loading"]
     range: "25/100"
   weight: 1
@@ -525,7 +525,7 @@ hand_crossbow:
   weapon:
     type: ["martial", "ranged"]
     damage: 1d6
-    damage_type: piercing 
+    damage_type: piercing
     properties: ["ammunition", "light", "loading"]
     range: "30/120"
   weight: 3
@@ -550,7 +550,7 @@ longbow:
   weapon:
     type: ["martial", "ranged"]
     damage: 1d8
-    damage_type: piercing 
+    damage_type: piercing
     properties: ["ammunition", "heavy", "two-handed"]
     range: "150/600"
   weight: 2
@@ -611,7 +611,7 @@ alchemists_fire:
 arrows:
   name: Arrows (20)
   description: >-
-      Arrows consist of a point, shaft, and fletching. They are used as ammunition for bows.
+    Arrows consist of a point, shaft, and fletching. They are used as ammunition for bows.
   type: ammunition
   weight: 1
   cost: 1
@@ -641,7 +641,7 @@ antitoxin:
   description: >-
     A creature that drinks this vial of liquid gains advantage on saving throws against poison for 1 hour. It confers no benefit to undead or constructs.
   cost: 50
-crystal: 
+crystal:
   name: Crystal (arcane focus)
   description: >-
     An arcane focus is a special item designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting 
@@ -677,12 +677,12 @@ wand:
   name: Wand (arcane focus)
   description: >-
     An arcane focus is a special item designed to channel the power of arcane spells. A sorcerer, warlock, or wizard can use such an item as a spellcasting 
-    focus. This type of arcane focus is a slim wand, created to match the wielder's preferences. 
+    focus. This type of arcane focus is a slim wand, created to match the wielder's preferences.
   type: "arcane focus"
   weight: 1
   cost: 10
 backpack:
-  name: 
+  name:
   description: >-
     A backpack is a container that is carried on the wearer's shoulders with the aid of two straps. It can hold 1 cubic foot, or 30 pounds, of gear. You can 
     also strap items, such as a bedroll or coil of rope, to the outside of it.
@@ -809,7 +809,7 @@ costume_clothes:
   description: >-
     This outfit would be worn by a musician, travelling bard or jester, actor, or other type of entertainer.
   cost: 5
-  weight: 4 
+  weight: 4
 fine_clothes:
   name: Fine clothes
   description: >-
@@ -939,7 +939,7 @@ holy_water:
     target is a fiend or undead, it takes 2d6 radiant damage.\n
     A cleric or paladin may create holy water by performing a special ritual. The ritual takes 1 hour to perform, uses 25 gp worth of powdered 
     silver, and requires the caster to expend a 1st-level spell slot.
-  weapon: 
+  weapon:
     type: ["improvised"]
     properties: ["thrown"]
     thrown_range: "20"
@@ -974,7 +974,7 @@ ink:
 ink_pen:
   name: Ink pen
   description: >-
-    Made from quill feathers, split lengthwise at the end to produce a split through which ink can flow during writing. 
+    Made from quill feathers, split lengthwise at the end to produce a split through which ink can flow during writing.
   cost: 0.02
 jug:
   name: Jug
@@ -1134,7 +1134,7 @@ rations:
   description: >-
     Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.
   weight:
-  cost: 
+  cost:
 robes:
   name: Robes
   description: >-
@@ -1287,7 +1287,7 @@ poisoners_kit:
   description: >-
     A poisoner's kit includes the vials, chemicals, and other equipment necessary for the creation of poisons. Proficiency 
     with this kit lets you add your proficiency bonus to any ability checks you make to craft or use poisons.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 50
   weight: 2
@@ -1297,7 +1297,7 @@ thieves_tools:
     This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of 
     narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus 
     to any ability checks you make to disarm traps or open locks.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 25
   weight: 1
@@ -1305,7 +1305,7 @@ alchemists_supplies:
   name: Alchemist's supplies
   description: >-
     Supplies for the alchemist include a set of small glassware and vials with various reagents.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 50
   weight: 8
@@ -1313,7 +1313,7 @@ brewers_supplies:
   name: Brewer's supplies
   description: >-
     Brewer's supplies allow the user to create alcoholic fermentation in fruit juice and other liquids.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 20
   weight: 9
@@ -1321,7 +1321,7 @@ calligraphers_supplies:
   name: Calligrapher's supplies
   description: >-
     This set of supplies contains brushes, inks, and paper.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 10
   weight: 5
@@ -1329,7 +1329,7 @@ carpenters_tools:
   name: Carpenter's tools
   description: >-
     This set includes tools for building and maintaining large woodwork objects.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 8
   weight: 6
@@ -1337,7 +1337,7 @@ cartographers_tools:
   name: Cartographer's tools
   description: >-
     This set contains a small compass and the parchment, ink, and writing implements to draw maps.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 15
   weight: 6
@@ -1345,7 +1345,7 @@ cobblers_tools:
   name: Cobbler's tools
   description: >-
     Cobbler's tools are the set of tools used to mend, maintain and make shoes and boots.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 5
   weight: 5
@@ -1353,7 +1353,7 @@ cooks_utensils:
   name: Cook's utensils
   description: >-
     A cook's utensils include a small pot, spoons, salt, and herbs and spices.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 1
   weight: 8
@@ -1361,7 +1361,7 @@ glassblowers_tools:
   name: Glassblower's tools
   description: >-
     A glassblower uses various hollow rods and metal tongs in their trade.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 1
   weight: 8
@@ -1369,7 +1369,7 @@ jewelers_tools:
   name: Jeweler's tools
   description: >-
     A jeweler's toolkit includes all the small-scale tools for working at a small scale on metal and gems.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 25
   weight: 2
@@ -1377,7 +1377,7 @@ leatherworkers_tools:
   name: Leatherworker's tools
   description: >-
     Tools used in leatherworking.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 5
   weight: 5
@@ -1385,7 +1385,7 @@ masons_tools:
   name: Mason's tools
   description: >-
     Tools used in masonry, such as a carpenter's square.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 10
   weight: 8
@@ -1393,7 +1393,7 @@ painters_supplies:
   name: Painter's supplies
   description: >-
     Paints, brushes, an easel, and a canvas.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 10
   weight: 5
@@ -1401,7 +1401,7 @@ potters_tools:
   name: Potter's tools
   description: >-
     Tools used for pottery, like a small wheel and tools to manipulate the clay.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 10
   weight: 5
@@ -1417,7 +1417,7 @@ tinkers_tools:
   name: Tinker's tools
   description: >-
     Small bits and bobs to help you mend and maintain your equipment.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 50
   weight: 10
@@ -1425,7 +1425,7 @@ weavers_tools:
   name: Weaver’s tools
   description: >-
     A weaver's toolkit includes a small portable loom, needles, and thread.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 1
   weight: 5
@@ -1433,7 +1433,7 @@ woodcarvers_tools:
   name: Woodcarver's tools
   description: >-
     Metal-bladed tools to manipulate and sculpt wood.
-  tool: 
+  tool:
     type: ["artisan's tools"]
   cost: 1
   weight: 5
@@ -1443,7 +1443,7 @@ bagpipes:
     Bagpipes are a woodwind instrument using enclosed reeds fed from a constant reservoir of air in the form of a bag. If you have proficiency with a 
     given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
     a musical instrument as a spellcasting focus.
-  tool: 
+  tool:
     type: ["musical instrument"]
   cost: 30
   weight: 6
@@ -1453,7 +1453,7 @@ drum:
     Drums consist of a drum skin that is stretched over a shell and struck to produce sound. If you have proficiency with a 
     given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
     a musical instrument as a spellcasting focus.
-  tool: 
+  tool:
     type: ["musical instrument"]
   cost: 6
   weight: 3
@@ -1463,7 +1463,7 @@ dulcimer:
     A dulcimer is a type of stringed instrument. If you have proficiency with a 
     given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
     a musical instrument as a spellcasting focus.
-  tool: 
+  tool:
     type: ["musical instrument"]
   cost: 25
   weight: 10
@@ -1473,7 +1473,7 @@ flute:
     A melodic instrument that produces a clear and bright sound with a distinctive warmth, refinement, and subtlety to its tone. If you have proficiency with a 
     given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
     a musical instrument as a spellcasting focus.
-  tool: 
+  tool:
     type: ["musical instrument"]
   cost: 2
   weight: 1
@@ -1483,7 +1483,7 @@ lute:
     A lute is a plucked string instrument with a neck and a deep round back enclosing a hollow cavity. If you have proficiency with a 
     given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
     a musical instrument as a spellcasting focus.
-  tool: 
+  tool:
     type: ["musical instrument"]
   cost: 35
   weight: 2
@@ -1493,7 +1493,7 @@ lyre:
     A lyre is a stringed instrument like a small U-shaped harp with strings fixed to a crossbar. If you have proficiency with a 
     given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
     a musical instrument as a spellcasting focus.
-  tool: 
+  tool:
     type: ["musical instrument"]
   cost: 30
   weight: 2
@@ -1504,7 +1504,7 @@ horn:
     with one narrow end into which the musician blows, and a wide end from which sound emerges. If you have proficiency with a 
     given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
     a musical instrument as a spellcasting focus.
-  tool: 
+  tool:
     type: ["musical instrument"]
   cost: 3
   weight: 2
@@ -1514,7 +1514,7 @@ pan_flute:
     A pan flute is a musical instrument made from of multiple pipes of gradually increasing length. If you have proficiency with a 
     given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
     a musical instrument as a spellcasting focus.
-  tool: 
+  tool:
     type: ["musical instrument"]
   cost: 12
   weight: 2
@@ -1524,7 +1524,7 @@ shawm:
     A shawm is a conical bore, double-reed woodwind instrument. If you have proficiency with a 
     given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
     a musical instrument as a spellcasting focus.
-  tool: 
+  tool:
     type: ["musical instrument"]
   cost: 2
   weight: 1
@@ -1534,7 +1534,7 @@ viol:
     The viol is a string instrument that is played with a bow. If you have proficiency with a 
     given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
     a musical instrument as a spellcasting focus.
-  tool: 
+  tool:
     type: ["musical instrument"]
   cost: 30
   weight: 1
