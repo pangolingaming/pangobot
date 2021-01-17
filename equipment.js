@@ -133,11 +133,11 @@ function equipment(msg) {
 
       if (
         item.weapon.properties.includes("thrown") &&
-        item.weapon.type.includes("melee")
+        (item.weapon.type.includes("melee") || item.weapon.type.includes("improvised"))
       ) {
         equipmentEmbed.fields.push({
           name: "Thrown range",
-          value: item.weapon.thrown_range,
+          value: `${item.weapon.thrown_range} feet`,
           inline: true,
         });
       }

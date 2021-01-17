@@ -684,7 +684,8 @@ wand:
 backpack:
   name: 
   description: >-
-    A backpack is a container that is carried on the wearer's shoulders with the aid of two straps. It can hold 1 cubic foot, or 30 pounds, of gear.
+    A backpack is a container that is carried on the wearer's shoulders with the aid of two straps. It can hold 1 cubic foot, or 30 pounds, of gear. You can 
+    also strap items, such as a bedroll or coil of rope, to the outside of it.
   weight: 5
   cost: 2
 ballbearings:
@@ -947,50 +948,593 @@ holy_water:
   weight: 1
   cost: 25
 hourglass:
+  name: Hourglass
+  description: >-
+    An hourglass uses gravity and sand to measure time. The exact time an hourglass measures depends on its size and the size of the aperture 
+    between the two bowls.
+  cost: 25
+  weight: 1
 hunting_trap:
+  name: Hunting trap
+  description: >-
+    When you use your action to set it, this trap forms a saw-toothed steel ring that snaps shut when a creature steps on a pressure plate in the 
+    center. The trap is affixed by a heavy chain to an immobile object, such as a tree or a spike driven into the ground. A creature that steps on 
+    the plate must succeed on a DC 13 Dexterity saving throw or take 1d4 piercing damage and stop moving. Thereafter, until the creature breaks 
+    free of the trap, its movement is limited by the length of the chain (typically 3 feet long). A creature can use its action to make a DC 13 
+    Strength check, freeing itself or another creature within its reach on a success. Each failed check deals 1 piercing damage to the trapped 
+    creature.
+  cost: 5
+  weight: 25
 ink:
+  name: Ink (1 ounce bottle)
+  description: >-
+    Made from water, oil, or alcohol and infused with pigments from plants or animals, or even soot and other mineral components, ink is used to fill 
+    pens and quills and produce writing.
+  cost: 10
 ink_pen:
+  name: Ink pen
+  description: >-
+    Made from quill feathers, split lengthwise at the end to produce a split through which ink can flow during writing. 
+  cost: 0.02
 jug:
+  name: Jug
+  description: >-
+    Made from ceramic or pewter, a jug allows for liquids to be poured. It can hold a gallon of liquid.
+  cost: 0.02
+  weight: 4
 pitcher:
+  name: Pitcher
+  description: >-
+    Made from ceramic or pewter, a pitcher allows for liquids to be poured. It can hold a gallon of liquid.
+  cost: 0.02
+  weight: 4
 ladder:
+  name: Ladder (10-foot)
+  description: >-
+    A ladder has stiff rungs, allowing a short distance to be climbed without a Strength (Athletics) check.
+  cost: 0.1
+  weight: 25
 lamp:
+  name: Lamp
+  description: >-
+    A lamp consists of a wick and basin for fuel. Most lamps run on oil or tallow. A lamp casts bright light in a 15-foot radius and dim light for 
+    an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.
+  cost: 0.5
+  weight: 1
 bullseye_lantern:
+  name: Bullseye Lantern
+  description: >-
+    A bullseye lantern casts bright light in a 60-foot cone and dim light for an additional 60 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil.
+  cost: 10
+  weight: 2
 hooded_lantern:
+  name: Hooded lantern
+  description: >-
+    A hooded lantern casts bright light in a 30-foot radius and dim light for an additional 30 feet. Once lit, it burns for 6 hours on a flask (1 pint) of oil. 
+    As an action, you can lower the hood, reducing the light to dim light in a 5-foot radius.
+  cost: 5
+  weight: 2
 lock:
+  name: Lock
+  description: >-
+    A key is provided with the lock. Without the key, a creature proficient with thieves' tools can pick this lock with a successful DC 15 Dexterity check. 
+    Your DM may decide that better locks are available for higher prices.
+  cost: 10
+  weight: 1
 magnifying_glass:
+  name: Magnifying Glass
+  description: >-
+    This lens allows a closer look at small objects. It is also useful as a substitute for flint and steel when starting fires. Lighting a fire with a magnifying 
+    glass requires light as bright as sunlight to focus, tinder to ignite, and about 5 minutes for the fire to ignite. A magnifying glass grants advantage on any 
+    ability check made to appraise or inspect an item that is small or highly detailed.
+  cost: 100
 manacles:
+  name: Manacles
+  description: >-
+    These metal restraints can bind a Small or Medium creature. Escaping the manacles requires a successful DC 20 Dexterity check. Breaking them requires a successful 
+    DC 20 Strength check. Each set of manacles comes with one key. Without the key, a creature proficient with thieves' tools can pick the manacles' lock with a 
+    successful DC 15 Dexterity check. Manacles have 15 hit points.
+  cost: 2
+  weight: 6
 mess_kit:
+  name: Mess kit
+  description: >-
+    This tin box contains a cup and simple cutlery. The box clamps together, and one side can be used as a cooking pan and the other as a plate or shallow bowl.
+  cost: 0.2
+  weight: 1
 steel_mirror:
+  name: Steel mirror
+  description: >-
+    Made from polished metal, a mirror allows you to examine your own reflection, or to see around corners.
+  cost: 5
+  weight: 0.5
 oil:
+  name: Oil (flask)
+  description: >-
+    Oil usually comes in a clay flask that holds 1 pint. As an action, you can splash the oil in this flask onto a creature within 5 feet of you or throw it up to 
+    20 feet, shattering it on impact. Make a ranged attack against a target creature or object, treating the oil as an improvised weapon. On a hit, the target is 
+    covered in oil. If the target takes any fire damage before the oil dries (after 1 minute), the target takes an additional 5 fire damage from the burning oil. 
+    You can also pour a flask of oil on the ground to cover a 5-foot-square area, provided that the surface is level. If lit, the oil burns for 2 rounds and deals 
+    5 fire damage to any creature that enters the area or ends its turn in the area. A creature can take this damage only once per turn.
+  cost: 0.1
+  weight: 1
 paper:
+  name: Paper (one sheet)
+  description: >-
+    Paper is made from woodpulp or pulped reeds. It absorbs ink more readily than paper, but is less hard-wearing.
+  cost: 0.2
 parchment:
+  name: Parchment (one sheet)
+  description: >-
+    Parchment is made from very thinly sliced leather. It is hard-wearing and more water-proof than paper.
+  cost: 0.1
 perfume:
+  name: Perfume (vial)
+  description: >-
+    Made from oil and alcohol with various nice-smelling materials dissolved into it. A vial of perfume contains 4 ounces.
+  cost: 5
 miners_pick:
+  name: Miner's pick
+  description: >-
+    A pickaxe that is sharp and sturdy enough to mine through rocks.
+  weight: 10
+  cost: 2
 piton:
+  name: Piton
+  description: >-
+    A piton is a metal spike used as an anchor for ropes in climbing.
+  weight: 0.25
+  cost: 0.05
 basic_poison:
+  name: Basic poison (vial)
+  description: >-
+    You can use the poison in this vial to coat one slashing or piercing weapon or up to three pieces of ammunition. 
+    Applying the poison takes an action. A creature hit by the poisoned weapon or ammunition must make a DC 10 Constitution 
+    saving throw or take 1d4 poison damage. Once applied, the poison retains potency for 1 minute before drying.
+  cost: 100
 10_foot_pole:
+  name: 10-foot pole
+  description: >-
+    A long wooden pole with a hook and spike at the end, to prod and poke with from a distance.
+  weight: 7
+  cost: 0.05
 iron_pot:
+  name: Iron pot
+  description: >-
+    An iron pot is essential for cooking. It works just as readily over an open fire, or in an oven. An iron pot can hold a gallon of liquid.
+  weight: 10
+  cost: 2
 potion_of_healing:
+  name: Potion of healing
+  description: >-
+    A character who drinks the magical red fluid in this vial regains 2d4 + 2 hit points. Drinking or administering a potion takes an action.
+  weight: 0.5
+  cost: 50
 pouch:
+  name: Pouch
+  description: >-
+    A pouch made from leather or sturdy canvas fabric. It can hold small items such as coins, spell components, or gems.
+  weight: 1
+  cost: 0.5
 quiver:
+  name: Quiver
+  description: >-
+    A container for arrows, with a strap attached to carry it across a shoulder. It can hold up to 20 arrows.
+  weight: 1
+  cost: 1
 portable_ram:
+  name: Portable Ram
+  description: >-
+    You can use a portable ram to break down doors. When doing so, you gain a +4 bonus on the Strength check. 
+    One other character can help you use the ram, giving you advantage on this check.
+  weight: 35
+  cost: 4
 rations:
+  name: Rations (1 day)
+  description: >-
+    Rations consist of dry foods suitable for extended travel, including jerky, dried fruit, hardtack, and nuts.
+  weight:
+  cost: 
 robes:
+  name: Robes
+  description: >-
+    Robes are long, loosefitting garments, worn as an outer garment.
+  weight: 4
+  cost: 1
 hempen_rope:
+  name: Hempen rope (50 feet)
+  description: >-
+    Hempen rope has 2 hit points and can be burst with a DC 17 Strength check.
+  weight: 10
+  cost: 1
 silk_rope:
+  name: Silk rope (50 feet)
+  description: >-
+    Silk rope has 2 hit points and can be burst with a DC 17 Strength check.
+  weight: 5
+  cost: 10
 sack:
+  name: Sack
+  description: >-
+    A sack is made from strong and sturdy fabric. It can hold 1 cubic foot or 30 pounds of gear.
+  weight: 0.5
+  cost: 0.01
 merchants_scale:
+  name: Merchant's scale
+  description: >-
+    A scale includes a small balance, pans, and a suitable assortment of weights up to 2 pounds. 
+    With it, you can measure the exact weight of small objects, such as raw precious metals or trade 
+    goods, to help determine their worth.
+  weight: 5
+  cost: 3
 sealing_wax:
+  name: Sealing wax
+  description: >-
+    Sealing wax is a special type of high-quality wax that can be used to seal contracts, letters, and 
+    other important documents with a signet ring or other seal.
+  cost: 0.5
 shovel:
+  name: Shovel
+  description: >-
+    A shovel is a tool used in digging.
+  weight: 5
+  cost: 2
 signal_whistle:
+  name: Signal whistle
+  description: >-
+    A signal whistle can be used to communicate over distances.
+  cost: 0.05
 signet_ring:
+  name: Signet ring
+  description: >-
+    A signet ring is used by its wearer as identification. It can also be used to seal contracts, letters and 
+    other important documents with sealing wax.
+  cost: 5
 soap:
+  name: Soap
+  description: >-
+    Soap is made from ashes and tallow. It allows a user to clean themselves more effectively by dissolving fat into water.
+  cost: 0.02
 spellbook:
+  name: Spellbook
+  description: >-
+    Essential for wizards, a spellbook is a leather-bound tome with 100 blank vellum pages suitable for recording spells.
+  weight: 3
+  cost: 50
 iron_spikes:
+  name: Iron spikes (10)
+  description: >-
+    Iron spikes can be used like nails with a hammer, for instance, to secure a tent into the ground.
+  weight: 5
+  cost: 1
 spyglass:
+  name: Spyglass
+  description: >-
+    Objects viewed through a spyglass are magnified to twice their size.
+  weight: 1
+  cost: 1000
 two_person_tent:
+  name: Two-person tent
+  description: >-
+    A simple and portable canvas shelter, a tent sleeps two.
+  weight: 20
+  cost: 2
 tinderbox:
+  name: Tinderbox
+  description: >-
+    This small container holds flint, fire steel, and tinder (usually dry cloth soaked in light oil) 
+    used to kindle a fire. Using it to light a torch -- or anything else with abundant, exposed fuel 
+    -- takes an action. Lighting any other fire takes 1 minute.
+  weight: 1
+  cost: 0.5
 torch:
+  name: Torch
+  description: >-
+    A torch burns for 1 hour, providing bright light in a 20-foot radius and dim light for an additional 
+    20 feet. If you make a melee attack with a burning torch and hit, it deals 1 fire damage.
+  weight: 1
+  cost: 0.01
 vial:
+  name: Vial
+  description: >-
+    A vial is a small container made from crystal, glass, or ceramic material. It can hold up to 4 ounces 
+    of liquid.
+  cost: 1
 waterskin:
+  name: Waterskin
+  description: >-
+    A waterskin is a corked leather bag or gourd that can hold 4 pints of water. It weight 5 lbs when full.
+  weight: 5
+  cost: 0.2
 whetstone:
+  name: Whetstone
+  description: >-
+    A whetstone is a sharpening tool for weapons and implements.
+  weight: 1
+  cost: 0.01
+disguise_kit:
+  name: Disguise kit
+  description: >-
+    This pouch of cosmetics, hair dye, and small props lets you create disguises that change your physical appearance. 
+    Proficiency with this kit lets you add your proficiency bonus to any ability checks you make to create a visual disguise.
+  cost: 25
+  weight: 3
+forgery_kit:
+  name: Forgery kit
+  description: >-
+    This small box contains a variety of papers and parchments, pens and inks, seals and sealing wax, gold and silver leaf, 
+    and other supplies necessary to create convincing forgeries of physical documents. Proficiency with this kit lets you add 
+    your proficiency bonus to any ability checks you make to create a physical forgery of a document.
+  cost: 15
+  weight: 5
+herbalism_kit:
+  name: Herbalism kit
+  description: >-
+    This kit contains a variety of instruments such as clippers, mortar and pestle, and pouches and vials used by herbalists 
+    to create remedies and potions. Proficiency with this kit lets you add your proficiency bonus to any ability checks you 
+    make to identify or apply herbs. Also, proficiency with this kit is required to create antitoxin and potions of healing.
+  cost: 5
+  weight: 3
+navigators_tools:
+  name: Navigator's tools
+  description: >-
+    This set of instruments is used for navigation at sea. Proficiency with navigator's tools lets you chart a ship's course 
+    and follow navigation charts. In addition, these tools allow you to add your proficiency bonus to any ability check you make to avoid getting lost at sea.
+  cost: 25
+  weight: 2
+poisoners_kit:
+  name: Poisoner's kit
+  description: >-
+    A poisoner's kit includes the vials, chemicals, and other equipment necessary for the creation of poisons. Proficiency 
+    with this kit lets you add your proficiency bonus to any ability checks you make to craft or use poisons.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 50
+  weight: 2
+thieves_tools:
+  name: Thieves' tools
+  description: >-
+    This set of tools includes a small file, a set of lock picks, a small mirror mounted on a metal handle, a set of 
+    narrow-bladed scissors, and a pair of pliers. Proficiency with these tools lets you add your proficiency bonus 
+    to any ability checks you make to disarm traps or open locks.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 25
+  weight: 1
+alchemists_supplies:
+  name: Alchemist's supplies
+  description: >-
+    Supplies for the alchemist include a set of small glassware and vials with various reagents.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 50
+  weight: 8
+brewers_supplies:
+  name: Brewer's supplies
+  description: >-
+    Brewer's supplies allow the user to create alcoholic fermentation in fruit juice and other liquids.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 20
+  weight: 9
+calligraphers_supplies:
+  name: Calligrapher's supplies
+  description: >-
+    This set of supplies contains brushes, inks, and paper.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 10
+  weight: 5
+carpenters_tools:
+  name: Carpenter's tools
+  description: >-
+    This set includes tools for building and maintaining large woodwork objects.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 8
+  weight: 6
+cartographers_tools:
+  name: Cartographer's tools
+  description: >-
+    This set contains a small compass and the parchment, ink, and writing implements to draw maps.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 15
+  weight: 6
+cobblers_tools:
+  name: Cobbler's tools
+  description: >-
+    Cobbler's tools are the set of tools used to mend, maintain and make shoes and boots.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 5
+  weight: 5
+cooks_utensils:
+  name: Cook's utensils
+  description: >-
+    A cook's utensils include a small pot, spoons, salt, and herbs and spices.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 1
+  weight: 8
+glassblowers_tools:
+  name: Glassblower's tools
+  description: >-
+    A glassblower uses various hollow rods and metal tongs in their trade.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 1
+  weight: 8
+jewelers_tools:
+  name: Jeweler's tools
+  description: >-
+    A jeweler's toolkit includes all the small-scale tools for working at a small scale on metal and gems.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 25
+  weight: 2
+leatherworkers_tools:
+  name: Leatherworker's tools
+  description: >-
+    Tools used in leatherworking.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 5
+  weight: 5
+masons_tools:
+  name: Mason's tools
+  description: >-
+    Tools used in masonry, such as a carpenter's square.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 10
+  weight: 8
+painters_supplies:
+  name: Painter's supplies
+  description: >-
+    Paints, brushes, an easel, and a canvas.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 10
+  weight: 5
+potters_tools:
+  name: Potter's tools
+  description: >-
+    Tools used for pottery, like a small wheel and tools to manipulate the clay.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 10
+  weight: 5
+smiths_tools:
+  name: Smith's tools
+  description: >-
+    All the tools needed to make small repairs to metalwork on the road.
+  tool:
+    type: ["artisan's tools"]
+  cost: 20
+  weight: 8
+tinkers_tools:
+  name: Tinker's tools
+  description: >-
+    Small bits and bobs to help you mend and maintain your equipment.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 50
+  weight: 10
+weavers_tools:
+  name: Weaver’s tools
+  description: >-
+    A weaver's toolkit includes a small portable loom, needles, and thread.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 1
+  weight: 5
+woodcarvers_tools:
+  name: Woodcarver's tools
+  description: >-
+    Metal-bladed tools to manipulate and sculpt wood.
+  tool: 
+    type: ["artisan's tools"]
+  cost: 1
+  weight: 5
+bagpipes:
+  name: Bagpipes
+  description: >-
+    Bagpipes are a woodwind instrument using enclosed reeds fed from a constant reservoir of air in the form of a bag. If you have proficiency with a 
+    given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
+    a musical instrument as a spellcasting focus.
+  tool: 
+    type: ["musical instrument"]
+  cost: 30
+  weight: 6
+drum:
+  name: Drum
+  description: >-
+    Drums consist of a drum skin that is stretched over a shell and struck to produce sound. If you have proficiency with a 
+    given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
+    a musical instrument as a spellcasting focus.
+  tool: 
+    type: ["musical instrument"]
+  cost: 6
+  weight: 3
+dulcimer:
+  name: Dulcimer
+  description: >-
+    A dulcimer is a type of stringed instrument. If you have proficiency with a 
+    given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
+    a musical instrument as a spellcasting focus.
+  tool: 
+    type: ["musical instrument"]
+  cost: 25
+  weight: 10
+flute:
+  name: Flute
+  description: >-
+    A melodic instrument that produces a clear and bright sound with a distinctive warmth, refinement, and subtlety to its tone. If you have proficiency with a 
+    given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
+    a musical instrument as a spellcasting focus.
+  tool: 
+    type: ["musical instrument"]
+  cost: 2
+  weight: 1
+lute:
+  name: Lute
+  description: >-
+    A lute is a plucked string instrument with a neck and a deep round back enclosing a hollow cavity. If you have proficiency with a 
+    given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
+    a musical instrument as a spellcasting focus.
+  tool: 
+    type: ["musical instrument"]
+  cost: 35
+  weight: 2
+lyre:
+  name: Lyre
+  description: >-
+    A lyre is a stringed instrument like a small U-shaped harp with strings fixed to a crossbar. If you have proficiency with a 
+    given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
+    a musical instrument as a spellcasting focus.
+  tool: 
+    type: ["musical instrument"]
+  cost: 30
+  weight: 2
+horn:
+  name: Horn
+  description: >-
+    A horn is a musical instrument made of a tube, usually made of metal and often curved in various ways, 
+    with one narrow end into which the musician blows, and a wide end from which sound emerges. If you have proficiency with a 
+    given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
+    a musical instrument as a spellcasting focus.
+  tool: 
+    type: ["musical instrument"]
+  cost: 3
+  weight: 2
+pan_flute:
+  name: Pan Flute
+  description: >-
+    A pan flute is a musical instrument made from of multiple pipes of gradually increasing length. If you have proficiency with a 
+    given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
+    a musical instrument as a spellcasting focus.
+  tool: 
+    type: ["musical instrument"]
+  cost: 12
+  weight: 2
+shawm:
+  name: Shawm
+  description: >-
+    A shawm is a conical bore, double-reed woodwind instrument. If you have proficiency with a 
+    given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
+    a musical instrument as a spellcasting focus.
+  tool: 
+    type: ["musical instrument"]
+  cost: 2
+  weight: 1
+viol:
+  name: Viol
+  description: >-
+    The viol is a string instrument that is played with a bow. If you have proficiency with a 
+    given musical instrument, you can add your proficiency bonus to any ability checks you make to play music with the instrument. A bard can use 
+    a musical instrument as a spellcasting focus.
+  tool: 
+    type: ["musical instrument"]
+  cost: 30
+  weight: 1
