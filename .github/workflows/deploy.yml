@@ -65,6 +65,6 @@ jobs:
           --shielded-integrity-monitoring
           --container-image=ghcr.io/pangolingaming/pangobot:latest
           --container-restart-policy=always
-          --container-env=DISCORD_TOKEN=xxxxx
+          --container-env=DISCORD_TOKEN=${{ secrets.DISCORD_TOKEN }}
           --labels=container-vm=cos-stable-85-13310-1209-10
           --reservation-affinity=any
