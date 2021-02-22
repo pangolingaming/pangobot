@@ -38,9 +38,12 @@ jobs:
         gcloud --quiet auth configure-docker
         gcloud components install beta
 
-    - name: Deploy
+    - name: Destroy old deployment
       run: |-
         gcloud compute instances delete pangobot --zone us-central1-a || true
+    
+    - name: Create new deployment
+      run: >-
         gcloud beta compute
           --project=pangolingaming
           instances create-with-container pangobot
